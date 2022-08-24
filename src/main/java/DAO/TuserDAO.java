@@ -62,7 +62,10 @@ public class TuserDAO {
 			pstmt.setString(10, vo.getTuaddress());
 			pstmt.setString(11, vo.getTuaddressdetail());
 			pstmt.setString(12, vo.getTunation());
-			pstmt.executeUpdate();
+			int res=pstmt.executeUpdate();
+			if(res==0) {
+				return false;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
@@ -82,7 +85,10 @@ public class TuserDAO {
 			pstmt.setInt(5, vo.getTuaddresszipcode());
 			pstmt.setString(6, vo.getTuaddress());
 			pstmt.setString(7, vo.getTuaddressdetail());
-			pstmt.executeUpdate();
+			int res=pstmt.executeUpdate();
+			if(res==0) {
+				return false;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
@@ -96,7 +102,10 @@ public class TuserDAO {
 		try {
 			pstmt=conn.prepareStatement(sql_delete);
 			pstmt.setString(1, vo.getTuid());
-			pstmt.executeUpdate();
+			int res=pstmt.executeUpdate();
+			if(res==0) {
+				return false;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;

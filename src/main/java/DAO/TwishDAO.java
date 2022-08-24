@@ -43,7 +43,10 @@ public class TwishDAO {
 			pstmt=conn.prepareStatement(sql_insert);
 			pstmt.setInt(1, vo.getTupk());
 			pstmt.setInt(2, vo.getTrpk());
-			pstmt.executeUpdate();
+			int res=pstmt.executeUpdate();
+			if(res==0) {
+				return false;
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -58,7 +61,10 @@ public class TwishDAO {
 		try {
 			pstmt=conn.prepareStatement(sql_delete);
 			pstmt.setInt(1, vo.getTwpk());
-			pstmt.executeUpdate();
+			int res=pstmt.executeUpdate();
+			if(res==0) {
+				return false;
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

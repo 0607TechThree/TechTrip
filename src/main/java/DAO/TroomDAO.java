@@ -89,7 +89,10 @@ public class TroomDAO {
 			pstmt.setInt(8, 1);
 			pstmt.setString(9, vo.getCheckin());
 			pstmt.setString(10, vo.getCheckout());
-			pstmt.executeUpdate();
+			int res=pstmt.executeUpdate();
+			if(res==0) {
+				return false;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
@@ -108,7 +111,10 @@ public class TroomDAO {
 			pstmt.setInt(4,vo.getTrprice());
 			pstmt.setString(5,vo.getTrinfo());
 			pstmt.setInt(6,vo.getTrpk());
-			pstmt.executeUpdate();
+			int res=pstmt.executeUpdate();
+			if(res==0) {
+				return false;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
@@ -122,7 +128,10 @@ public class TroomDAO {
 		try {
 			pstmt=conn.prepareStatement(sql_delete);
 			pstmt.setInt(1,vo.getTrpk());
-			pstmt.executeUpdate();
+			int res=pstmt.executeUpdate();
+			if(res==0) {
+				return false;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
