@@ -23,7 +23,7 @@ import VO.TroomVO;
 //경기 2065
 //인천 2071
 //호남 2114
-
+//강원 2082
 public class Crawling {
 	public static void main(String[] args) {
 		final String url="https://www.goodchoice.kr/product/search/2/";
@@ -39,8 +39,9 @@ public class Crawling {
 		urls.add(url+2065); // 경기
 		urls.add(url+2071); // 인천
 		urls.add(url+2114); // 호남
+		urls.add(url+2082); // 강원
 
-		for(int j=0;j<6;j++) {
+		for(int j=0;j<7;j++) {
 			try {
 				doc=Jsoup.connect(urls.get(j)).get(); 
 			} catch (IOException e) {
