@@ -13,6 +13,9 @@
 	preconnect" href="https://fonts.gstatic.com/" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
 	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+	
 </head>
 <body>
 
@@ -23,82 +26,53 @@
 	<div class="swiper mySwiper">
 		<div class="swiper-wrapper">
 			<div class="swiper-slide">
-				<a href=""> <img class="" src="images/meal.jpg" alt="mainimage1">
-				</a>
+				<img class="" src="images/mainswiper1.jpg" alt="명소이미지1">
 			</div>
 			<div class="swiper-slide">
-				<a href=""> <img class="" src="images/add.jpg" alt="mainimage2">
-				</a>
+				<img class="" src="images/mainswiper2.jpg" alt="명소이미지2">
 			</div>
 			<div class="swiper-slide">
-				<a href=""> <img class="" src="images/alchole.png" alt="mainimage3">
-				</a>
+				<img class="" src="images/mainswiper3.jpg" alt="명소이미지3">
 			</div>
 		</div>
-		<div class="swiper-button-next"></div>
-		<div class="swiper-button-prev"></div>
 	</div>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
-d<br>
+	
+	<!-- Category -->
+	<div id="maincategory">
+		<a href="">
+			<img alt="1번 서울" src="images/flaticon/1seoul.png">
+		</a>
+		<a href="">
+			<img alt="2번 경기" src="images/flaticon/2gyeongi.png">
+		</a>
+		<a href="">
+			<img alt="3번 인천" src="images/flaticon/3incheon.png">
+		</a>
+		<a href="">
+			<img alt="4번 호남" src="images/flaticon/4honam.png">
+		</a>
+		<a href="">
+			<img alt="5번 강원" src="images/flaticon/5kangwon.png">
+		</a>
+		<a href="">
+			<img alt="6번 부산" src="images/flaticon/6busan.png">
+		</a>
+		<a href="">
+			<img alt="7번 제주" src="images/flaticon/7jeju.png">
+		</a>
+
+	</div>
 </div>
+
+
+
+<!-- Script -->
+	<!-- Swiper JS -->
+	<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+	<!-- Initialize Swiper -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+	crossorigin="anonymous"></script>
 	<script>
 		$("document").ready(
 				function() {
@@ -170,10 +144,14 @@ d<br>
 					});
 
 				});
-		$('#star a').click(function() {
-			$(this).parent().children("a").removeClass("on");
-			$(this).addClass("on").prevAll("a").addClass("on");
-		});
+
 	</script>
+	<script>
+        $(document).ready(function() {            
+            $(".accordion").click(function() {               
+            	$(this).next().slideToggle();
+            });
+        });
+    </script>
 </body>
 </html>
