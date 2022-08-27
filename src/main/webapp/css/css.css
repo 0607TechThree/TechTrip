@@ -31,15 +31,17 @@ body{
 }
 
 #menulist{
-	display: none;
 	position: fixed;
-	top: 42px;
+	top: 72px;
 	left: 0px;
 	background-color:rgb(232,41,95);
 	list-style: none;
 	color: white;
 	padding-left: 0px;
 	border-top: 1px solid white;
+	display: none;
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
 
 .mlist{
@@ -81,20 +83,22 @@ body{
 }
 
 #headersearch{
+	height: 40px;
 	display: flex;
 	align-items: center;
-	display: none;
+	justify-content: center;
+	margin-right: 20px;
 }
 
 .searchbtn{
-	width:30px;
-	height:30px;
+	width:40px;
+	height:40px;
 }
 
 #searchbox{
 	background:none;
-	height:35px;
 	border: 1px solid rgb(232,41,95);
+	height: 35px;
 	font-size: 20px;
 }
 
@@ -152,6 +156,23 @@ input::placeholder{
 
 .swiper-slide.cart {
 	object-fit: cover;
+}
+
+/*푸터*/
+
+#footerwrapper{
+	background-color: #f2f2f2;
+}
+
+#footer{
+	border-top: 3px solid rgb(232,41,95);
+	min-height: 300px;
+	max-width: 1050px;
+	margin: auto;
+}
+
+#footercontent{
+	height: 500px;
 }
 
 #maincategory{
