@@ -1,7 +1,6 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<div id="headerwrapper">
 <div id="header">
 	<div id="menulogo">
 		<div id="menuwrapper">
@@ -36,7 +35,6 @@
 			</c:otherwise>
 		</c:choose>
 	</div>
-</div>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
 	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
