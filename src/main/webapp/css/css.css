@@ -159,7 +159,7 @@ input::placeholder{
 	object-fit: cover;
 }
 
-/*푸터*/
+/*푸터 스타일*/
 
 #footerwrapper{
 	background-color: #f2f2f2;
@@ -167,14 +167,27 @@ input::placeholder{
 
 #footer{
 	border-top: 3px solid rgb(232,41,95);
-	min-height: 300px;
+	height: auto;
 	max-width: 1050px;
 	margin: auto;
 }
 
 #footercontent{
-	height: 500px;
+	margin-top: 20px;
+	padding-bottom: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
+
+.footercontentitem{
+	width: auto;
+	max-width: 500px;
+	flex-basis: 40%;
+	min-width: 300px;
+}
+
+/*메인페이지 페인컨텐츠 스타일*/
 
 #maincategory{
 	display: flex;
@@ -198,6 +211,8 @@ input::placeholder{
 	width: 100%;
 	height: 100%;
 }
+
+/*카테고리 페이지 스타일*/
 
 #categorycontent{
 	max-width: 1050px;
