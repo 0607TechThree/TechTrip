@@ -26,11 +26,11 @@
 			<img class="roomlist" alt="상품사진1" src="images/mainswiper1.jpg">
 			<div>상품에 대한 정보</div>
 		</div>
-		<div>
+		<div class="roomlistwrapper">
 			<img class="roomlist" alt="상품사진1" src="images/mainswiper1.jpg">
 			<div>상품에 대한 정보</div>
 		</div>
-		<div>
+		<div class="roomlistwrapper">
 			<img class="roomlist" alt="상품사진1" src="images/mainswiper1.jpg">
 			<div>상품에 대한 정보</div>
 		</div>

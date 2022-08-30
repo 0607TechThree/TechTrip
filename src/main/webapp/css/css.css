@@ -210,6 +210,7 @@ input::placeholder{
 	max-width: 1050px;
 	margin: auto;
 	border-bottom: 3px solid rgb(232,41,95);
+	margin-bottom: 15px;
 }
 
 #categorytitle{
@@ -225,10 +226,16 @@ input::placeholder{
 .roomlistwrapper{
 	width: auto;
 	max-width: 500px;
-	flex: 1 1 40%;
+	flex-basis: 50%;
+}
+
+@media (max-width:700px){
+	.roomlistwrapper{
+		flex-basis: 100%;
+	}
 }
 
 .roomlist{
-	max-width:500px;
+	width:100%;
 	object-fit: cover;
 }
