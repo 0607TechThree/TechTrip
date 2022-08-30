@@ -18,12 +18,14 @@ public class TreviewDeleteAction implements TInterface{
 		TreviewVO trvo=new TreviewVO();
 		
 		String paramTvpk=request.getParameter("tvpk");
+		String paramTrpk=request.getParameter("trpk");
 		
 		trvo.setTvpk(Integer.parseInt(paramTvpk));
+		trvo.setTrpk(Integer.parseInt(paramTrpk));
 		
 		if(trdao.delete(trvo)) {
 			forward=new TActionForward();
-			forward.setPath("###.jsp"); //어디로 보낼지?
+			forward.setPath("troomdetail"+"trpk"+".jsp");
 			forward.setRedirect(true);
 		}else {
 			request.setAttribute("errormsg", "리뷰 삭제 실패");

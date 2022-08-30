@@ -35,7 +35,7 @@ public class TuserUpdateAction implements TInterface{
 		
 		if(trdao.update(tuvo)) {
 			forward=new TActionForward();
-			forward.setPath("###.jsp"); //어디로 보낼지?
+			forward.setPath("index.jsp");
 			forward.setRedirect(false);
 		}else {
 			request.setAttribute("errormsg", "회원 정보 수정 실패");

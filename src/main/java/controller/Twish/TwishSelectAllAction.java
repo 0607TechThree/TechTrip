@@ -24,7 +24,7 @@ public class TwishSelectAllAction implements TInterface{
 		request.setAttribute("datas", datas);
 
 		forward=new TActionForward();
-		forward.setPath("###.jsp"); //어디로 보낼지?
+		forward.setPath("mypage.jsp");
 		forward.setRedirect(false);
 		return forward;
 	}

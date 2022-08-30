@@ -25,7 +25,7 @@ public class TbookInsertAction implements TInterface{
 		
 		if(tbdao.insert(tbvo)) {
 			forward=new TActionForward();
-			forward.setPath("###.jsp"); //어디로 보낼지?
+			forward.setPath("troomdetail"+"trpk"+".jsp");
 			forward.setRedirect(true);
 		}else {
 			request.setAttribute("errormsg", "예약자 추가 실패");

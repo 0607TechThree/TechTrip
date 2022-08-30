@@ -21,7 +21,7 @@ public class TreviewInsertAction implements TInterface{
 		String paramTupk=request.getParameter("tupk");
 		String paramTrpk=request.getParameter("trpk");
 		String paramTstar=request.getParameter("tstar");
-		
+
 		trvo.setTvpk(Integer.parseInt(paramTvpk));
 		trvo.setTupk(Integer.parseInt(paramTupk));
 		trvo.setTrpk(Integer.parseInt(paramTrpk));
@@ -29,7 +29,7 @@ public class TreviewInsertAction implements TInterface{
 		
 		if(trdao.insert(trvo)) {
 			forward=new TActionForward();
-			forward.setPath("###.jsp"); //어디로 보낼지?
+			forward.setPath("troomdetail"+"trpk"+".jsp");
 			forward.setRedirect(true);
 		}else {
 			request.setAttribute("errormsg", "리뷰 추가 실패");

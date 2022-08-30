@@ -23,8 +23,8 @@ public class TbookDeleteAction implements TInterface{
 		
 		if(tbdao.delete(tbvo)) {
 			forward=new TActionForward();
-			forward.setPath("###.jsp"); //어디로 보낼지?
-			forward.setRedirect(true);;
+			forward.setPath("mypage.jsp");
+			forward.setRedirect(true);
 		}else {
 			request.setAttribute("errormsg", "예약자 삭제 실패");
 			System.out.println("log: TbookDeleteAction");
