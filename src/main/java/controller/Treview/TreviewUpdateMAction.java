@@ -8,7 +8,7 @@ import VO.TreviewVO;
 import controller.TActionForward;
 import controller.TInterface;
 
-public class TreviewDeleteAction implements TInterface{
+public class TreviewUpdateMAction implements TInterface{
 
 	@Override
 	public TActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -17,17 +17,19 @@ public class TreviewDeleteAction implements TInterface{
 		TreviewDAO trdao=new TreviewDAO();
 		TreviewVO trvo=new TreviewVO();
 		
+		String paramTboard=request.getParameter("tboard");
 		String paramTvpk=request.getParameter("tvpk");
 		
+		trvo.setTboard(paramTboard);
 		trvo.setTvpk(Integer.parseInt(paramTvpk));
 		
-		if(trdao.delete(trvo)) {
+		if(trdao.update_S(trvo)) {
 			forward=new TActionForward();
 			forward.setPath("###.jsp"); //어디로 보낼지?
 			forward.setRedirect(true);
 		}else {
-			request.setAttribute("errormsg", "리뷰 삭제 실패");
-			System.out.println("log: TreviewDeleteAction");
+			request.setAttribute("errormsg", "리뷰 수정 실패");
+			System.out.println("log: TreviewUpdateMAction");
 		}
 		return forward;
 	}
