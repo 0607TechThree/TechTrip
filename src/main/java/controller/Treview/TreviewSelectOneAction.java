@@ -10,7 +10,7 @@ public class TreviewSelectOneAction implements TInterface{
 
 	@Override
 	public TActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// TODO Auto-generated method stub
+		// 특정 리뷰를 조회할 일이 없음
 		return null;
 	}
 
