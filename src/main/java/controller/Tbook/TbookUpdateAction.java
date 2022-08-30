@@ -10,7 +10,7 @@ public class TbookUpdateAction implements TInterface{
 
 	@Override
 	public TActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// TODO Auto-generated method stub
+		// 예약 정보를 수정할 일이 없음
 		return null;
 	}
 

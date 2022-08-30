@@ -1,17 +1,18 @@
-package controller.Treview;
+package controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import controller.TActionForward;
-import controller.TInterface;
-
-public class TreviewUpdateAction implements TInterface{
+public class MainAction implements TInterface{
 
 	@Override
 	public TActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		TActionForward forward = null;
+		
+		forward=new TActionForward();
+		forward.setPath("/main.jsp");
+		forward.setRedirect(false);
+		return forward;
 	}
 
 }
