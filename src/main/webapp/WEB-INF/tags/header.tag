@@ -1,7 +1,6 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
 <div id="header">
 	<div id="menulogo">
 		<div id="menuwrapper">
@@ -19,12 +18,12 @@
 		</div>
 		<img alt="로고" src="images/headlogo.png" id="logoimage">
 	</div>
-	<div id="headersearch">
-		<img alt="검색하기" src="images/search.png" class="searchbtn">&nbsp;
+	<div id="headersearch" style="display: none">
+		<img alt="검색하기" src="images/search.png" class="searchbtn" id="sbtn1">&nbsp;
 		<input type="text" id="searchbox" placeholder="&nbsp;숙소명">
 	</div>
 	<div id="headerright">
-		<img alt="검색하기" src="images/search.png" class="searchbtn">&nbsp;
+		<img alt="검색하기" src="images/search.png" class="searchbtn" id="sbtn2">&nbsp;
 		<c:choose>
 			<c:when test="${mid != null}">
 				<a href="logout.do">logout</a>&nbsp;
@@ -37,3 +36,22 @@
 		</c:choose>
 	</div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+	crossorigin="anonymous"></script>
+<script>
+        
+	$(".accordion").click(function() {               
+		$("#menulist").slideToggle();
+	});
+	$("#sbtn2").click(function(){
+		$("#headerright").hide();
+		$("#headersearch").slideToggle();
+	});
+	$("#sbtn1").click(function(){
+		$("#headersearch").hide();
+		$("#headerright").slideToggle();
+	});
+        
+        
+</script>

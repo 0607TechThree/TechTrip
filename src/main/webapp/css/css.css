@@ -7,15 +7,16 @@ body{
 	margin:0;
 }
 /*헤더스타일 스타일*/
+
 #header{
 	justify-content: space-between;
 	background-color: rgb(232,41,95);
+	position: sticky;
+	top: 0;
 	height: 72px;
 	display: flex;
 	align-items: center;
 	margin:0;
-	position: sticky;
-	top:0;
 	width:100%;
 	font-size: 30px;
 	z-index: 1000;
@@ -31,15 +32,17 @@ body{
 }
 
 #menulist{
-	display: none;
 	position: fixed;
-	top: 42px;
+	top: 72px;
 	left: 0px;
 	background-color:rgb(232,41,95);
 	list-style: none;
 	color: white;
 	padding-left: 0px;
 	border-top: 1px solid white;
+	display: none;
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
 
 .mlist{
@@ -81,20 +84,22 @@ body{
 }
 
 #headersearch{
+	height: 40px;
 	display: flex;
 	align-items: center;
-	display: none;
+	justify-content: center;
+	margin-right: 20px;
 }
 
 .searchbtn{
-	width:30px;
-	height:30px;
+	width:40px;
+	height:40px;
 }
 
 #searchbox{
 	background:none;
-	height:35px;
 	border: 1px solid rgb(232,41,95);
+	height: 35px;
 	font-size: 20px;
 }
 
@@ -154,6 +159,23 @@ input::placeholder{
 	object-fit: cover;
 }
 
+/*푸터*/
+
+#footerwrapper{
+	background-color: #f2f2f2;
+}
+
+#footer{
+	border-top: 3px solid rgb(232,41,95);
+	min-height: 300px;
+	max-width: 1050px;
+	margin: auto;
+}
+
+#footercontent{
+	height: 500px;
+}
+
 #maincategory{
 	display: flex;
 	align-items: center;
@@ -175,4 +197,45 @@ input::placeholder{
 #maincategory > a > img{
 	width: 100%;
 	height: 100%;
+}
+
+#categorycontent{
+	max-width: 1050px;
+	margin: auto;
+}
+
+#categoryhead{
+	display: flex;
+	justify-content: center;
+	max-width: 1050px;
+	margin: auto;
+	border-bottom: 3px solid rgb(232,41,95);
+	margin-bottom: 15px;
+}
+
+#categorytitle{
+	color: rgb(232,41,95);
+}
+
+#categorylist{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.roomlistwrapper{
+	width: auto;
+	max-width: 500px;
+	flex-basis: 50%;
+}
+
+@media (max-width:700px){
+	.roomlistwrapper{
+		flex-basis: 100%;
+	}
+}
+
+.roomlist{
+	width:100%;
+	object-fit: cover;
 }
