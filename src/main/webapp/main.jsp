@@ -64,7 +64,7 @@
 	</div>
 </div>
 
-
+<tt:footer/>
 
 <!-- Script -->
 	<!-- Swiper JS -->
@@ -146,12 +146,5 @@
 				});
 
 	</script>
-	<script>
-        $(document).ready(function() {            
-            $(".accordion").click(function() {               
-            	$(this).next().slideToggle();
-            });
-        });
-    </script>
 </body>
 </html>
