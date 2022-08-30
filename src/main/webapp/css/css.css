@@ -7,15 +7,16 @@ body{
 	margin:0;
 }
 /*헤더스타일 스타일*/
+
 #header{
 	justify-content: space-between;
 	background-color: rgb(232,41,95);
+	position: sticky;
+	top: 0;
 	height: 72px;
 	display: flex;
 	align-items: center;
 	margin:0;
-	position: sticky;
-	top:0;
 	width:100%;
 	font-size: 30px;
 	z-index: 1000;
@@ -196,4 +197,38 @@ input::placeholder{
 #maincategory > a > img{
 	width: 100%;
 	height: 100%;
+}
+
+#categorycontent{
+	max-width: 1050px;
+	margin: auto;
+}
+
+#categoryhead{
+	display: flex;
+	justify-content: center;
+	max-width: 1050px;
+	margin: auto;
+	border-bottom: 3px solid rgb(232,41,95);
+}
+
+#categorytitle{
+	color: rgb(232,41,95);
+}
+
+#categorylist{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.roomlistwrapper{
+	width: auto;
+	max-width: 500px;
+	flex: 1 1 40%;
+}
+
+.roomlist{
+	max-width:500px;
+	object-fit: cover;
 }
