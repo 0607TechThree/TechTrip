@@ -23,7 +23,7 @@ public class TwishDeleteAction implements TInterface{
 		
 		if(twdao.delete(twvo)) {
 			forward=new TActionForward();
-			forward.setPath("###.jsp"); //어디로 보낼지?
+			forward.setPath("mypage.jsp");
 			forward.setRedirect(true);
 		}else {
 			request.setAttribute("errormsg", "찜 삭제 실패");

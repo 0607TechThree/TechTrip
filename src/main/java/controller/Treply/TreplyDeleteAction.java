@@ -23,7 +23,7 @@ public class TreplyDeleteAction implements TInterface{
 		
 		if(trdao.delete(trvo)) {
 			forward=new TActionForward();
-			forward.setPath("###.jsp"); //어디로 보낼지?
+			forward.setPath("troomdetail"+"trpk"+".jsp");
 			forward.setRedirect(true);
 		}else {
 			request.setAttribute("errormsg", "댓글 삭제 실패");

@@ -19,13 +19,15 @@ public class TreviewUpdateSAction implements TInterface{
 		
 		String paramTstar=request.getParameter("tstar");
 		String paramTvpk=request.getParameter("tvpk");
+		String paramTrpk=request.getParameter("trpk");
 		
 		trvo.setTstar(Integer.parseInt(paramTstar));
 		trvo.setTvpk(Integer.parseInt(paramTvpk));
+		trvo.setTrpk(Integer.parseInt(paramTrpk));
 		
 		if(trdao.update_S(trvo)) {
 			forward=new TActionForward();
-			forward.setPath("###.jsp"); //어디로 보낼지?
+			forward.setPath("troomdetail"+"trpk"+".jsp");
 			forward.setRedirect(true);
 		}else {
 			request.setAttribute("errormsg", "별점 수정 실패");
