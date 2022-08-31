@@ -8,7 +8,7 @@ import VO.TbookVO;
 import controller.TActionForward;
 import controller.TInterface;
 
-public class TbookInsertAction implements TInterface{
+public class TbookInsertAction implements TInterface{ // payd
 
 	@Override
 	public TActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -25,10 +25,10 @@ public class TbookInsertAction implements TInterface{
 		
 		if(tbdao.insert(tbvo)) {
 			forward=new TActionForward();
-			forward.setPath("troomdetail"+"trpk"+".jsp");
+			forward.setPath("main.do");
 			forward.setRedirect(true);
 		}else {
-			request.setAttribute("errormsg", "예약자 추가 실패");
+			request.setAttribute("errormsg", "예약 추가 실패");
 			System.out.println("log: TbookInsertAction");
 		}
 		return forward;

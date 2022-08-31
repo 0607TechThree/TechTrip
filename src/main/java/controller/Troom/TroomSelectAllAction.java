@@ -24,7 +24,7 @@ public class TroomSelectAllAction implements TInterface{
 		request.setAttribute("datas", datas);
 
 		forward=new TActionForward();
-		forward.setPath("category.jsp");
+		forward.setPath("/category.jsp");
 		forward.setRedirect(false);
 		return forward;
 	}

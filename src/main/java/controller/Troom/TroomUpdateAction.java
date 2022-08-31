@@ -33,7 +33,8 @@ public class TroomUpdateAction implements TInterface{
 
 		if(trdao.update(trvo)) {
 			forward=new TActionForward();
-			forward.setPath("category.jsp");
+			request.setAttribute("trpk", paramTrpk);
+			forward.setPath("troomselectone.do");
 			forward.setRedirect(false);
 		}else {
 			request.setAttribute("errormsg", "숙소 정보 수정 실패");

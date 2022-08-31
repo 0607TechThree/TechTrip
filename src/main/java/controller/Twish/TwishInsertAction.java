@@ -25,8 +25,9 @@ public class TwishInsertAction implements TInterface{
 		
 		if(twdao.insert(twvo)) {
 			forward=new TActionForward();
-			forward.setPath("troomdetail"+"trpk"+".jsp");
-			forward.setRedirect(true);
+			request.setAttribute("trpk", paramTrpk);
+			forward.setPath("troomselectone.do");
+			forward.setRedirect(false);
 		}else {
 			request.setAttribute("errormsg", "찜 추가 실패");
 			System.out.println("log: TwishInsertAction");
