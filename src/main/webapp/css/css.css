@@ -254,3 +254,33 @@ input::placeholder{
 	width:100%;
 	object-fit: cover;
 }
+
+/* 룸디테일 페이지 스타일 */
+
+#roomdetailcontent{
+	max-width: 1050px;
+	margin: auto;
+}
+
+#rctop{
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.rctc{
+	max-width: 500px;
+	flex-basis: 45%;
+}
+
+@media (max-width:700px){
+	.rctc{
+	max-width: 500px;
+	flex-basis: 100%;
+	}
+}
+
+.rcbottom{
+	margin: auto;
+	display: flex;
+}

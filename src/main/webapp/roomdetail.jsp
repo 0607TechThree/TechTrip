@@ -18,9 +18,24 @@
 </head>
 <body>
 <tt:header />
+
+<div id="roomdetailcontent">
+	<div id="rctop">
+		<div class="rctc">
+			<img alt="호텔 이미지" src="">
+		</div>
+		<div class="rctc">
+			info
+		</div>
+	</div>
+	<div id="rcbottom">
+		<div>
+			하단 컨텐츠
+		</div>
+	</div>
+</div>
 	
-	
-	<tt:footer />
+<tt:footer />
 	<script type="text/javascript">
 		
 	</script>
