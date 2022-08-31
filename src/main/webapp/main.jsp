@@ -22,6 +22,11 @@
 <tt:header/>
 
 <div id="maincontent">
+	<!-- 우리은행 환율 -->
+	<div class="exchangerate">
+		<iframe src="https://sbiz.wooribank.com/biz/Dream?withyou=FXCNT0007&rc=0&divType=1&lang=KOR" frameBorder=0
+	width=600 scrolling=no height=184 topmargin="0" name=irate marginWidth=0 marginHeight=0 title="무료환율표A형"></iframe>
+	</div>
 	<!-- Swiper -->
 	<div class="swiper mySwiper">
 		<div class="swiper-wrapper">
