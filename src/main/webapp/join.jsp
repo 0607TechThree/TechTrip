@@ -69,6 +69,12 @@
 				return false;
 
 			}
+			
+			// 아이디 중복검사를 하지 않았을 경우 확인메세지
+			if (form.idDuplication.value != "idCheck") {
+				alert("아이디 중복체크를 해주세요.");
+				return false;
+			}
 
 			//==============================================================
 
@@ -280,10 +286,15 @@
 				}
 			});
 		}
+		function inputIdChk(){
+			document.userInfo.idDuplication.value="idUnCheck";
+			$("#result").text("중복검사를 실행해주세요!");
+			$("#result").css("color", "black");
+		}
 	</script>
 	<div id="header"></div>
 
-	<form action="MTmain.html" id="joinbox" onsubmit="return Validation();"
+	<form action="MTmain.html" id="joinbox" name="userInfo" onsubmit="return Validation();"
 		method="post">
 		<div id="joincontentbox">
 			<div class="subject">
@@ -293,9 +304,11 @@
 				<tr>
 					<td><div class="join_name_box">아이디</div></td>
 					<td><input class="join_input" name="userid" id="userid"
-						required placeholder="6~12자리 영문 혹은 영문과 숫자를 조합">
+						required placeholder="6~12자리 영문 혹은 영문과 숫자를 조합" onkeydown="inputIdChk()">
 						<button class="btn" onclick="check();">중복검사</button>
-						<div id="result"></div></td>
+						<input type="hidden" name="idDuplication" value="idUnCheck">
+						<div id="result">
+						</div></td>
 					<td><div></div></td>
 				</tr>
 				<tr>
