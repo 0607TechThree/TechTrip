@@ -25,7 +25,7 @@ public class TreplyUpdateAction implements TInterface{
 
 		if(trdao.update(trvo)) {
 			forward=new TActionForward();
-			forward.setPath("troomdetail"+"trpk"+".jsp");
+			forward.setPath("/troomdetail.jsp");
 			forward.setRedirect(false);
 		}else {
 			request.setAttribute("errormsg", "댓글 수정 실패");

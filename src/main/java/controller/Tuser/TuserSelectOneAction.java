@@ -1,7 +1,10 @@
 package controller.Tuser;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import DAO.TuserDAO;
 import VO.TroomVO;
@@ -13,6 +16,7 @@ public class TuserSelectOneAction implements TInterface{
 
 	@Override
 	public TActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		HttpSession session = request.getSession();
 		TActionForward forward=null;
 		
 		TuserDAO tudao=new TuserDAO();
@@ -20,14 +24,23 @@ public class TuserSelectOneAction implements TInterface{
 				
 		String paramTuid=request.getParameter("tuid");
 		String paramTupw=request.getParameter("tupw");
+		ArrayList<TroomVO> cart = new ArrayList<TroomVO>(); // 장바구니 세션
 		
 		tuvo.setTuid(paramTuid);
 		tuvo.setTupw(paramTupw);
 		
 		TuserVO data=tudao.selectOne(tuvo);
 
-		request.setAttribute("data", data);
-		
+		if(data != null) { // 로그인
+			session.setAttribute("loginInfo", data); // 로그인한 회원정보
+			session.setAttribute("cart", cart); // 장바구니
+			forward=new TActionForward();
+			forward.setPath("main.do");
+			forward.setRedirect(false);
+		}
+		else {
+			request.setAttribute("errormsg", "로그인실패");
+		}
 		return forward;
 	}
 

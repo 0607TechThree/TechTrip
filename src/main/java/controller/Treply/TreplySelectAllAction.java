@@ -23,7 +23,7 @@ public class TreplySelectAllAction implements TInterface{
 		request.setAttribute("datas", datas);
 
 		forward=new TActionForward();
-		forward.setPath("troomdetail"+"trpk"+".jsp");
+		forward.setPath("/troomdetail.jsp");
 		forward.setRedirect(false);
 		return forward;
 	}

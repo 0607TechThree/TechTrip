@@ -29,7 +29,7 @@ public class TreviewInsertAction implements TInterface{
 		
 		if(trdao.insert(trvo)) {
 			forward=new TActionForward();
-			forward.setPath("troomdetail"+"trpk"+".jsp");
+			forward.setPath("/troomdetail.jsp");
 			forward.setRedirect(true);
 		}else {
 			request.setAttribute("errormsg", "리뷰 추가 실패");

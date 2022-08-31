@@ -27,7 +27,7 @@ public class TreviewUpdateMAction implements TInterface{
 		
 		if(trdao.update_S(trvo)) {
 			forward=new TActionForward();
-			forward.setPath("troomdetail"+"trpk"+".jsp");
+			forward.setPath("/troomdetail.jsp");
 			forward.setRedirect(true);
 		}else {
 			request.setAttribute("errormsg", "리뷰 수정 실패");
