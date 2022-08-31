@@ -11,7 +11,7 @@ public class MainAction implements TInterface{
 		
 		forward=new TActionForward();
 		forward.setPath("/main.jsp");
-		forward.setRedirect(true);
+		forward.setRedirect(false);
 		return forward;
 	}
 
