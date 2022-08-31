@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import DAO.TuserDAO;
-import VO.TroomVO;
 import VO.TuserVO;
 import controller.TActionForward;
 import controller.TInterface;
@@ -24,7 +23,7 @@ public class TuserSelectOneAction implements TInterface{
 				
 		String paramTuid=request.getParameter("tuid");
 		String paramTupw=request.getParameter("tupw");
-		ArrayList<TroomVO> cart = new ArrayList<TroomVO>(); // 장바구니 세션
+		ArrayList<Integer> cart = new ArrayList<Integer>(); // 장바구니 세션
 		
 		tuvo.setTuid(paramTuid);
 		tuvo.setTupw(paramTupw);

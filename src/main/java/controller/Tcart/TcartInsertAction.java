@@ -1,7 +1,10 @@
 package controller.Tcart;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import controller.TActionForward;
 import controller.TInterface;
@@ -10,8 +13,19 @@ public class TcartInsertAction implements TInterface{
 
 	@Override
 	public TActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		HttpSession session = request.getSession();
+		TActionForward forward=null;
+		
+		String paramTrpk=request.getParameter("trpk");
+		
+		ArrayList<Integer> cart = (ArrayList<Integer>)session.getAttribute("cart");
+		cart.add(Integer.parseInt(paramTrpk));
+		
+		forward=new TActionForward();
+		request.setAttribute("trpk", paramTrpk);
+		forward.setPath("troomdetail.do");
+		forward.setRedirect(false);
+		return forward;
 	}
 
 }	
