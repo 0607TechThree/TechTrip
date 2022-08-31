@@ -1,18 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js"
+	integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+	crossorigin="anonymous"></script>
+
 </head>
 <body>
 	<script type="text/javascript">
-		$(document).ready(function() {
-			$("#header").load("header3.html");
-			$("#footer").load("footer.html");
-			$("#userid").focus();
-		});
 		function Validation() {
 
 			var RegExp = /^[a-zA-Z0-9]{6,12}$/; // 아이디 유효성 검사
@@ -40,7 +39,7 @@
 			var userBr = document.getElementById("birth");
 
 			var userh = document.getElementById("userh");
-			
+
 			var userad = document.getElementById("sample6_postcode");
 
 			// 아이디에 아무것도 안들어가있을 경우
@@ -69,6 +68,12 @@
 				$("#userPs").focus();
 				return false;
 
+			}
+			
+			// 아이디 중복검사를 하지 않았을 경우 확인메세지
+			if (form.idDuplication.value != "idCheck") {
+				alert("아이디 중복체크를 해주세요.");
+				return false;
 			}
 
 			//==============================================================
@@ -122,8 +127,8 @@
 				return false;
 
 			}
-			
-			if (!(userPs.value==userPc.value)){
+
+			if (!(userPs.value == userPc.value)) {
 				alert("비밀번호가 비밀번호 확인과 일치하지 않습니다");
 				$("#userPc").focus();
 				return false;
@@ -243,23 +248,53 @@
 							document.getElementById("sample6_detailAddress")
 									.focus();
 						},
-						theme: {
-									   bgColor: "#6F42C1", //바탕 배경색
-									   searchBgColor: "#FFFFFF", //검색창 배경색
-									   contentBgColor: "#FFFFFF" //본문 배경색(검색결과,결과없음,첫화면,검색서제스트)
-									   //pageBgColor: "", //페이지 배경색
-									   //textColor: "", //기본 글자색
-									   //queryTextColor: "", //검색창 글자색
-									   //postcodeTextColor: "", //우편번호 글자색
-									   //emphTextColor: "", //강조 글자색
-									   //outlineColor: "", //테두리
+						theme : {
+							bgColor : "#6F42C1", //바탕 배경색
+							searchBgColor : "#FFFFFF", //검색창 배경색
+							contentBgColor : "#FFFFFF" //본문 배경색(검색결과,결과없음,첫화면,검색서제스트)
+						//pageBgColor: "", //페이지 배경색
+						//textColor: "", //기본 글자색
+						//queryTextColor: "", //검색창 글자색
+						//postcodeTextColor: "", //우편번호 글자색
+						//emphTextColor: "", //강조 글자색
+						//outlineColor: "", //테두리
 						}
 					}).open();
+		}
+		function check() {
+			var userid = $("#userid").val();
+			$.ajax({
+				type : 'GET',
+				url : '${pageContext.request.contextPath}/checkId.do?userid=' + userid,
+				data : {
+					userid : userid
+				},
+				success : function(result) {
+					console.log("로그1 [" + result + "]");
+					if (result == 1) {
+						$("#result").text("사용가능한 아이디입니다");
+						$("#result").css("color", "blue");
+					} else {
+						$("#result").text("이미 사용중인 아이디입니다");
+						$("#result").css("color", "red");
+					}
+				},
+				error : function(request, status, error) {
+					console.log("code: " + request.status);
+					console.log("message: " + request.responseText);
+					console.log("error: " + error);
+				}
+			});
+		}
+		function inputIdChk(){
+			document.userInfo.idDuplication.value="idUnCheck";
+			$("#result").text("중복검사를 실행해주세요!");
+			$("#result").css("color", "black");
 		}
 	</script>
 	<div id="header"></div>
 
-	<form action="MTmain.html" id="joinbox" onsubmit="return Validation();"
+	<form action="MTmain.html" id="joinbox" name="userInfo" onsubmit="return Validation();"
 		method="post">
 		<div id="joincontentbox">
 			<div class="subject">
@@ -268,20 +303,24 @@
 			<table id="join_table">
 				<tr>
 					<td><div class="join_name_box">아이디</div></td>
-					<td><input class="join_input" id="userid" required
-						placeholder="6~12자리 영문 혹은 영문과 숫자를 조합"></td>
+					<td><input class="join_input" name="userid" id="userid"
+						required placeholder="6~12자리 영문 혹은 영문과 숫자를 조합" onkeydown="inputIdChk()">
+						<button class="btn" onclick="check();">중복검사</button>
+						<input type="hidden" name="idDuplication" value="idUnCheck">
+						<div id="result">
+						</div></td>
 					<td><div></div></td>
 				</tr>
 				<tr>
 					<td><div class="join_name_box">비밀번호</div></td>
-					<td><input type="password" class="join_input" id="userPs" required
-						placeholder="비밀번호를 입력해주세요"></td>
+					<td><input type="password" class="join_input" id="userPs"
+						required placeholder="비밀번호를 입력해주세요"></td>
 					<td><div></div></td>
 				</tr>
 				<tr>
 					<td><div class="join_name_box">비밀번호 확인</div></td>
-					<td><input type="password" class="join_input" id="userPc" required
-						placeholder="비밀번호를 한번 더 입력해주세요"></td>
+					<td><input type="password" class="join_input" id="userPc"
+						required placeholder="비밀번호를 한번 더 입력해주세요"></td>
 					<td><div></div></td>
 				</tr>
 				<tr>
@@ -305,11 +344,13 @@
 				<tr>
 					<td><div class="join_name_box">주소</div></td>
 					<td class="1111"><input type="text" id="sample6_postcode"
-						placeholder="우편번호" disabled> <input type="button" class="sample6"
-						onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-						<input type="text" id="sample6_address" placeholder="주소" disabled><br>
-						<input type="text" id="sample6_detailAddress" placeholder="상세주소">
-						<input type="text" id="sample6_extraAddress" placeholder="참고항목" disabled></td>
+						placeholder="우편번호" disabled> <input type="button"
+						class="sample6" onclick="sample6_execDaumPostcode()"
+						value="우편번호 찾기"><br> <input type="text"
+						id="sample6_address" placeholder="주소" disabled><br> <input
+						type="text" id="sample6_detailAddress" placeholder="상세주소">
+						<input type="text" id="sample6_extraAddress" placeholder="참고항목"
+						disabled></td>
 				</tr>
 				<tr>
 					<td><div class="join_name_box">성별</div></td>
@@ -321,7 +362,7 @@
 				</tr>
 				<tr>
 					<td><div class="join_name_box">생년월일</div></td>
-					<td><input type="text" id="birth" placeholder="4자리입력" required/>
+					<td><input type="text" id="birth" placeholder="4자리입력" required />
 						년&nbsp; <select class="mmdd">
 
 							<option value="1">1</option>
