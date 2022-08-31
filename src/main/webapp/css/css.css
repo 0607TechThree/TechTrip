@@ -260,6 +260,8 @@ input::placeholder{
 #roomdetailcontent{
 	max-width: 1050px;
 	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 #rctop{
@@ -273,6 +275,10 @@ input::placeholder{
 	flex-basis: 45%;
 }
 
+.rctc > img{
+	max-width: 500px;
+}
+
 @media (max-width:700px){
 	.rctc{
 	max-width: 500px;
@@ -284,3 +290,21 @@ input::placeholder{
 	margin: auto;
 	display: flex;
 }
+
+/* 마이페이지 스타일 */
+
+#tabs{
+	max-width:1050px;
+	margin:auto;
+}
+
+#tabsul{
+	background: linear-gradient(to right, white, rgb(232,168,193));
+}
+
+#tabsul > li{
+	background: white;
+}
+
+/* 페이 페이지 스타일 */
+

@@ -20,7 +20,7 @@
 <tt:header />
 	
 	
-	<tt:footer />
+<tt:footer />
 <script type="text/javascript">
 		
 	</script>

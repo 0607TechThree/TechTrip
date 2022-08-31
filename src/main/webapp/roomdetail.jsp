@@ -22,15 +22,15 @@
 <div id="roomdetailcontent">
 	<div id="rctop">
 		<div class="rctc">
-			<img alt="호텔 이미지" src="">
+			<img alt="호텔 이미지" src="images/crawling/L7 강남 바이 롯데.jpg">
 		</div>
 		<div class="rctc">
-			info
+			info / 예약 / 장바구니 / 찜
 		</div>
 	</div>
 	<div id="rcbottom">
-		<div>
-			하단 컨텐츠
+		<div id="rcbc">
+			내용
 		</div>
 	</div>
 </div>
