@@ -18,7 +18,15 @@
 </head>
 <body>
 <tt:header />
-	
+
+<div id="paycontent">
+	<div>
+		결제룸 정보
+	</div>
+	<div>
+		결제하기
+	</div>
+</div>
 	
 <tt:footer />
 <script type="text/javascript">

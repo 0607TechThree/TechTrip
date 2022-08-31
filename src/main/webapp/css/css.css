@@ -53,8 +53,16 @@ body{
 	line-height: 40px;
 }
 
+.mlist > a{
+	color: white;
+	text-decoration: none;
+}
+
 .mlist:hover{
 	background-color: white;
+}
+
+.mlist:hover > * {
 	color: rgb(232,41,95);
 }
 
@@ -83,12 +91,23 @@ body{
 	margin-left: 20px;
 }
 
+@media (max-width:600px){
+	#logoimage{
+		height:30px;
+	}
+}
+
+#logoimage:hover{
+	cursor: pointer;
+}
+
 #headersearch{
 	height: 40px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	margin-right: 20px;
+	width: 40%;
 }
 
 .searchbtn{
@@ -96,10 +115,37 @@ body{
 	height:40px;
 }
 
+#searchform{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-width: 180px;
+	width: auto;
+}
+
 #searchbox{
 	background:none;
 	border: 1px solid rgb(232,41,95);
-	height: 35px;
+	height: 36px;
+	font-size: 20px;
+	width: auto;
+	color: white;
+	margin-right: 10px;
+	flex-basis: auto;
+}
+
+@media (max-width:700px){
+	#searchbox{
+		width: 120px;
+	}
+}
+
+#searchsubmit{
+	height: 40px;
+	width: 40px;
+	border: 1px solid rgb(232,41,95);
+	color: white;
+	background-color: rgb(232,41,95);
 	font-size: 20px;
 }
 
@@ -252,6 +298,7 @@ input::placeholder{
 
 .roomlist{
 	width:100%;
+	max-height: 280px;
 	object-fit: cover;
 }
 
@@ -308,3 +355,7 @@ input::placeholder{
 
 /* 페이 페이지 스타일 */
 
+#paycontent{
+	max-width: 1050px;
+	margin: auto;
+}

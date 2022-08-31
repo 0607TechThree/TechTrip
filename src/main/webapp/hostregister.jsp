@@ -66,7 +66,7 @@
 				</tr>
 				<tr>
 					<td>사장님한마디</td>
-					<td><input type="text"></td>
+					<td><textarea style="resize:none" rows="4" cols="20"></textarea></td>
 				</tr>
 				<input type="hidden" value="">
 				<tr>
