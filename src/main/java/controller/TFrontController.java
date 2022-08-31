@@ -72,7 +72,8 @@ public class TFrontController extends HttpServlet {
 		System.out.println(command);
 
 		TActionForward forward =null;
-		if(command.equals("/main.do")) {
+		
+		if(command.equals("/main.do")) {// 메인으로 이동
 			try {
 				forward = new MainAction().execute(request, response);
 			} catch (Exception e) {
@@ -80,25 +81,25 @@ public class TFrontController extends HttpServlet {
 			}
 		}
 		//tbook
-		else if(command.equals("/tbookdelete.do")) {
+		else if(command.equals("/tbookdelete.do")) {// 예약페이지에서 예약된 숙소 삭제
 			try {
 				forward = new TbookDeleteAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/tbookinsert.do")) {
+		}else if(command.equals("/tbookinsert.do")) {// 숙소 detail에서 예약추가
 			try {
 				forward = new TbookInsertAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/tbookselectall.do")) {
+		}else if(command.equals("/tbookselectall.do")) {// 마이페이지에서 예약한 숙소 정보 모두 출력
 			try {
 				forward = new TbookSelectAllAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/tbookupdate.do")) {
+		}else if(command.equals("/tbookupdate.do")) {// 사용X
 			try {
 				forward = new TbookUpdateAction().execute(request, response);
 			} catch (Exception e) {
@@ -106,25 +107,25 @@ public class TFrontController extends HttpServlet {
 			}
 		}
 		//Treply
-		else if(command.equals("/treplydelete.do")) {
+		else if(command.equals("/treplydelete.do")) {// 숙소 detail에서 리뷰의 댓글 삭제
 			try {
 				forward = new TreplyDeleteAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/treplyinsert.do")) {
+		}else if(command.equals("/treplyinsert.do")) {// 숙소 detail에서 리뷰에 댓글 추가
 			try {
 				forward = new TreplyInsertAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/treplyselectall.do")) {
+		}else if(command.equals("/treplyselectall.do")) {// 숙소 detail에서 모든 리뷰 표시
 			try {
 				forward = new TreplySelectAllAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/treplyupdate.do")) {
+		}else if(command.equals("/treplyupdate.do")) {// 숙소 detail에서 리뷰 수정
 			try {
 				forward = new TreplyUpdateAction().execute(request, response);
 			} catch (Exception e) {
@@ -132,37 +133,37 @@ public class TFrontController extends HttpServlet {
 			}
 		}
 		//Treview
-		else if(command.equals("/treviewdelete.do")) {
+		else if(command.equals("/treviewdelete.do")) {// 숙소 detail에서 리뷰 삭제
 			try {
 				forward = new TreviewDeleteAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/treviewinsert.do")) {
+		}else if(command.equals("/treviewinsert.do")) {// 숙소 detail에서 리뷰 추가
 			try {
 				forward = new TreviewInsertAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/treviewselectall.do")) {
+		}else if(command.equals("/treviewselectall.do")) {// 숙소 detail에서 리뷰 모두 출력
 			try {
 				forward = new TreviewSelectAllAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/treviewselectone.do")) {
+		}else if(command.equals("/treviewselectone.do")) {// 숙소 detail에서 리뷰 1개 출력
 			try {
 				forward = new TreviewSelectOneAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/treviewupdatem.do")) {
+		}else if(command.equals("/treviewupdatem.do")) {// 숙소 detail에서 리뷰 내용 수정
 			try {
 				forward = new TreviewUpdateMAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/treviewupdates.do")) {
+		}else if(command.equals("/treviewupdates.do")) {// 숙소 detail에서 리뷰 별점 수정
 			try {
 				forward = new TreviewUpdateSAction().execute(request, response);
 			} catch (Exception e) {
@@ -170,25 +171,25 @@ public class TFrontController extends HttpServlet {
 			}
 		}
 		//Troom
-		else if(command.equals("/troominsert.do")) {
+		else if(command.equals("/troominsert.do")) {// hostregister.jsp에서 숙소 추가
 			try {
 				forward = new TroomInsertAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/troomselectall.do")) {
+		}else if(command.equals("/troomselectall.do")) {// host가 mypage.jsp에서 자신이 관리하는 숙소 모두 출력
 			try {
 				forward = new TroomSelectAllAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/troomselectone.do")) {
+		}else if(command.equals("/troomselectone.do")) {// host가 mypage.jsp에서 자신이 관리하는 숙소 중 하나 선택
 			try {
 				forward = new TroomSelectOneAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/troomupdate.do")) {
+		}else if(command.equals("/troomupdate.do")) {// ★ host가 mypage.jsp에서 자신이 관리하는 숙소 삭제(0이 삭제)
 			try {
 				forward = new TroomUpdateAction().execute(request, response);
 			} catch (Exception e) {
@@ -196,19 +197,19 @@ public class TFrontController extends HttpServlet {
 			}
 		}
 		//Tuser
-		else if(command.equals("/tuserinsert.do")) {
+		else if(command.equals("/tuserinsert.do")) {// join.jsp에서 회원가입
 			try {
 				forward = new TuserInsertAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/tuserselectone.do")) {
+		}else if(command.equals("/tuserselectone.do")) {// 로그인용
 			try {
 				forward = new TuserSelectOneAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/tuserupdate.do")) {
+		}else if(command.equals("/tuserupdate.do")) {// mypage.jsp에서 유저 정보 수정
 			try {
 				forward = new TuserUpdateAction().execute(request, response);
 			} catch (Exception e) {
@@ -216,19 +217,19 @@ public class TFrontController extends HttpServlet {
 			}
 		}
 		//Twish
-		else if(command.equals("/twishdelete.do")) {
+		else if(command.equals("/twishdelete.do")) {// mypage.jsp에서 찜한 숙소 삭제
 			try {
 				forward = new TwishDeleteAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/twishinsert.do")) {
+		}else if(command.equals("/twishinsert.do")) {// 숙소 detail에서 찜 추가
 			try {
 				forward = new TwishInsertAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/twishselectall.do")) {
+		}else if(command.equals("/twishselectall.do")) {// mypage.jsp에서 찜한 숙소 정보 모두 출력
 			try {
 				forward = new TwishSelectAllAction().execute(request, response);
 			} catch (Exception e) {
@@ -236,14 +237,21 @@ public class TFrontController extends HttpServlet {
 			}
 		}
 		
-		if(forward==null) {
+		if(forward==null) { // forward == null 이면 에러발생
 			forward=new TActionForward();
 			forward.setPath("error/error.jsp");
 			forward.setRedirect(false);
+			RequestDispatcher dispatcher=request.getRequestDispatcher(forward.getPath());	
+			dispatcher.forward(request, response);
+		}else{ // 에러 발생이 아닐 시
+			if(forward.isRedirect()) { // 새로운 요청을 한다.	
+				response.sendRedirect(forward.getPath());
+			}
+			else { // 기존 요청 정보를 유지
+				RequestDispatcher dispatcher=request.getRequestDispatcher(forward.getPath());	
+				dispatcher.forward(request, response);
+			}
 		}
-
-		RequestDispatcher dispatcher=request.getRequestDispatcher(forward.getPath());
-		dispatcher.forward(request, response);
 
 	}
 }
