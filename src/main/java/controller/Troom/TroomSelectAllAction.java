@@ -16,9 +16,12 @@ public class TroomSelectAllAction implements TInterface{
 	public TActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		TActionForward forward=null;
 		
+		String paramTrregion=request.getParameter("trregion");
+		
 		TroomDAO trdao=new TroomDAO();
 		TroomVO trvo=new TroomVO();
 		
+		trvo.setTrregion(paramTrregion);
 		ArrayList<TroomVO> datas = trdao.selectAll(trvo);
 		
 		request.setAttribute("datas", datas);
