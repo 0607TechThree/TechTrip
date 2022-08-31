@@ -171,7 +171,7 @@ public class Crawling {
 				int height = image.getHeight();
 
 				//파일명 자르기
-				String fileNm = str5+".jpg";
+					String fileNm = region.get(j)+i+".jpg";
 				try {
 					// 저장할 이미지의 크기와 타입을 잡아줌.
 					BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_BGR);
