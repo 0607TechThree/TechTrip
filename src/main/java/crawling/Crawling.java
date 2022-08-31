@@ -34,7 +34,7 @@ public class Crawling {
 	public static void main(String[] args) {
 		final String url="https://www.goodchoice.kr/product/search/2/";
 		final String url2="https:"; // 이미지 주소를 위한 주소
-		final String path = "D:\\0607KIM\\workspace\\TechTrip\\src\\main\\webapp\\images\\crawling\\";
+		final String path = "C:\\Users\\USER\\Desktop\\TechTrip\\src\\main\\webapp\\images\\crawling\\";
 		// 크롤링 이미지 저장 될 주소
 
 		Document doc=null; 
@@ -59,7 +59,7 @@ public class Crawling {
 		region.add("강원"); // 강원
 		
 		TroomDAO dao = new TroomDAO();
-		
+		int pk = 1;
 		for(int j=0;j<urls.size();j++) {
 			try {
 				doc=Jsoup.connect(urls.get(j)).get(); 
@@ -171,7 +171,7 @@ public class Crawling {
 				int height = image.getHeight();
 
 				//파일명 자르기
-					String fileNm = region.get(j)+i+".jpg";
+					String fileNm = pk+".jpg";
 				try {
 					// 저장할 이미지의 크기와 타입을 잡아줌.
 					BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_BGR);
@@ -184,6 +184,8 @@ public class Crawling {
 				}
 
 				dao.insert(vo);
+				System.out.println(pk);
+				pk++;
 			}	
 		}
 		System.out.println("로그 : 샘플 데이터 저장 완료");

@@ -20,13 +20,12 @@
 <body>
 
 <tt:header/>
-
-<div id="maincontent">
-	<!-- 우리은행 환율 -->
+<!-- 우리은행 환율 -->
 	<div class="exchangerate">
 		<iframe src="https://sbiz.wooribank.com/biz/Dream?withyou=FXCNT0007&rc=0&divType=1&lang=KOR" frameBorder=0
 	width=600 scrolling=no height=184 topmargin="0" name=irate marginWidth=0 marginHeight=0 title="무료환율표A형"></iframe>
 	</div>
+<div id="maincontent">
 	<!-- Swiper -->
 	<div class="swiper mySwiper">
 		<div class="swiper-wrapper">
@@ -44,25 +43,25 @@
 	
 	<!-- Category -->
 	<div id="maincategory">
-		<a href="">
+		<a href="troomselectall.do?trregion=서울">
 			<img alt="1번 서울" src="images/flaticon/1seoul.png">
 		</a>
-		<a href="">
+		<a href="troomselectall.do?trregion=경기">
 			<img alt="2번 경기" src="images/flaticon/2gyeongi.png">
 		</a>
-		<a href="">
+		<a href="troomselectall.do?trregion=인천">
 			<img alt="3번 인천" src="images/flaticon/3incheon.png">
 		</a>
-		<a href="">
+		<a href="troomselectall.do?trregion=호남">
 			<img alt="4번 호남" src="images/flaticon/4honam.png">
 		</a>
-		<a href="">
+		<a href="troomselectall.do?trregion=강원">
 			<img alt="5번 강원" src="images/flaticon/5kangwon.png">
 		</a>
-		<a href="">
+		<a href="troomselectall.do?trregion=부산">
 			<img alt="6번 부산" src="images/flaticon/6busan.png">
 		</a>
-		<a href="">
+		<a href="troomselectall.do?trregion=제주">
 			<img alt="7번 제주" src="images/flaticon/7jeju.png">
 		</a>
 

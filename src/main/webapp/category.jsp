@@ -19,21 +19,30 @@
 
 <div id="categorycontent">
 	<div id="categoryhead">
-		<h2 id="categorytitle">~~지역 EL식</h2>
+		<h2 id="categorytitle">
+			<c:choose>
+				<c:when test="${searchresultr != null}">
+					${searchresultr}지역
+				</c:when>
+				<c:when test="${searchresultn != null}">
+					[${searchresultn}] 검색 결과
+				</c:when>
+				<c:otherwise>
+					전체 상품 목록
+				</c:otherwise>
+			</c:choose>
+		</h2>
 	</div>
 	<div id="categorylist">
+		<c:if test="${datas.size()==0}">
+			<div>목록이 존재하지 않습니다 ㅠㅅㅠ</div>
+		</c:if>
+		<c:forEach var="datas" items="${datas}">
 		<div class="roomlistwrapper">
-			<img class="roomlist" alt="상품사진1" src="images/mainswiper1.jpg">
-			<div>상품에 대한 정보</div>
+			<img class="roomlist" alt="${datas.trname}상품사진" src="images/crawling/${datas.trpk}.jpg">
+			<div>${datas.trname}</div>
 		</div>
-		<div class="roomlistwrapper">
-			<img class="roomlist" alt="상품사진1" src="images/mainswiper1.jpg">
-			<div>상품에 대한 정보</div>
-		</div>
-		<div class="roomlistwrapper">
-			<img class="roomlist" alt="상품사진1" src="images/mainswiper1.jpg">
-			<div>상품에 대한 정보</div>
-		</div>
+		</c:forEach>
 	</div>
 	
 </div>

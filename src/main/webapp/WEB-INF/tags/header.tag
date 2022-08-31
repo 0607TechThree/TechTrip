@@ -6,21 +6,24 @@
 		<div id="menuwrapper">
 			<img alt="전체메뉴" src="images/menu_white.png" id="menu" class="accordion">
 			<ul id="menulist">
-				<li class="mlist"><a>전체상품보기</a></li>
-				<li class="mlist"><a>서울</a></li>
-				<li class="mlist"><a>경기</a></li>
-				<li class="mlist"><a>인천</a></li>
-				<li class="mlist"><a>호남</a></li>
-				<li class="mlist"><a>강원</a></li>
-				<li class="mlist"><a>부산</a></li>
-				<li class="mlist"><a>제주</a></li>
+				<li class="mlist"><a href="troomselectall.do">전체상품보기</a></li>
+				<li class="mlist"><a href="troomselectall.do?trregion=서울">서울</a></li>
+				<li class="mlist"><a href="troomselectall.do?trregion=경기">경기</a></li>
+				<li class="mlist"><a href="troomselectall.do?trregion=인천">인천</a></li>
+				<li class="mlist"><a href="troomselectall.do?trregion=호남">호남</a></li>
+				<li class="mlist"><a href="troomselectall.do?trregion=강원">강원</a></li>
+				<li class="mlist"><a href="troomselectall.do?trregion=부산">부산</a></li>
+				<li class="mlist"><a href="troomselectall.do?trregion=제주">제주</a></li>
 			</ul>
 		</div>
 		<img alt="로고" src="images/headlogo.png" id="logoimage">
 	</div>
 	<div id="headersearch" style="display: none">
 		<img alt="검색하기" src="images/search.png" class="searchbtn" id="sbtn1">&nbsp;
-		<input type="text" id="searchbox" placeholder="&nbsp;숙소명">
+		<form id="searchform" action="troomselectall.do" method="post">
+			<input type="text" id="searchbox" placeholder="&nbsp;숙소명" name="trname">
+			<input type="submit" id="searchsubmit" value="검색">
+		</form>
 	</div>
 	<div id="headerright">
 		<img alt="검색하기" src="images/search.png" class="searchbtn" id="sbtn2">&nbsp;
@@ -52,6 +55,8 @@
 		$("#headersearch").hide();
 		$("#headerright").slideToggle();
 	});
-        
+	$("#logoimage").click(function(){
+		location.href="main.do";
+	});
         
 </script>
