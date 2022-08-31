@@ -308,3 +308,7 @@ input::placeholder{
 
 /* 페이 페이지 스타일 */
 
+#paycontent{
+	max-width: 1050px;
+	margin: auto;
+}
