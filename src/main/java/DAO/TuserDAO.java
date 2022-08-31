@@ -12,10 +12,27 @@ public class TuserDAO {
 	Connection conn;
 	PreparedStatement pstmt;
 	final String sql_selectOne="SELECT * FROM TUSER WHERE TUID=? AND TUPW=?";
+	final String sql_checkId="SELECT * FROM TUSER WHERE TUID=?";
 	final String sql_insert="INSERT INTO TUSER VALUES((SELECT NVL(MAX(TUPK),0) +1 FROM TUSER),?,?,?,?,?,?,?,?,?,?,?,?)";
 	final String sql_update="UPDATE TUSER SET TUPW =?, TUROLE = ?, TUNICKNAME = ?, TUPH = ?, TUADDRESSZIPCODE = ?, TUADDRESS = ?, TUADDRESSDETAIL = ? WHERE TUID = ?";
 	final String sql_delete="UPDATE TUSER SET TUDEL = 0 WHERE TUID = ?";
 	
+	public int checkId(TuserVO vo) {
+		conn=JDBCUtil.connect();
+		try {
+			pstmt=conn.prepareStatement(sql_checkId);
+			pstmt.setString(1, vo.getTuid());
+			ResultSet rs=pstmt.executeQuery();
+			if(rs.next()) {
+				return 0;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.disconnect(pstmt, conn);
+		}
+		return 1;
+	}
 	public TuserVO selectOne(TuserVO vo) {
 		conn=JDBCUtil.connect();
 		try {
