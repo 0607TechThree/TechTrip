@@ -39,5 +39,8 @@
 </div>
 
 <tt:footer/>
+<script type="text/javascript">
+		
+	</script>
 </body>
 </html>
