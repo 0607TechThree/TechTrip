@@ -4,13 +4,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원가입 | techTrip</title>
+<link rel="icon" type="image/x-icon" href="images/fav/favicon.jpg" />
+<link rel="
+	preconnect" href="https://fonts.gstatic.com/" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet" href="css/css.css" type="text/css">
 </head>
 <body>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$("#header").load("header3.html");
-			$("#footer").load("footer.html");
 			$("#userid").focus();
 		});
 		function Validation() {
@@ -257,11 +261,11 @@
 					}).open();
 		}
 	</script>
-	<div id="header"></div>
 
-	<form action="MTmain.html" id="joinbox" onsubmit="return Validation();"
+	<form action="" id="joinbox" onsubmit="return Validation();"
 		method="post">
 		<div id="joincontentbox">
+		<img id="logo" alt="로고" src="images/22.jpg">
 			<div class="subject">
 				<span>회원가입</span>
 			</div>

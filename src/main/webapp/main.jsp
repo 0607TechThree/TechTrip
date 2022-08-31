@@ -7,7 +7,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>techTrip</title>
+<link rel="icon" type="image/x-icon" href="images/fav/favicon.jpg" />
 <link rel="stylesheet" href="css/css.css" type="text/css">
 <link rel="
 	preconnect" href="https://fonts.gstatic.com/" crossorigin>
