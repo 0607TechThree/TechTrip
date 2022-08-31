@@ -12,7 +12,9 @@ import util.JDBCUtil;
 public class TroomDAO {
 	Connection conn;
 	PreparedStatement pstmt;
-	private String sql_selectAll="SELECT * FROM TROOM WHERE TRREGION = ?";
+	private String sql_selectAll_R="SELECT * FROM TROOM WHERE TRREGION = ?";
+	private String sql_selectAll="SELECT * FROM TROOM";
+	private String sql_selectAll_S="SELECT * FROM TROOM WHERE TRNAME LIKE '%'||?||'%'";
 	private String sql_selectOne="SELECT * FROM TROOM WHERE TRPK = ?";
 	private String sql_insert="INSERT INTO TROOM VALUES((SELECT NVL(MAX(TRPK),0) +1 FROM TROOM),?,?,?,?,?,?,?,?,?,?)";
 	private String sql_update="UPDATE TROOM SET TRADDRESS = ?, TRREGION = ?, TRNAME = ?, TRPRICE = ?, TRINFO = ? WHERE TRPK = ?";
@@ -23,8 +25,15 @@ public class TroomDAO {
 		ArrayList<TroomVO> datas=new ArrayList<TroomVO>();
 		conn=JDBCUtil.connect();
 		try {
-			pstmt=conn.prepareStatement(sql_selectAll);
-			pstmt.setString(1, vo.getTrregion());
+			if(vo.getTrregion() != null) {
+				pstmt=conn.prepareStatement(sql_selectAll_R);
+				pstmt.setString(1, vo.getTrregion());				
+			}else if(vo.getTrname() != null){
+				pstmt=conn.prepareStatement(sql_selectAll_S);
+				pstmt.setString(1, vo.getTrname());				
+			}else {
+				pstmt=conn.prepareStatement(sql_selectAll);		
+			}
 			ResultSet rs=pstmt.executeQuery();
 			while(rs.next()) {
 				TroomVO data=new TroomVO();
