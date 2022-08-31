@@ -43,11 +43,11 @@ public class TuserInsertAction implements TInterface{
 
 		if(trdao.insert(tuvo)) {
 			forward=new TActionForward();
-			forward.setPath("index.jsp");
+			forward.setPath("main.do");
 			forward.setRedirect(true);
 		}else {
-			request.setAttribute("errormsg", "숙박시설 추가 실패");
-			System.out.println("log: TroomInsertAction");
+			request.setAttribute("errormsg", "회원가입 실패");
+			System.out.println("log: TuserInsertAction");
 		}
 		return forward;
 		

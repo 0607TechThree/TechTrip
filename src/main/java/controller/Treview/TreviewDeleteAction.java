@@ -25,7 +25,7 @@ public class TreviewDeleteAction implements TInterface{
 		
 		if(trdao.delete(trvo)) {
 			forward=new TActionForward();
-			forward.setPath("troomdetail"+"trpk"+".jsp");
+			forward.setPath("/troomdetail.jsp");
 			forward.setRedirect(true);
 		}else {
 			request.setAttribute("errormsg", "리뷰 삭제 실패");

@@ -39,7 +39,7 @@ public class TroomInsertAction implements TInterface{
 		
 		if(trdao.insert(trvo)) {
 			forward=new TActionForward();
-			forward.setPath("category.jsp");
+			forward.setPath("mypage.jsp");
 			forward.setRedirect(true);
 		}else {
 			request.setAttribute("errormsg", "숙박시설 추가 실패");

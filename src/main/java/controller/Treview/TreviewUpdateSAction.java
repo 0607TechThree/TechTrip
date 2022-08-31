@@ -27,7 +27,7 @@ public class TreviewUpdateSAction implements TInterface{
 		
 		if(trdao.update_S(trvo)) {
 			forward=new TActionForward();
-			forward.setPath("troomdetail"+"trpk"+".jsp");
+			forward.setPath("/troomdetail.jsp");
 			forward.setRedirect(true);
 		}else {
 			request.setAttribute("errormsg", "별점 수정 실패");

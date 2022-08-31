@@ -24,7 +24,7 @@ public class TreviewSelectAllAction implements TInterface{
 		request.setAttribute("datas", datas);
 
 		forward=new TActionForward();
-		forward.setPath("troomdetail"+"trpk"+".jsp"); //어디로 보낼지?
+		forward.setPath("/troomdetail.jsp"); //어디로 보낼지?
 		forward.setRedirect(false);
 		return forward;
 	}

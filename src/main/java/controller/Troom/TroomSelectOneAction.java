@@ -17,13 +17,15 @@ public class TroomSelectOneAction implements TInterface{
 		TroomDAO trdao=new TroomDAO();
 		TroomVO trvo=new TroomVO();
 		
-		String paramTupk=request.getParameter("tupk");
-		trvo.setTupk(Integer.parseInt(paramTupk));
+		String paramTrpk=request.getParameter("trpk");
+		trvo.setTrpk(Integer.parseInt(paramTrpk));
 		
 		TroomVO data=trdao.selectOne(trvo);
 
 		request.setAttribute("data", data);
-		
+		forward=new TActionForward();
+		forward.setPath("/roomdetail.jsp");
+		forward.setRedirect(false);
 		return forward;
 	}
 

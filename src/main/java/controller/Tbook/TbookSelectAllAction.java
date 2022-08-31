@@ -25,7 +25,7 @@ public class TbookSelectAllAction implements TInterface{
 		request.setAttribute("datas", datas);
 
 		forward=new TActionForward();
-		forward.setPath("mypage.jsp");
+		forward.setPath("/mypage.jsp");
 		forward.setRedirect(false);
 		return forward;
 	}
