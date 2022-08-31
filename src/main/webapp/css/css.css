@@ -506,6 +506,8 @@ td > input > #sample6{
 #roomdetailcontent{
 	max-width: 1050px;
 	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 #rctop{
@@ -519,6 +521,10 @@ td > input > #sample6{
 	flex-basis: 45%;
 }
 
+.rctc > img{
+	max-width: 500px;
+}
+
 @media (max-width:700px){
 	.rctc{
 	max-width: 500px;
@@ -530,3 +536,21 @@ td > input > #sample6{
 	margin: auto;
 	display: flex;
 }
+
+/* 마이페이지 스타일 */
+
+#tabs{
+	max-width:1050px;
+	margin:auto;
+}
+
+#tabsul{
+	background: linear-gradient(to right, white, rgb(232,168,193));
+}
+
+#tabsul > li{
+	background: white;
+}
+
+/* 페이 페이지 스타일 */
+
