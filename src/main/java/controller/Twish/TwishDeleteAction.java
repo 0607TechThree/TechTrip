@@ -17,14 +17,17 @@ public class TwishDeleteAction implements TInterface{
 		TwishDAO twdao=new TwishDAO();
 		TwishVO twvo=new TwishVO();
 		
-		String paramTwpk=request.getParameter("twpk");
+		String paramTupk=request.getParameter("tupk");
+		String paramTrpk=request.getParameter("trpk");
 		
-		twvo.setTwpk(Integer.parseInt(paramTwpk));
+		twvo.setTupk(Integer.parseInt(paramTupk));
+		twvo.setTrpk(Integer.parseInt(paramTrpk));		
 		
 		if(twdao.delete(twvo)) {
 			forward=new TActionForward();
-			forward.setPath("/mypage.jsp");
-			forward.setRedirect(true);
+			request.setAttribute("trpk", paramTrpk);
+			forward.setPath("troomselectone.do");
+			forward.setRedirect(false);
 		}else {
 			request.setAttribute("errormsg", "찜 삭제 실패");
 			System.out.println("log: TwishDeleteAction");
