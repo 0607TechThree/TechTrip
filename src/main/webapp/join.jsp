@@ -4,14 +4,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<script src="https://code.jquery.com/jquery-3.6.0.js"
-	integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-	crossorigin="anonymous"></script>
-
+<title>회원가입 | techTrip</title>
+<!--  favicon -->
+<link rel="icon" type="image/x-icon" href="images/fav/favicon.jpg" />
+<link rel="
+	preconnect" href="https://fonts.gstatic.com/" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet" href="css/css.css" type="text/css">
 </head>
 <body>
 	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#userid").focus();
+		});
 		function Validation() {
 
 			var RegExp = /^[a-zA-Z0-9]{6,12}$/; // 아이디 유효성 검사
@@ -292,11 +298,11 @@
 			$("#result").css("color", "black");
 		}
 	</script>
-	<div id="header"></div>
 
-	<form action="MTmain.html" id="joinbox" name="userInfo" onsubmit="return Validation();"
+	<form action="" id="joinbox" onsubmit="return Validation();"
 		method="post">
 		<div id="joincontentbox">
+		<img id="logo" alt="로고" src="images/22.jpg">
 			<div class="subject">
 				<span>회원가입</span>
 			</div>

@@ -7,7 +7,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>카테고리 | techTrip</title>
+<!--  favicon -->
+<link rel="icon" type="image/x-icon" href="images/fav/favicon.jpg" />
 <link rel="stylesheet" href="css/css.css" type="text/css">
 <link rel="
 	preconnect" href="https://fonts.gstatic.com/" crossorigin>
