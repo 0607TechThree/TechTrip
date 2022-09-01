@@ -12,7 +12,7 @@ import util.JDBCUtil;
 public class TwishDAO {
 	Connection conn;
 	PreparedStatement pstmt;
-	private String sql_selectAll="SELECT * FROM TWISH";
+	private String sql_selectAll="SELECT * FROM TWISH WHERE TUPK = ?";
 	private String sql_insert="INSERT INTO TWISH VALUES((SELECT NVL(MAX(TWPK),0) +1 FROM TWISH),?,?)";
 	private String sql_delete="DELETE FROM TWISH WHERE TWPK = ?";
 	
@@ -21,6 +21,7 @@ public class TwishDAO {
 		conn=JDBCUtil.connect();
 		try {
 			pstmt=conn.prepareStatement(sql_selectAll);
+			pstmt.setInt(1, vo.getTupk());
 			ResultSet rs=pstmt.executeQuery();
 			while(rs.next()) {
 				TwishVO data = new TwishVO();
