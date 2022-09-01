@@ -430,7 +430,7 @@ h5 {
 
 #joinbox {
 	width: 600px;
-	height: 600px;
+	height: auto;
 	margin: auto;
 }
 
@@ -442,7 +442,7 @@ span>.join_title {
 
 #joincontentbox {
 	width: 550px;
-	height: 550px;
+	height: auto;
 	margin-left: 15px;
 	display: flex;
 	flex-wrap: wrap;
