@@ -30,6 +30,7 @@ import controller.Troom.TroomSelectAllAction;
 import controller.Troom.TroomSelectOneAction;
 import controller.Troom.TroomUpdateAction;
 import controller.Tuser.TuserInsertAction;
+import controller.Tuser.TuserLogoutAction;
 import controller.Tuser.TuserSelectOneAction;
 import controller.Tuser.TuserUpdateAction;
 import controller.Twish.TwishDeleteAction;
@@ -208,6 +209,12 @@ public class TFrontController extends HttpServlet {
 		}else if(command.equals("/tuserselectone.do")) {// 로그인용
 			try {
 				forward = new TuserSelectOneAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/tuserlogout.do")) {// 로그아웃
+			try {
+				forward = new TuserLogoutAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
