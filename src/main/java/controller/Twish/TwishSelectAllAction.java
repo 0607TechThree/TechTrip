@@ -9,7 +9,7 @@ import DAO.TwishDAO;
 import VO.TwishVO;
 import controller.TActionForward;
 import controller.TInterface;
-
+ // 사용 xxx
 public class TwishSelectAllAction implements TInterface{
 
 	@Override
