@@ -7,7 +7,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>tabs demo</title>
+  <title>마이페이지 | techTrip</title>
+  <!-- favicon -->
+  <link rel="icon" type="image/x-icon" href="images/fav/favicon.jpg" />
 <link rel="stylesheet" href="css/css.css" type="text/css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 <link rel="
