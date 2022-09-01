@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.TreviewDAO;
+import VO.TreviewSet;
 import VO.TreviewVO;
 import controller.TActionForward;
 import controller.TInterface;
@@ -19,7 +20,7 @@ public class TreviewSelectAllAction implements TInterface{
 		TreviewDAO trdao=new TreviewDAO();
 		TreviewVO trvo=new TreviewVO();
 		
-		ArrayList<TreviewVO> datas = trdao.selectAll(trvo);
+		ArrayList<TreviewSet> datas = trdao.selectAll(trvo);
 		
 		request.setAttribute("datas", datas);
 
