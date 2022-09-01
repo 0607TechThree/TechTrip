@@ -61,7 +61,7 @@ public class TroomDAO {
 		conn=JDBCUtil.connect();
 		try {
 			pstmt=conn.prepareStatement(sql_selectOne);
-			pstmt.setInt(1, vo.getTupk());
+			pstmt.setInt(1, vo.getTrpk());
 			ResultSet rs=pstmt.executeQuery();
 			while(rs.next()) {
 				TroomVO data = new TroomVO();

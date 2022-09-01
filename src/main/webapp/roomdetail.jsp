@@ -24,10 +24,33 @@
 <div id="roomdetailcontent">
 	<div id="rctop">
 		<div class="rctc">
-			<img alt="호텔 이미지" src="images/crawling/L7 강남 바이 롯데.jpg">
+			<img alt="${data.trname} 이미지" src="images/crawling/${data.trpk}.jpg">
 		</div>
 		<div class="rctc">
-			info / 예약 / 장바구니 / 찜
+			<div>
+				${data.trname}
+			</div>
+			<div>
+				${data.trprice}
+			</div>
+			<div>
+				날짜 (데이터피커)
+			</div>
+			<div>
+				${data.traddress}
+			</div>
+			<div>
+				사장님 한마디: ${data.trinfo}
+			</div>
+			<div>
+				예약버튼
+			</div>
+			<div>
+				장바구니버튼
+			</div>
+			<div>
+				찜버튼
+			</div>
 		</div>
 	</div>
 	<div id="rcbottom">

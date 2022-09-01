@@ -31,6 +31,9 @@ public class TroomSelectOneAction implements TInterface{
 		TroomVO data=trdao.selectOne(trvo);
 		ArrayList<TreviewSet> trdatas = trvDAO.selectAll(trvVO);
 		
+		System.out.println(data);
+		System.out.println(trdatas);
+		
 		request.setAttribute("data", data); // 상품상세
 		request.setAttribute("trdatas", trdatas); // 리뷰 + 댓글
 		forward=new TActionForward();

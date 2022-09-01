@@ -41,7 +41,9 @@
 		</c:if>
 		<c:forEach var="datas" items="${datas}">
 		<div class="roomlistwrapper">
-			<img class="roomlist" alt="${datas.trname}상품사진" src="images/crawling/${datas.trpk}.jpg">
+			<a href="troomselectone.do?trpk=${datas.trpk}">
+				<img class="roomlist" alt="${datas.trname}상품사진" src="images/crawling/${datas.trpk}.jpg">
+			</a>
 			<div>${datas.trname}</div>
 		</div>
 		</c:forEach>
