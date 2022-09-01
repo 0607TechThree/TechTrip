@@ -115,7 +115,7 @@ input::placeholder{
 	
 }
 
-/* 로그인 */
+
 
 
 /*스와이퍼 스타일*/
@@ -165,7 +165,15 @@ input::placeholder{
 }
 
 /*푸터 스타일*/
+h2{
+	letter-spacing :10px;
+	color: rgba(0,0,0,0.40);
+}
 
+h5{
+	letter-spacing :1px;
+	color: rgba(0,0,0,0.32);
+}
 #footerwrapper{
 	background-color: #f2f2f2;
 }
@@ -190,6 +198,7 @@ input::placeholder{
 	max-width: 500px;
 	flex-basis: 40%;
 	min-width: 300px;
+	color: rgba(0,0,0,0.38);
 }
 
 /*메인페이지 페인컨텐츠 스타일*/
@@ -301,7 +310,8 @@ div {
 	-webkit-box-pack: end;
 	justify-content: flex-end;
 	margin-top: 10px;
-	font-size: 13px;
+	font-size: 14px;
+	color:#666666;
 }
 
 .fidpw {

@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인 | TechTrip</title>
+<!--  favicon -->
 <link rel="icon" type="image/x-icon" href="images/fav/favicon.jpg" />
 <link rel="
 	preconnect" href="https://fonts.gstatic.com/" crossorigin>

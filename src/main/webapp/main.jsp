@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>techTrip</title>
+<!--  favicon -->
 <link rel="icon" type="image/x-icon" href="images/fav/favicon.jpg" />
 <link rel="stylesheet" href="css/css.css" type="text/css">
 <link rel="
@@ -33,7 +34,7 @@
 				<img class="" src="images/mainswiper2.jpg" alt="명소이미지2">
 			</div>
 			<div class="swiper-slide">
-				<img class="" src="images/mainswiper3.jpg" alt="명소이미지3">
+				<img class="" src="images/33.jpg" alt="명소이미지3">
 			</div>
 		</div>
 	</div>
