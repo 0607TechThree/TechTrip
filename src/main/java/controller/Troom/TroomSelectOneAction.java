@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import DAO.TreviewDAO;
 import DAO.TroomDAO;
@@ -17,7 +18,9 @@ public class TroomSelectOneAction implements TInterface{
 
 	@Override
 	public TActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		HttpSession session = request.getSession();
 		TActionForward forward=null;
+		boolean flag=true;
 		
 		TroomDAO trdao=new TroomDAO();
 		TroomVO trvo=new TroomVO();
@@ -25,6 +28,14 @@ public class TroomSelectOneAction implements TInterface{
 		TreviewDAO trvDAO=new TreviewDAO();
 		
 		String paramTrpk=request.getParameter("trpk");
+		
+		ArrayList<Integer> cart = (ArrayList<Integer>)session.getAttribute("cart");
+		for(int i=0;i<cart.size();i++) {
+			if(cart.get(i) == Integer.parseInt(paramTrpk)) {
+				flag=false;
+			}
+		}
+		
 		trvo.setTrpk(Integer.parseInt(paramTrpk));
 		trvVO.setTrpk(Integer.parseInt(paramTrpk));
 		
@@ -34,6 +45,7 @@ public class TroomSelectOneAction implements TInterface{
 		System.out.println(data);
 		System.out.println(trdatas);
 		
+		request.setAttribute("flag", flag); // 상품상세
 		request.setAttribute("data", data); // 상품상세
 		request.setAttribute("trdatas", trdatas); // 리뷰 + 댓글
 		forward=new TActionForward();
