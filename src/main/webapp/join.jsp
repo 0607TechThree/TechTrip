@@ -302,16 +302,16 @@
 	<form action="" id="joinbox" onsubmit="return Validation();"
 		method="post">
 		<div id="joincontentbox">
-		<img id="logo" alt="로고" src="images/22.jpg">
+		<a href="main.jsp"><img id="join_logo" alt="로고" src="images/22.jpg" ></a>
 			<div class="subject">
-				<span>회원가입</span>
+				<span class="join_title">회원가입</span>
 			</div>
 			<table id="join_table">
 				<tr>
-					<td><div class="join_name_box">아이디</div></td>
-					<td><input class="join_input" name="userid" id="userid"
+					<td><div class="join_id_box">아이디</div></td>
+					<td><input class="join_input" name="userid" id="joinId"
 						required placeholder="6~12자리 영문 혹은 영문과 숫자를 조합" onkeydown="inputIdChk()">
-						<button class="btn" onclick="check();">중복검사</button>
+						<button class="ck_btn" onclick="check();">v</button>
 						<input type="hidden" name="idDuplication" value="idUnCheck">
 						<div id="result">
 						</div></td>
@@ -330,25 +330,25 @@
 					<td><div></div></td>
 				</tr>
 				<tr>
-					<td><div class="join_name_box">이름</div></td>
+					<td><div class="join_name_box">닉네임</div></td>
 					<td><input class="join_input" id="usern" required
-						placeholder="이름을 입력해주세요"></td>
+						placeholder="닉네임을 입력해주세요"></td>
 					<td><div></div></td>
 				</tr>
 				<tr>
 					<td><div class="join_name_box">이메일</div></td>
 					<td><input class="join_input" id="userm" required
-						placeholder="예: techtrip@three.com"></td>
+						placeholder="ex) techtrip@three.com"></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td><div class="join_name_box">휴대폰</div></td>
 					<td><input class="join_input" id="userh" required
-						placeholder="예: 010-0000-0000"></td>
+						placeholder="ex) 010-0000-0000"></td>
 					<td><div></div></td>
 				</tr>
 				<tr>
-					<td><div class="join_name_box">주소</div></td>
+					<td><div class="join_name_box">주 소</div></td>
 					<td class="1111"><input type="text" id="sample6_postcode"
 						placeholder="우편번호" disabled> <input type="button"
 						class="sample6" onclick="sample6_execDaumPostcode()"
@@ -358,18 +358,9 @@
 						<input type="text" id="sample6_extraAddress" placeholder="참고항목"
 						disabled></td>
 				</tr>
-				<tr>
-					<td><div class="join_name_box">성별</div></td>
-					<td>&nbsp;&nbsp;&nbsp;&nbsp;남&nbsp;<input type="radio"
-						name="gender"> 여&nbsp;<input type="radio" name="gender">
-						&nbsp;선택안함&nbsp;<input type="radio" name="gender"
-						checked="checked"></td>
-					<td><div></div></td>
-				</tr>
-				<tr>
-					<td><div class="join_name_box">생년월일</div></td>
+					<td><div class="join_birth_box">생년월일</div></td>
 					<td><input type="text" id="birth" placeholder="4자리입력" required />
-						년&nbsp; <select class="mmdd">
+						년&nbsp; <select class="mm">
 
 							<option value="1">1</option>
 
@@ -395,7 +386,7 @@
 
 							<option value="12">12</option>
 
-					</select>월 &nbsp; <select class="mmdd">
+					</select>&nbsp;월  <select class="dd">
 
 							<option value="1">1</option>
 
@@ -459,8 +450,32 @@
 
 							<option value="31">31</option>
 
-					</select>일 &nbsp;</td>
+					</select>&nbsp;일 </td>
 					<td><div></div></td>
+				</tr>
+				<tr id="join_gender_box">
+					<td><div class="join_gender_box">성 별</div></td>
+					<td class="join_gender_box">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;남&nbsp;<input type="radio"
+						name="gender" checked="checked" > &nbsp;&nbsp;&nbsp;&nbsp;여&nbsp;<input type="radio" name="gender">
+						&nbsp;</td>
+					<td><div></div></td>
+				</tr>
+				<tr id="join_foeign_box">
+					<td><div class="join_foeign_box">정 보</div></td>
+					<td class="join_foeign_box">&nbsp;&nbsp;&nbsp;&nbsp;내국인&nbsp;<input type="radio"
+						name="local" checked="checked" > 외국인&nbsp;<input type="radio" name="foeign">
+						&nbsp;</td>
+					<td><div></div></td>
+				</tr>
+				<tr>
+				<td><div class="join_grade">권 한</div></td>
+				<td> <select class="grade">
+
+							<option value="일반회원" class="grade_op">일반회원</option>
+							<option value="host" class="grade_op">host</option>
+							<option value="admin" class="grade_op">admin</option>
+							</select></td>
+				
 				</tr>
 				<tr>
 					<td></td>

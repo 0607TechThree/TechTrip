@@ -32,12 +32,12 @@
 </head>
 <body>
 	<tt:header />
-	<div>
+	<div id="hostTitle">
 		관리자 등록페이지
 	</div>
 	<div>
 		<form action="" method="post">
-			<table>
+			<table id="hostTable">
 				<tr>
 					<th>구분</th>
 					<th>입력</th>
@@ -46,7 +46,7 @@
 					<td>숙소 종류</td>
 					<td>
 					<select>
-					<option>호텔</option>
+					<option>호 텔</option>
 					</select>
 					</td>
 				</tr>
@@ -80,7 +80,7 @@
 					<td><input type="text" id="datepicker2"></td>
 				</tr>
 				<tr>
-					<td><input type="submit" value="등록하기"></td>
+					<td><input class="reg_btn" type="submit" value="등록하기"></td>
 				</tr>
 			</table>
 		</form>
