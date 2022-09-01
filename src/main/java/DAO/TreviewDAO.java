@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import VO.TreplyVO;
+import VO.TreviewSet;
 import VO.TreviewVO;
 import util.JDBCUtil;
 
@@ -13,28 +15,46 @@ public class TreviewDAO {
 	Connection conn;
 	PreparedStatement pstmt;
 	final String sql_selectAll = "SELECT * FROM TREVIEW WHERE TRPK = ? ORDER BY TVPK";
+	final String sql_selectAll_R = "SELECT * FROM TREPLY WHERE TRPK = ? ORDER BY TRPK";
 	//final String sql_selectOne = "";
-	//특정 리뷰를 조회 할 일이 없
+	//특정 리뷰를 조회 할 일이 없음
 	final String sql_insert = "INSERT INTO TREVIEW(TVPK,TUPK,TRPK,TSTAR,TBOARD) VALUES((SELECT NVL(MAX(TPPK),0) +1 FROM TREVIEW),?,?,?,?)";
 	final String sql_update_S="UPDATE TREVIEW SET TSTAR = ? WHERE TVPK = ?";
 	final String sql_update_M ="UPDATE TREVIEW SET TBOARD = ? WHERE TVPK = ?";
 	final String sql_delete = "DELETE FROM TREVIEW WHERE TVPK = ?";
 	
-	public ArrayList<TreviewVO> selectAll(TreviewVO vo){
-		ArrayList<TreviewVO> datas=new ArrayList<TreviewVO>();
+	public ArrayList<TreviewSet> selectAll(TreviewVO vo){
+		ArrayList<TreviewSet> datas=new ArrayList<TreviewSet>();
 		conn=JDBCUtil.connect();
 		try {
 			pstmt=conn.prepareStatement(sql_selectAll);
 			pstmt.setInt(1, vo.getTrpk());
 			ResultSet rs=pstmt.executeQuery();
 			while(rs.next()) {
+				TreviewSet ts = new TreviewSet();
+				
 				TreviewVO TreviewVO=new TreviewVO();
 				TreviewVO.setTvpk(rs.getInt("TVPK"));
 				TreviewVO.setTupk(rs.getInt("TUPK"));
 				TreviewVO.setTrpk(rs.getInt("TRPK"));
 				TreviewVO.setTstar(rs.getInt("TSTAR"));
 				TreviewVO.setTboard(rs.getString("TBOARD"));
-				datas.add(TreviewVO);
+				ts.setTreviewVO(TreviewVO);
+				
+				ArrayList<TreplyVO> tList = new ArrayList<TreplyVO>();
+				pstmt=conn.prepareStatement(sql_selectAll_R);
+				pstmt.setInt(1, rs.getInt("TRPK"));
+				ResultSet rs2=pstmt.executeQuery();
+				while(rs2.next()) {
+					TreplyVO TreplyVO=new TreplyVO();
+					TreplyVO.setTppk(rs2.getInt("TPPK"));
+					TreplyVO.setTupk(rs2.getInt("TUPK"));
+					TreplyVO.setTvpk(rs2.getInt("TVPK"));
+					TreplyVO.setTpmsg(rs2.getString("TPMSG"));
+					tList.add(TreplyVO);
+				}
+				ts.setrList(tList);
+				datas.add(ts);
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();
