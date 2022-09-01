@@ -7,7 +7,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>방 상세정보 | techTrip</title>
+<!--  favicon -->
+<link rel="icon" type="image/x-icon" href="images/fav/favicon.jpg" />
 <!--  css link -->
 <link rel="stylesheet" href="css/css.css" type="text/css">
 <!--  font setting -->

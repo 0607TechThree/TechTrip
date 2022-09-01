@@ -1,14 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>로그인 | TechTrip</title>
+<!--  favicon -->
+<link rel="icon" type="image/x-icon" href="images/fav/favicon.jpg" />
+<link rel="
+	preconnect" href="https://fonts.gstatic.com/" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet" href="css/css.css" type="text/css">
 </head>
 <body>
-<script type="text/javascript">
-	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#userid").focus();
+		});
 		
 		function Validation() {
 			var RegExp = /^[a-zA-Z0-9]{6,12}$/; // 아이디 유효성 검사
@@ -58,10 +67,10 @@
 		}
 	</script>
 	<div class="locontent">
+	<img id="logo" alt="로고" src="images/22.jpg">
 		<div class="login">로그인</div>
 		<div class="lomain">
-			<form action="MTmain.html" onsubmit="return Validation();"
-				method="post">
+			<form action="main.jsp" onsubmit="return Validation();" method="post">
 				<div class="idpw">
 					<div class="id-box">
 						<div class="loidpw">
@@ -86,12 +95,13 @@
 						<span class="btn-idpw">로그인</span>
 					</button>
 					<button class="bt-pw" type="button" height="54" radius="3"
-						onclick="location.href='join.html'">
+						onclick="location.href='join.jsp'">
 						<span class="btn-idpw">회원가입</span>
 					</button>
 				</div>
 			</form>
 		</div>
 	</div>
+	
 </body>
 </html>
