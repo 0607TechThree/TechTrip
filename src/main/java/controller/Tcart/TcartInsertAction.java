@@ -21,9 +21,11 @@ public class TcartInsertAction implements TInterface{
 		ArrayList<Integer> cart = (ArrayList<Integer>)session.getAttribute("cart");
 		cart.add(Integer.parseInt(paramTrpk));
 		
+		System.out.println(cart);
+		
 		forward=new TActionForward();
 		request.setAttribute("trpk", paramTrpk);
-		forward.setPath("troomdetail.do");
+		forward.setPath("troomselectone.do");
 		forward.setRedirect(false);
 		return forward;
 	}
