@@ -13,6 +13,8 @@ import controller.Tbook.TbookDeleteAction;
 import controller.Tbook.TbookInsertAction;
 import controller.Tbook.TbookSelectAllAction;
 import controller.Tbook.TbookUpdateAction;
+import controller.Tcart.TcartDeleteAction;
+import controller.Tcart.TcartInsertAction;
 import controller.Treply.TreplyDeleteAction;
 import controller.Treply.TreplyInsertAction;
 import controller.Treply.TreplySelectAllAction;
@@ -232,6 +234,21 @@ public class TFrontController extends HttpServlet {
 		}else if(command.equals("/twishselectall.do")) {// mypage.jsp에서 찜한 숙소 정보 모두 출력
 			try {
 				forward = new TwishSelectAllAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		//cart
+		else if(command.equals("/tcartinsert.do")) { // 장바구니 추가
+			try {
+				forward = new TcartInsertAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/tcartdelete.do")) { // 장바구니 삭제
+			try {
+				forward = new TcartDeleteAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
