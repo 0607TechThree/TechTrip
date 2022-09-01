@@ -67,7 +67,7 @@
 		}
 	</script>
 	<div class="locontent">
-	<img id="logo" alt="로고" src="images/22.jpg">
+	<a href="main.jsp"><img id="logo" alt="로고" src="images/22.jpg" ></a>
 		<div class="login">로그인</div>
 		<div class="lomain">
 			<form action="tuserselectone.do" onsubmit="return Validation();" method="post">
