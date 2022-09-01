@@ -30,6 +30,7 @@ import controller.Troom.TroomInsertAction;
 import controller.Troom.TroomSelectAllAction;
 import controller.Troom.TroomSelectOneAction;
 import controller.Troom.TroomUpdateAction;
+import controller.Tuser.MypageAction;
 import controller.Tuser.TuserInsertAction;
 import controller.Tuser.TuserLogoutAction;
 import controller.Tuser.TuserSelectOneAction;
@@ -222,6 +223,12 @@ public class TFrontController extends HttpServlet {
 		}else if(command.equals("/tuserupdate.do")) {// mypage.jsp에서 유저 정보 수정
 			try {
 				forward = new TuserUpdateAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/mypage.do")) {// mypage.jsp에서 유저 정보 수정
+			try {
+				forward = new MypageAction().execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

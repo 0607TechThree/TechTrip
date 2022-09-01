@@ -12,16 +12,22 @@ import util.JDBCUtil;
 public class TwishDAO {
 	Connection conn;
 	PreparedStatement pstmt;
-	private String sql_selectAll="SELECT * FROM TWISH WHERE TUPK = ?";
+	private String sql_selectAll="SELECT * FROM TWISH WHERE TRPK = ?";
+	private String sql_selectAll_U="SELECT * FROM TWISH WHERE TUPK = ?";
 	private String sql_insert="INSERT INTO TWISH VALUES((SELECT NVL(MAX(TWPK),0) +1 FROM TWISH),?,?)";
-	private String sql_delete="DELETE FROM TWISH WHERE TWPK = ?";
+	private String sql_delete="DELETE FROM TWISH WHERE TUPK = ? AND TRPK = ?";
 	
 	public ArrayList<TwishVO> selectAll(TwishVO vo){
 		ArrayList<TwishVO> datas = new ArrayList<TwishVO>();
 		conn=JDBCUtil.connect();
 		try {
-			pstmt=conn.prepareStatement(sql_selectAll);
-			pstmt.setInt(1, vo.getTupk());
+			if(vo.getTrpk() != 0) {
+				pstmt=conn.prepareStatement(sql_selectAll);
+				pstmt.setInt(1, vo.getTrpk());				
+			}else {				
+				pstmt=conn.prepareStatement(sql_selectAll_U);
+				pstmt.setInt(1, vo.getTupk());				
+			}
 			ResultSet rs=pstmt.executeQuery();
 			while(rs.next()) {
 				TwishVO data = new TwishVO();
@@ -61,7 +67,8 @@ public class TwishDAO {
 		conn=JDBCUtil.connect();
 		try {
 			pstmt=conn.prepareStatement(sql_delete);
-			pstmt.setInt(1, vo.getTwpk());
+			pstmt.setInt(1, vo.getTupk());
+			pstmt.setInt(2, vo.getTrpk());
 			int res=pstmt.executeUpdate();
 			if(res==0) {
 				return false;

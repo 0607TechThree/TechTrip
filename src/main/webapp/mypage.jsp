@@ -36,7 +36,11 @@
   </div>
   <div id="fragment-2">
     <div>
-    	찜목록
+    	<c:forEach var="wr" items="${wishroom}">
+    		<div>
+    			${wr.trname}
+    		</div>
+    	</c:forEach>
     </div>
     <div>
     	찜 취소하기
