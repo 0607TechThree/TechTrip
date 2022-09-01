@@ -70,17 +70,17 @@
 	<img id="logo" alt="로고" src="images/22.jpg">
 		<div class="login">로그인</div>
 		<div class="lomain">
-			<form action="main.jsp" onsubmit="return Validation();" method="post">
+			<form action="tuserselectone.do" onsubmit="return Validation();" method="post">
 				<div class="idpw">
 					<div class="id-box">
 						<div class="loidpw">
-							<input data-testid="input-box" id="userid"
+							<input data-testid="input-box" id="userid" name="tuid"
 								placeholder="아이디를 입력해주세요" type="text" class="lidpw" value="">
 						</div>
 					</div>
 					<div class="pw-box">
 						<div class="loidpw">
-							<input data-testid="input-box" id="userPs"
+							<input data-testid="input-box" id="userPs" name="tupw"
 								placeholder="비밀번호를 입력해주세요" type="password" class="lidpw"
 								value="">
 						</div>

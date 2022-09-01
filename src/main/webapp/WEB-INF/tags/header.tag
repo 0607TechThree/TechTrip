@@ -28,8 +28,8 @@
 	<div id="headerright">
 		<img alt="검색하기" src="images/search.png" class="searchbtn" id="sbtn2">&nbsp;
 		<c:choose>
-			<c:when test="${mid != null}">
-				<a href="logout.do">logout</a>&nbsp;
+			<c:when test="${logininfo != null}">
+				<a href="tuserlogout.do">logout</a>&nbsp;
 				<a href="mypage.do">mypage</a>
 			</c:when>
 			<c:otherwise>
