@@ -42,6 +42,7 @@ public class TuserDAO {
 			ResultSet rs=pstmt.executeQuery();
 			if(rs.next()) {
 				TuserVO data=new TuserVO();
+				data.setTupk(rs.getInt("TUPK"));
 				data.setTuid(rs.getString("TUID"));
 				data.setTupw(rs.getString("TUPW"));
 				data.setTurole(rs.getString("TUROLE"));

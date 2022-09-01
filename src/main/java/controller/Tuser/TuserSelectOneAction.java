@@ -29,9 +29,9 @@ public class TuserSelectOneAction implements TInterface{
 		tuvo.setTupw(paramTupw);
 		
 		TuserVO data=tudao.selectOne(tuvo);
-
+		System.out.println(data);
 		if(data != null) { // 로그인
-			session.setAttribute("loginInfo", data); // 로그인한 회원정보
+			session.setAttribute("logininfo", data); // 로그인한 회원정보
 			session.setAttribute("cart", cart); // 장바구니
 			forward=new TActionForward();
 			forward.setPath("main.do");
