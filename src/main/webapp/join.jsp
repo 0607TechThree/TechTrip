@@ -12,12 +12,48 @@
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
 	rel="stylesheet">
 <link rel="stylesheet" href="css/css.css" type="text/css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+	crossorigin="anonymous"></script>
 </head>
 <body>
+<script
+		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script type="text/javascript">
+	
 		$(document).ready(function() {
 			$("#userid").focus();
 		});
+		function check() {
+			var userid = $("#userid").val();
+			$.ajax({
+				type : 'GET',
+				url : '${pageContext.request.contextPath}/checkId.do?userid=' + userid,
+				data : {
+					userid : userid
+				},
+				success : function(result) {
+					console.log("로그1 [" + result + "]");
+					if (result == 1) {
+						$("#result").text("사용가능한 아이디입니다");
+						$("#result").css("color", "blue");
+					} else {
+						$("#result").text("이미 사용중인 아이디입니다");
+						$("#result").css("color", "red");
+					}
+				},
+				error : function(request, status, error) {
+					console.log("code: " + request.status);
+					console.log("message: " + request.responseText);
+					console.log("error: " + error);
+				}
+			});
+		}
+		function inputIdChk(){
+			document.userInfo.idDuplication.value="idUnCheck";
+			$("#result").text("중복검사를 실행해주세요!");
+			$("#result").css("color", "black");
+		}
 		function Validation() {
 
 			var RegExp = /^[a-zA-Z0-9]{6,12}$/; // 아이디 유효성 검사
@@ -267,40 +303,11 @@
 						}
 					}).open();
 		}
-		function check() {
-			var userid = $("#userid").val();
-			$.ajax({
-				type : 'GET',
-				url : '${pageContext.request.contextPath}/checkId.do?userid=' + userid,
-				data : {
-					userid : userid
-				},
-				success : function(result) {
-					console.log("로그1 [" + result + "]");
-					if (result == 1) {
-						$("#result").text("사용가능한 아이디입니다");
-						$("#result").css("color", "blue");
-					} else {
-						$("#result").text("이미 사용중인 아이디입니다");
-						$("#result").css("color", "red");
-					}
-				},
-				error : function(request, status, error) {
-					console.log("code: " + request.status);
-					console.log("message: " + request.responseText);
-					console.log("error: " + error);
-				}
-			});
-		}
-		function inputIdChk(){
-			document.userInfo.idDuplication.value="idUnCheck";
-			$("#result").text("중복검사를 실행해주세요!");
-			$("#result").css("color", "black");
-		}
+		
 	</script>
 
-	<form action="" id="joinbox" onsubmit="return Validation();"
-		method="post">
+	<form action="tuserinsert.do" id="joinbox" onsubmit="return Validation();"
+		method="post" name="userInfo">
 		<div id="joincontentbox">
 		<a href="main.jsp"><img id="join_logo" alt="로고" src="images/22.jpg" ></a>
 			<div class="subject">
@@ -309,7 +316,7 @@
 			<table id="join_table">
 				<tr>
 					<td><div class="join_id_box">아이디</div></td>
-					<td><input class="join_input" name="userid" id="joinId"
+					<td><input class="join_input" name="userid" id="userid"
 						required placeholder="6~12자리 영문 혹은 영문과 숫자를 조합" onkeydown="inputIdChk()">
 						<button class="ck_btn" onclick="check();">v</button>
 						<input type="hidden" name="idDuplication" value="idUnCheck">
@@ -349,14 +356,19 @@
 				</tr>
 				<tr>
 					<td><div class="join_name_box">주 소</div></td>
-					<td class="1111"><input type="text" id="sample6_postcode"
-						placeholder="우편번호" disabled> <input type="button"
+					<td class="1111">
+						<input type="text" id="sample6_postcode"
+						placeholder="우편번호" disabled>
+						<input type="button"
 						class="sample6" onclick="sample6_execDaumPostcode()"
-						value="우편번호 찾기"><br> <input type="text"
-						id="sample6_address" placeholder="주소" disabled><br> <input
+						value="우편번호 찾기"><br>
+						<input type="text"
+						id="sample6_address" placeholder="주소" disabled><br>
+						<input
 						type="text" id="sample6_detailAddress" placeholder="상세주소">
 						<input type="text" id="sample6_extraAddress" placeholder="참고항목"
-						disabled></td>
+						disabled>
+					</td>
 				</tr>
 					<td><div class="join_birth_box">생년월일</div></td>
 					<td><input type="text" id="birth" placeholder="4자리입력" required />
@@ -463,7 +475,7 @@
 				<tr id="join_foeign_box">
 					<td><div class="join_foeign_box">정 보</div></td>
 					<td class="join_foeign_box">&nbsp;&nbsp;&nbsp;&nbsp;내국인&nbsp;<input type="radio"
-						name="local" checked="checked" > 외국인&nbsp;<input type="radio" name="foeign">
+						name="local" checked="checked" > 외국인&nbsp;<input type="radio" name="local">
 						&nbsp;</td>
 					<td><div></div></td>
 				</tr>
