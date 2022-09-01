@@ -115,17 +115,21 @@
 				</c:if>
 				<c:if test="${logininfo != null}">
 					<c:if test="${data.trdel == 0}">
-						<div>예약(결제)하기</div>
+						<div>예약(결제)하기(미구현)</div>
 					</c:if>
 					<c:if test="${data.trdel == 1}">
-						<a href=""><div>예약(결제)하기</div></a>
+						<a href=""><div>예약(결제)하기(미구현)</div></a>
 					</c:if>
-					
-					<a href="twishinsert.do">찜하기</a>
+					<c:if test="${wflag==true}">
+						<a href="twishinsert.do?trpk=${data.trpk}&tupk=${logininfo.tupk}"><div>찜하기</div></a>
+					</c:if>
+					<c:if test="${wflag==false}">
+						<a href="twishdelete.do?trpk=${data.trpk}&tupk=${logininfo.tupk}"><div>찜하기</div></a>
+					</c:if>
 				</c:if>
 				<c:if test="${logininfo == null}">
-					<a href="">예약(결제)하기</a>
-					<a href="">찜하기</a>
+					<a>예약(결제)하기</a>
+					<a>찜하기</a>
 				</c:if>
 			</div>
 		</div>
