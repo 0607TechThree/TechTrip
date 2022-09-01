@@ -101,17 +101,32 @@
 			<div>
 				사장님 한마디: ${data.trinfo}
 			</div>
+			아앙 ${cart}
+			아앙2 ${data.trpk}
 			<div>
-				<c:forEach var="v" items="${cart}">
-					<c:if test="${v != data.trpk}">
-						<a href="tcartinsert.do?trpk=${data.trpk}"><div class="insertcart">장바구니담기</div></a>
+				<c:if test="${logininfo != null}">
+					<c:set var="v" value="${cart}"/>
+					<c:if test="${flag==true}">
+						<a href="tcartinsert.do?trpk=${data.trpk}"><div class="insertcart">장바구니담기</div></a>				
 					</c:if>
-					<c:if test="${v == data.trpk}">
-						<div class="insertcart">장바구니담기</div>
+					<c:if test="${flag==false}">
+						<div class="insertcart">장바구니담기</div>		
 					</c:if>
-				</c:forEach>
-				<a href="">예약(결제)하기</a>
-				<a href="">찜하기</a>
+				</c:if>
+				<c:if test="${logininfo != null}">
+					<c:if test="${data.trdel == 0}">
+						<div>예약(결제)하기</div>
+					</c:if>
+					<c:if test="${data.trdel == 1}">
+						<a href=""><div>예약(결제)하기</div></a>
+					</c:if>
+					
+					<a href="twishinsert.do">찜하기</a>
+				</c:if>
+				<c:if test="${logininfo == null}">
+					<a href="">예약(결제)하기</a>
+					<a href="">찜하기</a>
+				</c:if>
 			</div>
 		</div>
 	</div>
@@ -128,7 +143,12 @@
 	
 <tt:footer />
 	<script type="text/javascript">
-		
+	window.onpageshow = function (event) {
+		if (event.persisted || (window.performance && (window.performance.navigation.type == 1 || window.performance.navigation.type == 2))) {
+			// 현재 브라우저에서 WebStorage를 지원할 때
+			location.href="troomselectone.do?trpk=${data.trpk}";
+		}
+	}
 	</script>
 </body>
 </html>
