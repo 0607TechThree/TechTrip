@@ -148,11 +148,13 @@ body {
 	font-size: 20px;
 }
 
+/* >> ???
 input::placeholder {
 	color: white;
 	opacity: 0.5;
 	font-style: italic;
 }
+*/
 
 #headerright>a {
 	text-decoration: none;
@@ -410,7 +412,7 @@ h5 {
 	margin-top: 10px;
 }
 
-/* 회원가입 */
+/* 회원가입 
 #joinbox, #joincontentbox, .subject, .join_input, #join_table,
 	.join_name_box, #join_table, #joinbutton, .join_input, td>button, td>input>#sample6,
 	#birth, #categoryhea, #categorytitle, #categorylist, .roomlistwrapper,
@@ -430,7 +432,7 @@ h5 {
 
 #joinbox {
 	width: 600px;
-	height: 600px;
+	height: auto;
 	margin: auto;
 }
 
@@ -442,7 +444,7 @@ span>.join_title {
 
 #joincontentbox {
 	width: 550px;
-	height: 550px;
+	height: auto;
 	margin-left: 15px;
 	display: flex;
 	flex-wrap: wrap;
@@ -522,6 +524,7 @@ span>.join_title {
 	font-size: 14px;
 	letter-spacing: 3px;
 	width: 152px;
+	cursor:pointer;
 }
 
 #birth {
@@ -577,6 +580,97 @@ select.grade{
 	margin-bottom:7px;
 }
 
+*/
+
+/* 조인(회원가입)2 페이지 */
+#joincontentbox{
+	max-width: 500px;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+#joinlogobox{
+	width:500px;
+	display:flex;
+	justify-content: center;
+}
+
+#joinlogoimg{
+	width:200px;
+}
+
+#joinsubject{
+	width: auto;
+	margin: auto;
+	font-size: 30px;
+	letter-spacing: 5px;
+}
+
+#joinform{
+	width: auto;
+}
+
+.jointabletitle{
+	color:darkgray;
+	width: 120px;
+	padding-right: 20px;
+	letter-spacing: 5px;
+}
+
+.jointablevalueid{
+	width: 75%;
+	height: 20px;
+	color: black;
+}
+
+.ck_btn{
+	width: 20%;
+	height: 26px;
+	background-color: rgb(232, 41, 95);
+	border: none;
+	border-radius: 3px;
+	color: white;
+}
+
+.jointablevalue{
+	width: 97%;
+	height: 20px;
+}
+
+#result{
+	font-size: 12px;
+}
+
+#sample6_postcode{
+	height:20px;
+	width:50%;
+}
+
+.sample6{
+	width: 45%;
+    height: 26px;
+    background-color: rgb(232, 41, 95);
+    border: none;
+    border-radius: 3px;
+    color: white;
+}
+
+#sample6_address{
+	height:20px;
+	width:50%;
+}
+
+#sample6_detailAddress{
+	height:20px;
+	width:50%;
+}
+
+#sample6_extraAddress{
+	height:20px;
+	width:40%;
+}
 
 /* 마이페이지 */
 div > #hostTitle, #hostTable{

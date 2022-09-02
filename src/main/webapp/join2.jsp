@@ -316,106 +316,109 @@
 		
 	</script>
 
-	<form action="tuserinsert.do" id="joinbox" onsubmit="return Validation();"
-		method="post" name="userInfo">
-		<div id="joincontentbox">
-		<a href="main.jsp"><img id="join_logo" alt="로고" src="images/22.jpg" ></a>
-			<div class="subject">
-				<span class="join_title">회원가입</span>
+	<div id="joincontentbox">
+		<div id="joinlogobox">
+			<a href="main.do">
+				<img alt="로고이미지" src="images/22.jpg" id="joinlogoimg">
+			</a>
+		</div>
+			<div id="joinsubject">
+				<h3>회원가입</h3>
 			</div>
-			<table id="join_table">
+			<form action="tuserinsert.do" onsubmit="return Validation();"
+			method="post" name="userInfo" id="joinform">
+			<table>
 				<tr>
-					<td><div class="join_id_box">아이디</div></td>
-					<td><input class="join_input" name="tuid" id="userid"
+					<td class="jointabletitle"><div>아이디</div></td>
+					<td><input name="tuid" id="userid"  class="jointablevalueid"
 						required placeholder="6~12자리 영문 혹은 영문과 숫자를 조합" onkeydown="inputIdChk()">
-						<button class="ck_btn" onclick="check();">v</button>
-						<input type="hidden" name="idDuplication" value="idUnCheck">
-						<div id="result">
-						</div></td>
-					<td><div></div></td>
+						<button class="ck_btn" onclick="check();">중복확인</button>
+						<input type="hidden" name="idDuplication" value="idUnCheck"></td>
 				</tr>
 				<tr>
-					<td><div class="join_name_box">비밀번호</div></td>
-					<td><input type="password" name="tupw" class="join_input" id="userPs"
-						required placeholder="비밀번호를 입력해주세요"></td>
-					<td><div></div></td>
-				</tr>
-				<tr>
-					<td><div class="join_name_box">비밀번호 확인</div></td>
-					<td><input type="password" class="join_input" id="userPc"
-						required placeholder="비밀번호를 한번 더 입력해주세요"></td>
-					<td><div></div></td>
-				</tr>
-				<tr>
-					<td><div class="join_name_box">닉네임</div></td>
-					<td><input class="join_input" id="usern" required
-						placeholder="닉네임을 입력해주세요"></td>
-					<td><div></div></td>
-				</tr>
-				<tr>
-					<td><div class="join_name_box">이메일</div></td>
-					<td><input class="join_input" id="userm" required
-						placeholder="ex) techtrip@three.com"></td>
 					<td></td>
+					<td><div id="result"></div></td>
 				</tr>
 				<tr>
-					<td><div class="join_name_box">휴대폰</div></td>
-					<td><input class="join_input" id="userh" required
+					<td class="jointabletitle"><div>비밀번호</div></td>
+					<td><input type="password" name="tupw"  class="jointablevalue"
+						required placeholder="비밀번호를 입력해주세요"></td>
+				</tr>
+				<tr class="tablebordertop">
+					<td class="jointabletitle"><div>비밀번호 확인</div></td>
+					<td><input type="password"  class="jointablevalue"
+						required placeholder="비밀번호를 한번 더 입력해주세요"></td>
+				</tr>
+				<tr class="tablebordertop">
+					<td class="jointabletitle"><div>닉네임</div></td>
+					<td><input required  class="jointablevalue"
+						placeholder="닉네임을 입력해주세요"></td>
+				</tr>
+				<tr class="tablebordertop">
+					<td class="jointabletitle"><div>이메일</div></td>
+					<td><input required  class="jointablevalue"
+						placeholder="ex) techtrip@three.com"></td>
+				</tr>
+				<tr class="tablebordertop">
+					<td class="jointabletitle"><div>휴대폰</div></td>
+					<td><input required  class="jointablevalue"
 						placeholder="ex) 010-0000-0000"></td>
-					<td><div></div></td>
 				</tr>
-				<tr>
-					<td><div class="join_name_box">주 소</div></td>
-					<td class="1111">
+				<tr class="tablebordertop">
+					<td></td>
+					<td>
 						<input type="text" id="sample6_postcode"
 						placeholder="우편번호" disabled>
-						<input type="button"
-						class="sample6" onclick="sample6_execDaumPostcode()"
-						value="우편번호 찾기"><br>
+						<button class="sample6" onclick="sample6_execDaumPostcode()">우편번호 찾기</button>
+					</td>
+				<tr>
+					<td class="jointabletitle"><div>주 소</div></td>
+					<td>
 						<input type="text"
-						id="sample6_address" placeholder="주소" disabled><br>
+						id="sample6_address" placeholder="주소" disabled>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>	
 						<input
 						type="text" id="sample6_detailAddress" placeholder="상세주소">
 						<input type="text" id="sample6_extraAddress" placeholder="참고항목"
 						disabled>
 					</td>
 				</tr>
-				<tr>
-					<td><div class="join_birth_box">생년월일</div></td>
+				<tr class="tablebordertop">
+					<td class="jointabletitle"><div>생년월일</div></td>
 					<td><input type="text" id="datepicker"></td>
-					<td><div></div></td>
 				</tr>
-				<tr id="join_gender_box">
-					<td><div class="join_gender_box">성 별</div></td>
-					<td class="join_gender_box">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;남&nbsp;<input type="radio"
-						name="gender" checked="checked" > &nbsp;&nbsp;&nbsp;&nbsp;여&nbsp;<input type="radio" name="gender">
-						&nbsp;</td>
-					<td><div></div></td>
+				<tr class="tablebordertop">
+					<td class="jointabletitle">성별</td>
+					<td>남&nbsp;<input type="radio"
+						name="gender" checked="checked">여&nbsp;<input type="radio" name="gender">
+					</td>
 				</tr>
-				<tr id="join_foeign_box">
-					<td><div class="join_foeign_box">정 보</div></td>
-					<td class="join_foeign_box">&nbsp;&nbsp;&nbsp;&nbsp;내국인&nbsp;<input type="radio"
+				<tr class="tablebordertop">
+					<td class="jointabletitle">국적</td>
+					<td>내국인&nbsp;<input type="radio"
 						name="local" checked="checked" > 외국인&nbsp;<input type="radio" name="local">
 						&nbsp;</td>
-					<td><div></div></td>
+				</tr>
+				<tr class="tablebordertop">
+					<td class="jointabletitle">회원종류</td>
+					<td>
+						<select>
+							<option value="일반회원" >일반회원</option>
+							<option value="host">host</option>
+							<option value="admin">admin</option>
+						</select>
+					</td>
 				</tr>
 				<tr>
-				<td><div class="join_grade">권 한</div></td>
-				<td> <select class="grade">
-
-							<option value="일반회원" class="grade_op">일반회원</option>
-							<option value="host" class="grade_op">host</option>
-							<option value="admin" class="grade_op">admin</option>
-							</select></td>
-				
-				</tr>
-				<tr>
-					<td></td>
-					<td><button type="submit" value="submit" id="joinbutton">회원가입하기</button></td>
+					<td colspan="2"><button type="submit" value="submit" id="joinbutton">회원가입하기</button></td>
 				</tr>
 			</table>
-		</div>
-	</form>
+		</form>
+	</div>
 <script type="text/javascript">
 $( "#datepicker" ).datepicker();
 
