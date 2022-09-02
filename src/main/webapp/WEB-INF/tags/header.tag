@@ -34,7 +34,7 @@
 			</c:when>
 			<c:otherwise>
 				<a href="login.jsp">login</a>&nbsp;
-				<a href="join.jsp">join</a>
+				<a href="joinfirst.jsp">join</a>
 			</c:otherwise>
 		</c:choose>
 	</div>
