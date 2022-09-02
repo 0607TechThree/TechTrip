@@ -350,7 +350,7 @@
 				<tr class="tablebordertop">
 					<td class="jointabletitle"><div>휴대폰</div></td>
 					<td><input required  class="jointablevalue" name="tuph"
-						placeholder="ex) 010-0000-0000"></td>
+						value="${param.userh}" readonly></td>
 				</tr>
 				<tr class="tablebordertop">
 					<td></td>
