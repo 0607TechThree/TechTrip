@@ -115,10 +115,10 @@
 				</c:if>
 				<c:if test="${logininfo != null}">
 					<c:if test="${data.trdel == 0}">
-						<div>예약(결제)하기(미구현)</div>
+						<div>이미 예약된 상품입니다</div>
 					</c:if>
 					<c:if test="${data.trdel == 1}">
-						<a href=""><div>예약(결제)하기(미구현)</div></a>
+						<a href="tpay.do?trpk=${data.trpk}"><div>예약(결제)하기</div></a>
 					</c:if>
 					<c:if test="${wflag==true}">
 						<a href="twishinsert.do?trpk=${data.trpk}&tupk=${logininfo.tupk}"><div>찜하기</div></a>

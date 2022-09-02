@@ -14,7 +14,7 @@ public class TbookDAO {
 	Connection conn;
 	PreparedStatement pstmt;
 	final String sql_selectAll="SELECT * FROM TBOOK, TROOM WHERE TBOOK.TRPK = TROOM.TRPK AND TBOOK.TUPK=?";
-	final String sql_insert="INSERT INTO TBOOK VALUES((SELECT NVL(MAX(TRPK),0) +1 FROM TROOM),?,?)";
+	final String sql_insert="INSERT INTO TBOOK VALUES((SELECT NVL(MAX(TBPK),0) +1 FROM TBOOK),?,?)";
 	//final String sql_update="UPDATE TBOOK SET WHERE TBPK = ? AND TUPK = ?";
 	//예약 정보를 수정 할 일이 없음
 	final String sql_delete="DELETE FROM TBOOK WHERE TBPK = ?";
