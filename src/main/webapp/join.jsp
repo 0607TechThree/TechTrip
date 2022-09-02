@@ -325,7 +325,7 @@
 					<td class="jointabletitle"><div>아이디</div></td>
 					<td><input name="tuid" id="userid"  class="jointablevalueid"
 						required placeholder="6~12자리 영문 혹은 영문과 숫자를 조합" onkeydown="inputIdChk()">
-						<button class="ck_btn" onclick="check();">중복확인</button>
+						<a class="ck_btn" href="javascript:check();">중복확인</a>
 						<input type="hidden" name="idDuplication" value="idUnCheck"></td>
 				</tr>
 				<tr>
@@ -350,20 +350,20 @@
 				<tr class="tablebordertop">
 					<td class="jointabletitle"><div>휴대폰</div></td>
 					<td><input required  class="jointablevalue" name="tuph"
-						placeholder="ex) 010-0000-0000"></td>
+						value="${param.userh}" readonly></td>
 				</tr>
 				<tr class="tablebordertop">
 					<td></td>
 					<td>
 						<input type="text" id="sample6_postcode" name="tuaddresszipcode"
-						placeholder="우편번호" disabled>
-						<button class="sample6" onclick="sample6_execDaumPostcode()">우편번호 찾기</button>
+						placeholder="우편번호" readonly>
+						<a class="sample6" href="javascript:sample6_execDaumPostcode();">우편번호 찾기</a>
 					</td>
 				<tr>
 					<td class="jointabletitle"><div>주 소</div></td>
 					<td>
 						<input type="text" name="tuaddress"
-						id="sample6_address" placeholder="주소" disabled>
+						id="sample6_address" placeholder="주소" readonly>
 					</td>
 				</tr>
 				<tr>
@@ -372,7 +372,7 @@
 						<input name="tuaddressdetail"
 						type="text" id="sample6_detailAddress" placeholder="상세주소">
 						<input type="text" id="sample6_extraAddress" placeholder="참고항목"
-						disabled>
+						readonly>
 					</td>
 				</tr>
 				<tr class="tablebordertop">
@@ -404,9 +404,7 @@
 				<tr>
 					<td colspan="2">
 						<br>
-						<center>
 							<button type="submit" value="submit" id="joinbutton">회원가입하기</button>
-						</center>
 					</td>
 				</tr>
 			</table>
