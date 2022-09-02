@@ -694,7 +694,7 @@ select.grade{
 	height: 40px;
 	background-color: rgb(232, 41, 95);
     border: none;
-    border-radius: 3px;
+    border-radius: 7px;
     color: white;
 }
 
