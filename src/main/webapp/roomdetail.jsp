@@ -140,7 +140,24 @@
 				title="${data.trname} 위치입니다"></div>
 		</div>
 		<div>
-			리뷰 달건데 데이터는 trdatas로 받음!
+			<h2>리뷰</h2>
+			
+			<c:if test="${trdatas.size() == 0}">작성한 글이 없습니다</c:if>
+			
+			<c:forEach var="v" items="${trdatas}">
+				<c:set var="b" value="${v.treviewVO}" />
+				<h3>
+					[${b.tvpk}] ${b.tboard} 
+				</h3>
+
+				<div class="reply">
+					<ul>
+						<c:forEach var="r" items="${v.rList}">
+							<li>[${r.tupk}] ${r.tpmsg} </li>
+						</c:forEach>
+					</ul>
+				</div>
+			</c:forEach>
 		</div>
 	</div>
 </div>
