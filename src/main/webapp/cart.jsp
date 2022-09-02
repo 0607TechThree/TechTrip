@@ -22,7 +22,20 @@
 </head>
 <body>
 	<tt:header />
-
+	<div>
+		카트페이지다~
+	</div>
+	<div>
+		<c:if test="${cartlist.size() != 0}">
+		<c:forEach var="cartlist" items="${cartlist}">
+			${cartlist.trname}
+			${cartlist.trprice}
+		</c:forEach>
+		</c:if>
+		<c:if test="${cartlist.size() == 0}">
+			장바구니 목록이 존재 x
+		</c:if>
+	</div>
 	<tt:footer />
 
 	<script type="text/javascript">

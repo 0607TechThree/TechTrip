@@ -15,7 +15,7 @@ public class TreviewDAO {
 	Connection conn;
 	PreparedStatement pstmt;
 	final String sql_selectAll = "SELECT * FROM TREVIEW WHERE TRPK = ? ORDER BY TVPK";
-	final String sql_selectAll_R = "SELECT * FROM TREPLY WHERE TRPK = ? ORDER BY TRPK";
+	final String sql_selectAll_R = "SELECT * FROM TREPLY WHERE TVPK = ? ORDER BY TPPK";
 	//final String sql_selectOne = "";
 	//특정 리뷰를 조회 할 일이 없음
 	final String sql_insert = "INSERT INTO TREVIEW(TVPK,TUPK,TRPK,TSTAR,TBOARD) VALUES((SELECT NVL(MAX(TPPK),0) +1 FROM TREVIEW),?,?,?,?)";
@@ -43,7 +43,7 @@ public class TreviewDAO {
 				
 				ArrayList<TreplyVO> tList = new ArrayList<TreplyVO>();
 				pstmt=conn.prepareStatement(sql_selectAll_R);
-				pstmt.setInt(1, rs.getInt("TRPK"));
+				pstmt.setInt(1, rs.getInt("TVPK"));
 				ResultSet rs2=pstmt.executeQuery();
 				while(rs2.next()) {
 					TreplyVO TreplyVO=new TreplyVO();

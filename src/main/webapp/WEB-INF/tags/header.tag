@@ -31,6 +31,7 @@
 			<c:when test="${logininfo != null}">
 				<a href="tuserlogout.do">logout</a>&nbsp;
 				<a href="mypage.do">mypage</a>
+				<a href="cart.do">cart</a>
 			</c:when>
 			<c:otherwise>
 				<a href="login.do">login</a>&nbsp;

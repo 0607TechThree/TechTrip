@@ -15,6 +15,7 @@ import controller.Tbook.TbookSelectAllAction;
 import controller.Tbook.TbookUpdateAction;
 import controller.Tcart.TcartDeleteAction;
 import controller.Tcart.TcartInsertAction;
+import controller.Tcart.TcartlistAction;
 import controller.Tpay.TPayAction;
 import controller.Treply.TreplyDeleteAction;
 import controller.Treply.TreplyInsertAction;
@@ -263,6 +264,13 @@ public class TFrontController extends HttpServlet {
 			}
 		}
 		//cart
+		else if(command.equals("/cart.do")) { // 장바구니 페이지 이동
+			try {
+				forward = new TcartlistAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		else if(command.equals("/tcartinsert.do")) { // 장바구니 추가
 			try {
 				forward = new TcartInsertAction().execute(request, response);
