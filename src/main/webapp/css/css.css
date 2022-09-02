@@ -209,12 +209,12 @@ input::placeholder {
 }
 
 /*푸터 스타일*/
-h2 {
+#footercontent > h2 {
 	letter-spacing: 10px;
 	color: rgba(0, 0, 0, 0.40);
 }
 
-h5 {
+#footercontent > h5 {
 	letter-spacing: 1px;
 	color: rgba(0, 0, 0, 0.32);
 }
@@ -269,6 +269,13 @@ h5 {
 	width: 100%;
 	height: 100%;
 }
+
+.exchangerate{
+	max-width: 1050px;
+	margin: auto;
+	height: 100px;
+}
+
 /* 로그인 */
 #logo .locontent .login .lomain .idpw .idbox .loidpw .lidpw 
  .idbox .loidpw .lidpw .find-idpw .ff-idpw .bt-id .bt-pw .btn-idpw {
@@ -691,14 +698,17 @@ select.grade{
     color: white;
 }
 
-/* 마이페이지 */
-div > #hostTitle, #hostTable{
+/* 관리자 등록 페이지 */
+#hostTitle{
 	margin: 0 auto;
 	text-align:center;
 }
-#hostTitle{
+
+#hostTable{
 	margin: 0 auto;
+	text-align:center;
 }
+
 .reg_btn{
 	color: rgb(255, 255, 255);
 	background-color: rgb(232, 41, 95);

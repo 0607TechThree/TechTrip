@@ -26,14 +26,12 @@
 /*datepicer input 롤오버 시 손가락 모양 표시*/
 .hasDatepicker{cursor: pointer;}
 </style>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
 <body>
 	<tt:header />
 	<div id="hostTitle">
-		관리자 등록페이지
+		<h2>
+			관리자 등록페이지
+		</h2>
 	</div>
 	<div>
 		<form action="" method="post">
@@ -72,11 +70,11 @@
 				</tr>
 				<input type="hidden" value="">
 				<tr>
-					<td>입실날짜1 : </td>
+					<td>입실날짜 : </td>
 					<td><input type="text" id="datepicker"></td>
 				</tr>
 				<tr>
-					<td>퇴실날짜2 : </td>
+					<td>퇴실날짜 : </td>
 					<td><input type="text" id="datepicker2"></td>
 				</tr>
 				<tr>
