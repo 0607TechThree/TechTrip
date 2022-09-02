@@ -669,7 +669,26 @@ select.grade{
 
 #sample6_extraAddress{
 	height:20px;
-	width:40%;
+	width:42%;
+}
+
+#datepicker{
+	width:50%;
+	height:20px;
+}
+
+#joinrole{
+	width: 160px;
+	height: 26px;
+}
+
+#joinbutton{
+	width: 200px;
+	height: 40px;
+	background-color: rgb(232, 41, 95);
+    border: none;
+    border-radius: 3px;
+    color: white;
 }
 
 /* 마이페이지 */

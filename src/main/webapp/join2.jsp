@@ -68,13 +68,13 @@
 
 			var RegExp = /^[a-zA-Z0-9]{6,12}$/; // 아이디 유효성 검사
 
-			var BrExp = /^[0-9]{4}$/; // 년도
+			// var BrExp = /^[0-9]{4}$/; // 년도
 
-			var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/; // 이메일 유효성 검사
+			// var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/; // 이메일 유효성 검사
 
 			var nameExp = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // 이름 유효성 검사
 
-			var phoneExp = /^\d{3}-\d{3,4}-\d{4}$/;
+			// var phoneExp = /^\d{3}-\d{3,4}-\d{4}$/;
 
 			var userId = document.getElementById("userid");
 
@@ -197,17 +197,9 @@
 				return false;
 
 			}
-			// 이메일이 이메일 형식과 맞지 않을 경우
-
-			if (exptext.test(userM.value) == false) {
-
-				alert("이메일형식이 맞지 않습니다.");
-				$("#userm").focus();
-				return false;
-
-			}
-
+			
 			// 전화번호
+			/*
 			if (userh.value == "") {
 
 				alert("전화번호가 입력되지 않았습니다.");
@@ -220,6 +212,7 @@
 				$("#userh").focus();
 				return false;
 			}
+			*/
 			if (userad.value == "") {
 
 				alert("우편번호가 입력되지 않았습니다.");
@@ -227,14 +220,14 @@
 				return false;
 			}
 			// 년도 
-
+			/*
 			if (BrExp.test(userBr.value) == false) {
 
 				alert("년도 형식이 맞지 않습니다.");
 				$("#birth").focus();
 				return false;
 			}
-
+			
 			if (userBr.value == "") {
 
 				alert("년도가 입력되지 않았습니다.");
@@ -247,7 +240,7 @@
 				$("#birth").focus();
 				return false;
 			}
-
+			*/
 		}
 		function sample6_execDaumPostcode() {
 			new daum.Postcode(
@@ -345,43 +338,38 @@
 						required placeholder="비밀번호를 입력해주세요"></td>
 				</tr>
 				<tr class="tablebordertop">
-					<td class="jointabletitle"><div>비밀번호 확인</div></td>
+					<td class="jointabletitle"><div>비밀번호확인</div></td>
 					<td><input type="password"  class="jointablevalue"
 						required placeholder="비밀번호를 한번 더 입력해주세요"></td>
 				</tr>
 				<tr class="tablebordertop">
 					<td class="jointabletitle"><div>닉네임</div></td>
-					<td><input required  class="jointablevalue"
+					<td><input required  class="jointablevalue" name="tunickname"
 						placeholder="닉네임을 입력해주세요"></td>
 				</tr>
 				<tr class="tablebordertop">
-					<td class="jointabletitle"><div>이메일</div></td>
-					<td><input required  class="jointablevalue"
-						placeholder="ex) techtrip@three.com"></td>
-				</tr>
-				<tr class="tablebordertop">
 					<td class="jointabletitle"><div>휴대폰</div></td>
-					<td><input required  class="jointablevalue"
+					<td><input required  class="jointablevalue" name="tuph"
 						placeholder="ex) 010-0000-0000"></td>
 				</tr>
 				<tr class="tablebordertop">
 					<td></td>
 					<td>
-						<input type="text" id="sample6_postcode"
+						<input type="text" id="sample6_postcode" name="tuaddresszipcode"
 						placeholder="우편번호" disabled>
 						<button class="sample6" onclick="sample6_execDaumPostcode()">우편번호 찾기</button>
 					</td>
 				<tr>
 					<td class="jointabletitle"><div>주 소</div></td>
 					<td>
-						<input type="text"
+						<input type="text" name="tuaddress"
 						id="sample6_address" placeholder="주소" disabled>
 					</td>
 				</tr>
 				<tr>
 					<td></td>
 					<td>	
-						<input
+						<input name="tuaddressdetail"
 						type="text" id="sample6_detailAddress" placeholder="상세주소">
 						<input type="text" id="sample6_extraAddress" placeholder="참고항목"
 						disabled>
@@ -389,24 +377,24 @@
 				</tr>
 				<tr class="tablebordertop">
 					<td class="jointabletitle"><div>생년월일</div></td>
-					<td><input type="text" id="datepicker"></td>
+					<td><input type="text" id="datepicker" name="tubirth"></td>
 				</tr>
 				<tr class="tablebordertop">
 					<td class="jointabletitle">성별</td>
 					<td>남&nbsp;<input type="radio"
-						name="gender" checked="checked">여&nbsp;<input type="radio" name="gender">
+						name="tugender" checked="checked">여&nbsp;<input type="radio" name="tugender">
 					</td>
 				</tr>
 				<tr class="tablebordertop">
 					<td class="jointabletitle">국적</td>
 					<td>내국인&nbsp;<input type="radio"
-						name="local" checked="checked" > 외국인&nbsp;<input type="radio" name="local">
+						name="tunation" checked="checked" > 외국인&nbsp;<input type="radio" name="tunation">
 						&nbsp;</td>
 				</tr>
 				<tr class="tablebordertop">
 					<td class="jointabletitle">회원종류</td>
 					<td>
-						<select>
+						<select id="joinrole" name="turole">
 							<option value="일반회원" >일반회원</option>
 							<option value="host">host</option>
 							<option value="admin">admin</option>
@@ -414,7 +402,12 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2"><button type="submit" value="submit" id="joinbutton">회원가입하기</button></td>
+					<td colspan="2">
+						<br>
+						<center>
+							<button type="submit" value="submit" id="joinbutton">회원가입하기</button>
+						</center>
+					</td>
 				</tr>
 			</table>
 		</form>
