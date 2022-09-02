@@ -30,28 +30,32 @@
     </c:if>
   </ul>
   <div id="fragment-1">
-    <div class="">
-    	예약목록
-    </div>
-    <div>
-    	예약 취소하기
-    </div>
+    <c:forEach var="booklist" items="${booklist}">
+	    <div class="">
+    		${booklist.trname}<br>
+	    	${booklist.trprice}<br>
+	    </div>
+    	<div>
+    		예약 취소하기
+ 	   	</div>
+	</c:forEach>
   </div>
   <div id="fragment-2">
-    <div>
-    	<c:forEach var="wr" items="${wishroom}">
+    <c:forEach var="wr" items="${wishroom}">
+	    <div>
     		<div>
     			${wr.trname}
     		</div>
-    	</c:forEach>
-    </div>
-    <div>
-    	찜 취소하기
-    </div>
+	    </div>
+    	<div>
+    		찜 취소하기
+	    </div>
+    </c:forEach>
   </div>
   <div id="fragment-3">
 	<div>
-    	회원정보
+    	${logininfo.tuid}
+    	${logininfo.tuph}
     </div>
   </div>
   <div id="fragment-4">
