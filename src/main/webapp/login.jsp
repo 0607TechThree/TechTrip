@@ -85,6 +85,7 @@
 								value="">
 						</div>
 					</div>
+					<input type="hidden" name="location" value="${location}">
 				</div>
 				<div class="find-idpw">
 					<a class="fidpw">아이디 찾기</a> <span class="ff-idpw"></span> <a
