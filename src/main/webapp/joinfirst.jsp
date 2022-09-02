@@ -22,7 +22,7 @@
 			<table>
 				<tr>
 					<td>전화번호</td>
-					<td><input type="tel" name="" id="userh"></td>
+					<td><input type="tel" name="userh" id="userh"></td>
 					<td><a href="javascript:sms();">인증번호 전송</a></td>
 				</tr>
 				<tr>
