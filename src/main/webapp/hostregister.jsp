@@ -34,7 +34,7 @@
 		</h2>
 	</div>
 	<div>
-		<form action="" method="post">
+		<form action="troominsert.do" method="post">
 			<table id="hostTable">
 				<tr>
 					<th>구분</th>
@@ -43,39 +43,73 @@
 				<tr>
 					<td>숙소 종류</td>
 					<td>
-					<select>
+					<select name="trcategory">
 					<option>호 텔</option>
 					</select>
 					</td>
 				</tr>
 				<tr>
-					<td>주소</td>
-					<td><input type="text"></td>
+					<td>지역</td>
+					<td>
+					<select name="trregion">
+						<option>서울</option>
+						<option>경기</option>
+						<option>인천</option>
+						<option>호남</option>
+						<option>강원</option>
+						<option>부산</option>
+						<option>제주</option>
+					</select>
+					</td>
+				</tr>
+				<tr class="">
+					<td></td>
+					<td>
+						<input type="text" id="sample6_postcode" name="tuaddresszipcode"
+						placeholder="우편번호" readonly>
+						<a class="sample6" href="javascript:sample6_execDaumPostcode();">우편번호 찾기</a>
+					</td>
+				</tr>
+				<tr>
+					<td class=""><div>주 소</div></td>
+					<td>
+						<input type="text" name="tuaddress"
+						id="sample6_address" placeholder="주소" readonly>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>	
+						<input name="tuaddressdetail"
+						type="text" id="sample6_detailAddress" placeholder="상세주소">
+						<input type="text" id="sample6_extraAddress" placeholder="참고항목"
+						readonly>
+					</td>
 				</tr>
 				<tr>
 					<td>지역</td>
-					<td><input type="text"></td>
+					<td><input type="text" name="trregion"></td>
 				</tr>
 				<tr>
 					<td>숙소명</td>
-					<td><input type="text"></td>
+					<td><input type="text" name="trname"></td>
 				</tr>
 				<tr>
 					<td>가격</td>
-					<td><input type="number"></td>
+					<td><input type="number" name="trpice"></td>
 				</tr>
 				<tr>
 					<td>사장님한마디</td>
-					<td><textarea style="resize:none" rows="4" cols="20"></textarea></td>
+					<td><textarea style="resize:none" rows="4" cols="20" name="trinfo"></textarea></td>
 				</tr>
-				<input type="hidden" value="">
+				<input type="hidden" value="${logininfo.tupk}" name="tupk">
 				<tr>
 					<td>입실날짜 : </td>
-					<td><input type="text" id="datepicker"></td>
+					<td><input type="text" id="datepicker" name="checkin"></td>
 				</tr>
 				<tr>
 					<td>퇴실날짜 : </td>
-					<td><input type="text" id="datepicker2"></td>
+					<td><input type="text" id="datepicker2" name="checkout"></td>
 				</tr>
 				<tr>
 					<td><input class="reg_btn" type="submit" value="등록하기"></td>
@@ -86,6 +120,8 @@
 	<tt:footer />
 <script src="//code.jquery.com/jquery-1.12.4.js"></script>
   <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script
+		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
 $( "#datepicker" ).datepicker();
 // id가 datepicker인 태그를 datepicker로 설정
@@ -114,6 +150,70 @@ $('#datepicker').datepicker('setDate', 'today');
 // 초기 세팅 날짜
 $('#datepicker2').datepicker('setDate', '+1D');
 // 초기 세팅 날짜
+function sample6_execDaumPostcode() {
+			new daum.Postcode(
+					{
+						oncomplete : function(data) {
+							// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+							// 각 주소의 노출 규칙에 따라 주소를 조합한다.
+							// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+							var addr = ''; // 주소 변수
+							var extraAddr = ''; // 참고항목 변수
+
+							//사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+							if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+								addr = data.roadAddress;
+							} else { // 사용자가 지번 주소를 선택했을 경우(J)
+								addr = data.jibunAddress;
+							}
+
+							// 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+							if (data.userSelectedType === 'R') {
+								// 법정동명이 있을 경우 추가한다. (법정리는 제외)
+								// 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+								if (data.bname !== ''
+										&& /[동|로|가]$/g.test(data.bname)) {
+									extraAddr += data.bname;
+								}
+								// 건물명이 있고, 공동주택일 경우 추가한다.
+								if (data.buildingName !== ''
+										&& data.apartment === 'Y') {
+									extraAddr += (extraAddr !== '' ? ', '
+											+ data.buildingName
+											: data.buildingName);
+								}
+								// 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+								if (extraAddr !== '') {
+									extraAddr = ' (' + extraAddr + ')';
+								}
+								// 조합된 참고항목을 해당 필드에 넣는다.
+								document.getElementById("sample6_extraAddress").value = extraAddr;
+
+							} else {
+								document.getElementById("sample6_extraAddress").value = '';
+							}
+
+							// 우편번호와 주소 정보를 해당 필드에 넣는다.
+							document.getElementById('sample6_postcode').value = data.zonecode;
+							document.getElementById("sample6_address").value = addr;
+							// 커서를 상세주소 필드로 이동한다.
+							document.getElementById("sample6_detailAddress")
+									.focus();
+						},
+						theme : {
+							bgColor : "#6F42C1", //바탕 배경색
+							searchBgColor : "#FFFFFF", //검색창 배경색
+							contentBgColor : "#FFFFFF" //본문 배경색(검색결과,결과없음,첫화면,검색서제스트)
+						//pageBgColor: "", //페이지 배경색
+						//textColor: "", //기본 글자색
+						//queryTextColor: "", //검색창 글자색
+						//postcodeTextColor: "", //우편번호 글자색
+						//emphTextColor: "", //강조 글자색
+						//outlineColor: "", //테두리
+						}
+					}).open();
+		}
 </script>
 </body>
 </html>
