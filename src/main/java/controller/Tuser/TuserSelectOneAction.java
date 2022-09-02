@@ -23,6 +23,8 @@ public class TuserSelectOneAction implements TInterface{
 				
 		String paramTuid=request.getParameter("tuid");
 		String paramTupw=request.getParameter("tupw");
+		String paramLocation=request.getParameter("location");
+		System.out.println("selectone에서의 paramlocation 변수 : "+paramLocation);
 		ArrayList<Integer> cart = new ArrayList<Integer>(); // 장바구니 세션
 		
 		tuvo.setTuid(paramTuid);
@@ -34,7 +36,7 @@ public class TuserSelectOneAction implements TInterface{
 			session.setAttribute("logininfo", data); // 로그인한 회원정보
 			session.setAttribute("cart", cart); // 장바구니
 			forward=new TActionForward();
-			forward.setPath("main.do");
+			forward.setPath(paramLocation);
 			forward.setRedirect(false);
 		}
 		else {

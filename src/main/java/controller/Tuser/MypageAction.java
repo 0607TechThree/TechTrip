@@ -6,10 +6,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import DAO.TbookDAO;
 import DAO.TreviewDAO;
 import DAO.TroomDAO;
 import DAO.TwishDAO;
-import VO.TreviewSet;
+import VO.TbookVO;
 import VO.TreviewVO;
 import VO.TroomVO;
 import VO.TuserVO;
@@ -23,9 +24,9 @@ public class MypageAction implements TInterface{
 	public TActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		TActionForward forward=null;
 		HttpSession session = request.getSession();
-		//boolean flag=true;
-		//boolean wflag=true;
-
+		
+		TbookDAO tbdao=new TbookDAO();
+		TbookVO tbvo=new TbookVO();
 		TroomDAO trdao=new TroomDAO();
 		TroomVO trvo=new TroomVO();
 		TreviewVO trvvo=new TreviewVO();
@@ -35,19 +36,17 @@ public class MypageAction implements TInterface{
 		//String paramTrpk=request.getParameter("trpk");
 		TuserVO logindata = null;
 		
+		// 로그인을 한 상태라면 로그인 정보를 담아줌 (예외가 없다면 로그인 되어있을 것임)
 		if(session.getAttribute("logininfo") != null) {
 			logindata = (TuserVO)session.getAttribute("logininfo");
 		}
-		/*
-		ArrayList<Integer> cart = (ArrayList<Integer>)session.getAttribute("cart");
-		if(cart != null) {
-			for(int i=0;i<cart.size();i++) {
-				if(cart.get(i) == Integer.parseInt(paramTrpk)) {
-					flag=false;
-				}
-			}
-		}
-		*/
+		
+		// 예약목록
+		tbvo.setTupk(logindata.getTupk());
+		System.out.println(tbvo);
+		ArrayList<TroomVO> booklist = tbdao.selectAll(tbvo);
+		System.out.println(booklist);
+		//찜목록
 		twvo.setTupk(logindata.getTupk());
 		ArrayList<TwishVO> wishList= twdao.selectAll(twvo);
 		ArrayList<TroomVO> wishroom = new ArrayList<TroomVO>();
@@ -59,13 +58,13 @@ public class MypageAction implements TInterface{
 				}
 			}
 		}
-		//trvvo.setTrpk(Integer.parseInt(paramTrpk));
-		//ArrayList<TreviewSet> trdatas = trvdao.selectAll(trvvo);
-
-		//request.setAttribute("flag", flag); // 현재 페이지 상품이 장바구니에 있다면 false
-		//request.setAttribute("wflag", wflag); // 현재 페이지 상품이 찜목록에 있다면 false
-		//request.setAttribute("trdatas", trdatas); // 리뷰 + 댓글
+		
+		// 내가 작성한 리뷰
+		
+		// 내가 등록한 숙소
+		
 		request.setAttribute("wishroom", wishroom); // 찜 목록
+		request.setAttribute("booklist", booklist); // 예약 목록		
 		forward=new TActionForward();
 		forward.setPath("/mypage.jsp");
 		forward.setRedirect(false);

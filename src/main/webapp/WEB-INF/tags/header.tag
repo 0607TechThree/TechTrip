@@ -33,7 +33,7 @@
 				<a href="mypage.do">mypage</a>
 			</c:when>
 			<c:otherwise>
-				<a href="login.jsp">login</a>&nbsp;
+				<a href="login.do">login</a>&nbsp;
 				<a href="joinfirst.jsp">join</a>
 			</c:otherwise>
 		</c:choose>

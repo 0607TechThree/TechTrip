@@ -23,7 +23,7 @@ public class TbookDAO {
 		conn=JDBCUtil.connect();
 		try {
 			pstmt=conn.prepareStatement(sql_selectAll);
-			pstmt.setInt(1, vo.getTrpk());
+			pstmt.setInt(1, vo.getTupk());
 			ResultSet rs=pstmt.executeQuery();
 			while(rs.next()) {
 				TroomVO data=new TroomVO();

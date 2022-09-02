@@ -30,6 +30,7 @@ import controller.Troom.TroomInsertAction;
 import controller.Troom.TroomSelectAllAction;
 import controller.Troom.TroomSelectOneAction;
 import controller.Troom.TroomUpdateAction;
+import controller.Tuser.LoginAction;
 import controller.Tuser.MypageAction;
 import controller.Tuser.TuserInsertAction;
 import controller.Tuser.TuserLogoutAction;
@@ -208,7 +209,15 @@ public class TFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/tuserselectone.do")) {// 로그인용
+		}
+		else if(command.equals("/login.do")) {// 로그인페이지로 들어오기 이전 페이지의 주소를 저장하기 위한 액션
+			try {
+				forward = new LoginAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/tuserselectone.do")) {// 로그인용
 			try {
 				forward = new TuserSelectOneAction().execute(request, response);
 			} catch (Exception e) {
