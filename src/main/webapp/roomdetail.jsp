@@ -101,9 +101,11 @@
 			<div>
 				사장님 한마디: ${data.trinfo}
 			</div>
-			아앙 ${cart}
-			아앙2 ${data.trpk}
 			<div>
+				<c:if test="${data.trdel == 0}">
+					<div>이미 예약된 상품입니다</div>
+				</c:if>
+				<c:if test="${data.trdel != 0}">
 				<c:if test="${logininfo != null}">
 					<c:set var="v" value="${cart}"/>
 					<c:if test="${flag==true}">
@@ -114,9 +116,6 @@
 					</c:if>
 				</c:if>
 				<c:if test="${logininfo != null}">
-					<c:if test="${data.trdel == 0}">
-						<div>이미 예약된 상품입니다</div>
-					</c:if>
 					<c:if test="${data.trdel == 1}">
 						<a href="tpay.do?trpk=${data.trpk}"><div>예약(결제)하기</div></a>
 					</c:if>
@@ -130,6 +129,7 @@
 				<c:if test="${logininfo == null}">
 					<a>예약(결제)하기</a>
 					<a>찜하기</a>
+				</c:if>
 				</c:if>
 			</div>
 		</div>
