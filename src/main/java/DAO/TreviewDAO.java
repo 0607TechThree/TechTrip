@@ -18,7 +18,7 @@ public class TreviewDAO {
 	final String sql_selectAll_R = "SELECT * FROM TREPLY WHERE TVPK = ? ORDER BY TPPK";
 	//final String sql_selectOne = "";
 	//특정 리뷰를 조회 할 일이 없음
-	final String sql_insert = "INSERT INTO TREVIEW(TVPK,TUPK,TRPK,TSTAR,TBOARD) VALUES((SELECT NVL(MAX(TPPK),0) +1 FROM TREVIEW),?,?,?,?)";
+	final String sql_insert = "INSERT INTO TREVIEW(TVPK,TUPK,TRPK,TSTAR,TBOARD) VALUES((SELECT NVL(MAX(TVPK),0) +1 FROM TREVIEW),?,?,?,?)";
 	final String sql_update_S="UPDATE TREVIEW SET TSTAR = ? WHERE TVPK = ?";
 	final String sql_update_M ="UPDATE TREVIEW SET TBOARD = ? WHERE TVPK = ?";
 	final String sql_delete = "DELETE FROM TREVIEW WHERE TVPK = ?";
@@ -67,10 +67,9 @@ public class TreviewDAO {
 		conn=JDBCUtil.connect();
 		try {
 			pstmt=conn.prepareStatement(sql_insert);
-			pstmt.setInt(1, vo.getTvpk());
-			pstmt.setInt(2, vo.getTupk());
-			pstmt.setInt(3, vo.getTrpk());
-			pstmt.setInt(4, vo.getTstar());
+			pstmt.setInt(1, vo.getTupk());
+			pstmt.setInt(2, vo.getTrpk());
+			pstmt.setInt(3, vo.getTstar());
 			if(vo.getTboard() == null) {
 				pstmt.setString(5, "-");		
 			}else {

@@ -34,8 +34,8 @@ public class TroomInsertAction implements TInterface{
 		trvo.setTrprice(Integer.parseInt(paramTrprice));
 		trvo.setTrinfo(paramTrinfo);
 		trvo.setTupk(Integer.parseInt(paramTupk));
-		trvo.setTrname(paramCheckin);
-		trvo.setTrname(paramCheckout);
+		trvo.setCheckin(paramCheckin);
+		trvo.setCheckout(paramCheckout);
 		
 		if(trdao.insert(trvo)) {
 			forward=new TActionForward();

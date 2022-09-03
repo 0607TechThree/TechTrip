@@ -43,8 +43,8 @@ public class TreplyDAO {
 		conn=JDBCUtil.connect();
 		try {
 			pstmt=conn.prepareStatement(sql_insert);
-			pstmt.setInt(1,vo.getTppk());
-			pstmt.setInt(2,vo.getTupk());
+			pstmt.setInt(1,vo.getTupk());
+			pstmt.setInt(2,vo.getTvpk());
 			pstmt.setString(3,vo.getTpmsg());
 			pstmt.executeUpdate();
 		} catch (SQLException e) {

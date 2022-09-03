@@ -19,8 +19,9 @@
 	rel="stylesheet">
 	<script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDmRXJ2n2XITfPx9iI8fUP8QpOjbUVx0uk&sensor=true"></script>
+<script src="jquery.rating.js" type="text/javascript" language="javascript"></script>
 <!-- GoogoleMap Asynchronously Loading the API ********************************************* -->
 <script type="text/javascript">
 	function initialize() {
@@ -75,6 +76,40 @@
 
 	}
 	google.maps.event.addDomListener(window, 'load', initialize);
+	
+	//////////// 별점인데 작동 안함 확인해봐야댐
+	//////////// 참고 주소 https://okky.kr/articles/666305
+	
+	    $('.star-container span').click(function(e){
+
+		        $(this).parent().children('span').removeClass('on');
+
+		        
+
+		        $(this).addClass('on').prevAll('span').addClass('on');
+
+		        })
+		
+	var $starEls = $('#star span.star');
+	var rate = 0;
+
+	$starEls.each(function (index, $el) {
+	    $el.on('click', function () {
+	        rating(index);
+	    });
+	});
+
+	function rating(score) {
+	    $starEls.each(function (i, $el) {
+	        if (i < score) {
+	            $el.addClass('on');
+	        } else {
+	            $el.removeClass('on');
+	        }
+	    });
+
+	    rate = score + 1;
+	}
 </script>
 </head>
 <body>
@@ -140,6 +175,10 @@
 				title="${data.trname} 위치입니다"></div>
 		</div>
 		<div>
+		<div id="">
+			<h2>글 등록하기</h2>
+			<tt:write type="tboard" />
+		</div>
 			<h2>리뷰</h2>
 			
 			<c:if test="${trdatas.size() == 0}">작성한 글이 없습니다</c:if>
@@ -156,6 +195,9 @@
 							<li>[${r.tupk}] ${r.tpmsg} </li>
 						</c:forEach>
 					</ul>
+				</div>
+				<div class="">
+					<tt:write type="tpmsg" tvpk="${b.tvpk}" />
 				</div>
 			</c:forEach>
 		</div>
