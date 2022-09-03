@@ -6,8 +6,9 @@
 
 <c:if test="${logininfo.tuid != null}">
 	<form action="treviewinsert.do" method="post">
-		<input type="hidden" name="sessionMid" value="${logininfo.tuid}">
+		<input type="hidden" name="tupk" value="${logininfo.tupk}">
 		<input type="hidden" name="trpk" value="${data.trpk}">
+		<input type="hidden" name="tstar" value="5">
 		<!-- 페이징 처리
 	<input type="hidden" name="cnt" value="${cnt}">
 	 -->

@@ -70,10 +70,10 @@ public class TreviewDAO {
 			pstmt.setInt(1, vo.getTupk());
 			pstmt.setInt(2, vo.getTrpk());
 			pstmt.setInt(3, vo.getTstar());
-			if(vo.getTboard() == null) {
-				pstmt.setString(5, "-");		
+			if(vo.getTboard().equals("")||vo.getTboard().equals(null)) {
+				pstmt.setString(4, "-");		
 			}else {
-				pstmt.setString(5, vo.getTboard());					
+				pstmt.setString(4, vo.getTboard());					
 			}
 			int res=pstmt.executeUpdate();
 			if(res==0) {

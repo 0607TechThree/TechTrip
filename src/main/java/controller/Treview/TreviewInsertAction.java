@@ -17,20 +17,21 @@ public class TreviewInsertAction implements TInterface{
 		TreviewDAO trdao=new TreviewDAO();
 		TreviewVO trvo=new TreviewVO();
 		
-		String paramTvpk=request.getParameter("tvpk");
 		String paramTupk=request.getParameter("tupk");
 		String paramTrpk=request.getParameter("trpk");
+		String paramTboard=request.getParameter("tboard");
 		String paramTstar=request.getParameter("tstar");
 
-		trvo.setTvpk(Integer.parseInt(paramTvpk));
 		trvo.setTupk(Integer.parseInt(paramTupk));
 		trvo.setTrpk(Integer.parseInt(paramTrpk));
+		trvo.setTboard(paramTboard);
 		trvo.setTstar(Integer.parseInt(paramTstar));
 		
 		if(trdao.insert(trvo)) {
+			request.setAttribute("trpk", paramTrpk);
 			forward=new TActionForward();
-			forward.setPath("/troomdetail.jsp");
-			forward.setRedirect(true);
+			forward.setPath("troomselectone.do");
+			forward.setRedirect(false);
 		}else {
 			request.setAttribute("errormsg", "리뷰 추가 실패");
 			System.out.println("log: TreviewInsertAction");
