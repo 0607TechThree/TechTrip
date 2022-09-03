@@ -35,6 +35,7 @@
 	</div>
 	<div>
 		<form action="troominsert.do" method="post">
+				<input type="hidden" value="${logininfo.tupk}" name="tupk">
 			<table id="hostTable">
 				<tr>
 					<th>구분</th>
@@ -65,7 +66,7 @@
 				<tr class="">
 					<td></td>
 					<td>
-						<input type="text" id="sample6_postcode" name="tuaddresszipcode"
+						<input type="text" id="sample6_postcode" name="traddresszipcode"
 						placeholder="우편번호" readonly>
 						<a class="sample6" href="javascript:sample6_execDaumPostcode();">우편번호 찾기</a>
 					</td>
@@ -73,22 +74,22 @@
 				<tr>
 					<td class=""><div>주 소</div></td>
 					<td>
-						<input type="text" name="tuaddress"
+						<input type="text" name="1traddress"
 						id="sample6_address" placeholder="주소" readonly>
 					</td>
 				</tr>
 				<tr>
 					<td></td>
 					<td>	
-						<input name="tuaddressdetail"
+						<input name="traddressdetail"
 						type="text" id="sample6_detailAddress" placeholder="상세주소">
 						<input type="text" id="sample6_extraAddress" placeholder="참고항목"
 						readonly>
 					</td>
 				</tr>
 				<tr>
-					<td>지역</td>
-					<td><input type="text" name="trregion"></td>
+					<td><div>주소</div></td>
+					<td><input type="text" name="traddress"></td>
 				</tr>
 				<tr>
 					<td>숙소명</td>
@@ -102,7 +103,6 @@
 					<td>사장님한마디</td>
 					<td><textarea style="resize:none" rows="4" cols="20" name="trinfo"></textarea></td>
 				</tr>
-				<input type="hidden" value="${logininfo.tupk}" name="tupk">
 				<tr>
 					<td>입실날짜 : </td>
 					<td><input type="text" id="datepicker" name="checkin"></td>
@@ -110,6 +110,18 @@
 				<tr>
 					<td>퇴실날짜 : </td>
 					<td><input type="text" id="datepicker2" name="checkout"></td>
+				</tr>
+				<tr>
+					<td>
+    					<label for="file">파일</label> 
+    					<input type="file" id="file" name="file"> 
+    					<a id="btn_submit" onclick="javascript:fn_submit()">전송</a>    
+					</td>
+ 
+       				<td class="img_wrap">
+           				<img id="img" />
+       				</td>
+
 				</tr>
 				<tr>
 					<td><input class="reg_btn" type="submit" value="등록하기"></td>
@@ -150,6 +162,7 @@ $('#datepicker').datepicker('setDate', 'today');
 // 초기 세팅 날짜
 $('#datepicker2').datepicker('setDate', '+1D');
 // 초기 세팅 날짜
+
 function sample6_execDaumPostcode() {
 			new daum.Postcode(
 					{
@@ -214,6 +227,56 @@ function sample6_execDaumPostcode() {
 						}
 					}).open();
 		}
+//이미지 미리보기
+var sel_file;
+
+$(document).ready(function() {
+    $("#file").on("change", handleImgFileSelect);
+});
+
+function handleImgFileSelect(e) {
+    var files = e.target.files;
+    var filesArr = Array.prototype.slice.call(files);
+
+    var reg = /(.*?)\/(jpg|jpeg|png|bmp)$/;
+
+    filesArr.forEach(function(f) {
+        if (!f.type.match(reg)) {
+            alert("확장자는 이미지 확장자만 가능합니다.");
+            return;
+        }
+
+        sel_file = f;
+
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $("#img").attr("src", e.target.result);
+        }
+        reader.readAsDataURL(f);
+    });
+}
+//파일 업로드
+function fn_submit(){
+        
+        var form = new FormData();
+        form.append( "file", $("#file")[0].files[0] );
+        
+         jQuery.ajax({
+             url : "${pageContext.request.contextPath}/imgresult"
+           , type : "POST"
+           , processData : false
+           , contentType : false
+           , data : form
+           , success:function(response) {
+               alert("성공하였습니다.");
+               console.log(response);
+           }
+           ,error: function (jqXHR) 
+           { 
+               alert(jqXHR.responseText); 
+           }
+       });
+}
 </script>
 </body>
 </html>

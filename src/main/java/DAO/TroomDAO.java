@@ -94,7 +94,11 @@ public class TroomDAO {
 			pstmt.setString(3, vo.getTrregion());
 			pstmt.setString(4, vo.getTrname());
 			pstmt.setInt(5, vo.getTrprice());
-			pstmt.setString(6, vo.getTrinfo());
+			if(vo.getTrinfo().equals("") || vo.getTrinfo().equals(null)) {
+				pstmt.setString(6, "-");		
+			}else {				
+				pstmt.setString(6, vo.getTrinfo());				
+			}
 			pstmt.setInt(7, vo.getTupk());
 			pstmt.setInt(8, 1);
 			pstmt.setString(9, vo.getCheckin());
