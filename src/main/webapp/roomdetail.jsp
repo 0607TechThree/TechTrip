@@ -80,36 +80,6 @@
 	//////////// 별점인데 작동 안함 확인해봐야댐
 	//////////// 참고 주소 https://okky.kr/articles/666305
 	
-	    $('.star-container span').click(function(e){
-
-		        $(this).parent().children('span').removeClass('on');
-
-		        
-
-		        $(this).addClass('on').prevAll('span').addClass('on');
-
-		        })
-		
-	var $starEls = $('#star span.star');
-	var rate = 0;
-
-	$starEls.each(function (index, $el) {
-	    $el.on('click', function () {
-	        rating(index);
-	    });
-	});
-
-	function rating(score) {
-	    $starEls.each(function (i, $el) {
-	        if (i < score) {
-	            $el.addClass('on');
-	        } else {
-	            $el.removeClass('on');
-	        }
-	    });
-
-	    rate = score + 1;
-	}
 </script>
 </head>
 <body>
@@ -177,7 +147,7 @@
 		<div>
 		<div id="">
 			<h2>글 등록하기</h2>
-			<tt:write type="tboard" />
+			<tt:write type="tboard"/>
 		</div>
 			<h2>리뷰</h2>
 			
@@ -186,7 +156,7 @@
 			<c:forEach var="v" items="${trdatas}">
 				<c:set var="b" value="${v.treviewVO}" />
 				<h3>
-					[${b.tvpk}] ${b.tboard} 
+					[${b.tvpk}] ${b.tboard} ${b.tstar}
 				</h3>
 
 				<div class="reply">
@@ -212,6 +182,42 @@
 			location.href="troomselectone.do?trpk=${data.trpk}";
 		}
 	}
+	
+	// star rating
+	var starRating = function(){
+	  var $star = $(".star-input"),
+	      $result = $star.find("output>b");
+	  $(document)
+	    .on("focusin", ".star-input>.input", function(){
+	    $(this).addClass("focus");
+	  })
+	    .on("focusout", ".star-input>.input", function(){
+	    var $this = $(this);
+	    setTimeout(function(){
+	      if($this.find(":focus").length === 0){
+	        $this.removeClass("focus");
+	      }
+	    }, 100);
+	  })
+	    .on("change", ".star-input :radio", function(){
+	    $result.text($(this).next().text());
+	  })
+	    .on("mouseover", ".star-input label", function(){
+	    $result.text($(this).text());
+	  })
+	    .on("mouseleave", ".star-input>.input", function(){
+	    var $checked = $star.find(":checked");
+	    if($checked.length === 0){
+	      $result.text("0");
+	    } else {
+	      $result.text($checked.next().text());
+	    }
+	  });
+	};
+	starRating();
+	/* 수정해야할곳
+	document.getElementById("tstar").value = $star.find(":checked");
+	*/
 	</script>
 </body>
 </html>

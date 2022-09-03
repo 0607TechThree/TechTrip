@@ -14,11 +14,12 @@
 			<c:when test="${type=='tboard'}">
 				<input type="text" name="tboard">
 				<div class="star-container" id="star">
-					<span><input type="radio" name="start" value="1" id="rate1">★</span>
-					<span><input type="radio" name="start" value="2" id="rate2">★</span>
-					<span><input type="radio" name="start" value="3" id="rate3">★</span>
-					<span><input type="radio" name="start" value="4" id="rate4">★</span>
-					<span><input type="radio" name="start" value="5" id="rate5">★</span>
+					<span><input type="radio" name="tstart" value="1" id="rate1">★</span>
+					<span><input type="radio" name="tstart" value="2" id="rate2">★</span>
+					<span><input type="radio" name="tstart" value="3" id="rate3">★</span>
+					<span><input type="radio" name="tstart" value="4" id="rate4">★</span>
+					<span><input type="radio" name="tstart" value="5" id="rate5">★</span>
+					<output for="star-input"><b>0</b>점</output>
 				</div>
 				<input type="submit" value="글 등록">
 			</c:when>
@@ -29,7 +30,6 @@
 			</c:when>
 		</c:choose>
 	</form>
-</c:if>
 
 
 <c:if test="${logininfo.tuid == null}">
