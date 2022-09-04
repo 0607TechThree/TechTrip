@@ -77,9 +77,6 @@
 	}
 	google.maps.event.addDomListener(window, 'load', initialize);
 	
-	//////////// 별점인데 작동 안함 확인해봐야댐
-	//////////// 참고 주소 https://okky.kr/articles/666305
-	
 </script>
 </head>
 <body>
@@ -215,9 +212,6 @@
 	  });
 	};
 	starRating();
-	/* 수정해야할곳
-	document.getElementById("tstar").value = $star.find(":checked");
-	*/
 	</script>
 </body>
 </html>

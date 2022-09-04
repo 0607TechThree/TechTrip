@@ -12,14 +12,15 @@ import util.JDBCUtil;
 public class TroomDAO {
 	Connection conn;
 	PreparedStatement pstmt;
-	private String sql_selectAll_R="SELECT * FROM TROOM WHERE TRREGION = ?";
-	private String sql_selectAll="SELECT * FROM TROOM";
-	private String sql_selectAll_S="SELECT * FROM TROOM WHERE TRNAME LIKE '%'||?||'%'";
-	private String sql_selectOne="SELECT * FROM TROOM WHERE TRPK = ?";
-	private String sql_insert="INSERT INTO TROOM VALUES((SELECT NVL(MAX(TRPK),0) +1 FROM TROOM),?,?,?,?,?,?,?,?,?,?)";
-	private String sql_update="UPDATE TROOM SET TRADDRESS = ?, TRREGION = ?, TRNAME = ?, TRPRICE = ?, TRINFO = ? WHERE TRPK = ?";
-	private String sql_delete="UPDATE TROOM SET TRDEL = 0 WHERE TRPK = ?";
+	final String sql_selectAll_R="SELECT * FROM TROOM WHERE TRREGION = ?";
+	final String sql_selectAll="SELECT * FROM TROOM";
+	final String sql_selectAll_S="SELECT * FROM TROOM WHERE TRNAME LIKE '%'||?||'%'";
+	final String sql_selectOne="SELECT * FROM TROOM WHERE TRPK = ?";
+	final String sql_insert="INSERT INTO TROOM VALUES((SELECT NVL(MAX(TRPK),0) +1 FROM TROOM),?,?,?,?,?,?,?,?,?,?)";
+	final String sql_update="UPDATE TROOM SET TRADDRESS = ?, TRREGION = ?, TRNAME = ?, TRPRICE = ?, TRINFO = ? WHERE TRPK = ?";
+	final String sql_delete="UPDATE TROOM SET TRDEL = 0 WHERE TRPK = ?";
 	final String sql_sample="SELECT COUNT(*) AS CNT FROM TROOM";
+	final String sql_maxtrpk="SELECT NVL(MAX(TRPK),0) +1 FROM TROOM";
 
 	public ArrayList<TroomVO> selectAll(TroomVO vo){
 		ArrayList<TroomVO> datas=new ArrayList<TroomVO>();
@@ -63,7 +64,7 @@ public class TroomDAO {
 			pstmt=conn.prepareStatement(sql_selectOne);
 			pstmt.setInt(1, vo.getTrpk());
 			ResultSet rs=pstmt.executeQuery();
-			while(rs.next()) {
+			if(rs.next()) {
 				TroomVO data = new TroomVO();
 				data.setTrpk(rs.getInt("TRPK"));
 				data.setTrcategory(rs.getString("TRCATEGORY"));
@@ -172,5 +173,22 @@ public class TroomDAO {
 		} finally {
 			JDBCUtil.disconnect(pstmt, conn);
 		}
+	}
+	
+	public int maxtrpk(TroomVO vo) {
+		conn=JDBCUtil.connect();
+		try {
+			pstmt=conn.prepareStatement(sql_maxtrpk);
+			ResultSet rs=pstmt.executeQuery();
+			if(rs.next()) {
+				System.out.println(rs.getInt(1));
+				return rs.getInt(1);
+			}	
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.disconnect(pstmt, conn);
+		}
+		return 0;
 	}
 }

@@ -9,7 +9,6 @@
 	<form action="treviewinsert.do" method="post">
 		<input type="hidden" name="tupk" value="${logininfo.tupk}">
 		<input type="hidden" name="trpk" value="${data.trpk}">
-		<input type="hidden" name="tstar" id="tstar" value="">
 		<!-- 페이징 처리
 	<input type="hidden" name="cnt" value="${cnt}">
 	 -->
@@ -23,6 +22,11 @@
 						<input type="radio" name="star-input" value="3" id="p3"><label for="p3">3</label>
 						<input type="radio" name="star-input" value="4" id="p4"><label for="p4">4</label>
 						<input type="radio" name="star-input" value="5" id="p5"><label for="p5">5</label>
+						<input type="radio" name="star-input" id="p6" value="6"><label for="p6">6</label>
+    					<input type="radio" name="star-input" id="p7" value="7"><label for="p7">7</label>
+    					<input type="radio" name="star-input" id="p8" value="8"><label for="p8">8</label>
+    					<input type="radio" name="star-input" id="p9" value="9"><label for="p9">9</label>
+    					<input type="radio" name="star-input" id="p10" value="10"><label for="p10">10</label>
 					</span>
 					<output for="star-input" name="tstar"><b>0</b>점</output>
 				</span>

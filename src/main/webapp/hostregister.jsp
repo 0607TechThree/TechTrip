@@ -74,7 +74,7 @@
 				<tr>
 					<td class=""><div>주 소</div></td>
 					<td>
-						<input type="text" name="1traddress"
+						<input type="text" name="traddress" 
 						id="sample6_address" placeholder="주소" readonly>
 					</td>
 				</tr>
@@ -86,10 +86,6 @@
 						<input type="text" id="sample6_extraAddress" placeholder="참고항목"
 						readonly>
 					</td>
-				</tr>
-				<tr>
-					<td><div>주소</div></td>
-					<td><input type="text" name="traddress"></td>
 				</tr>
 				<tr>
 					<td>숙소명</td>
@@ -115,7 +111,7 @@
 					<td>
     					<label for="file">파일</label> 
     					<input type="file" id="file" name="file"> 
-    					<a id="btn_submit" onclick="javascript:fn_submit()">전송</a>    
+    					<button type="button" id="btn_submit" onclick="javascript:fn_submit()">전송</button>    
 					</td>
  
        				<td class="img_wrap">

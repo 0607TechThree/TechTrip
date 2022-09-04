@@ -20,7 +20,8 @@ public class TreviewInsertAction implements TInterface{
 		String paramTupk=request.getParameter("tupk");
 		String paramTrpk=request.getParameter("trpk");
 		String paramTboard=request.getParameter("tboard");
-		int paramTstar=Integer.parseInt(request.getParameter("tstar").toString());
+		
+		int paramTstar=Integer.parseInt(request.getParameter("star-input"));
 		System.out.println(paramTstar);
 
 		trvo.setTupk(Integer.parseInt(paramTupk));
