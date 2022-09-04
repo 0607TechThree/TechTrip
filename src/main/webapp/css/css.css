@@ -589,6 +589,50 @@ select.grade{
 
 */
 
+/* 조인 퍼스트 페이지*/
+
+#joincontent{
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#joinfirstcontent{
+	width: 500px;
+	margin: auto;
+}
+
+#joinphonecheck{
+	margin: auto;
+	width: 500px;
+}
+
+#joinfirsttable{
+	margin: auto;
+}
+
+.joinfirsta{
+	text-decoration: none;
+	color: white;
+	background-color: rgb(232, 41, 95);
+	border : none;
+	font-size: 14px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+#joinfirstbutton{
+	width: 200px;
+	height: 40px;
+	background-color: rgb(232, 41, 95);
+    border: none;
+    border-radius: 7px;
+    color: white;
+    cursor: pointer;
+}
+
 /* 조인(회원가입)2 페이지 */
 #joincontentbox{
 	max-width: 500px;
@@ -602,6 +646,7 @@ select.grade{
 	width:500px;
 	display:flex;
 	justify-content: center;
+	margin: auto;
 }
 
 #joinlogoimg{
@@ -613,6 +658,7 @@ select.grade{
 	margin: auto;
 	font-size: 30px;
 	letter-spacing: 5px;
+	text-align: center;
 }
 
 #joinform{
@@ -635,10 +681,17 @@ select.grade{
 .ck_btn{
 	width: 20%;
 	height: 26px;
-	background-color: rgb(232, 41, 95);
-	border: none;
-	border-radius: 3px;
 	color: white;
+}
+
+#joincheckidbutton{
+	width: 20%;
+	height: 26px;
+	background-color: rgb(232, 41, 95);
+    border: none;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
 }
 
 .jointablevalue{
@@ -655,7 +708,7 @@ select.grade{
 	width:50%;
 }
 
-.sample6{
+#samplesearch{
 	width: 45%;
     height: 26px;
     background-color: rgb(232, 41, 95);

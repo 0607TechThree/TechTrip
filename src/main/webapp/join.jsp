@@ -308,7 +308,7 @@
 		}
 		
 	</script>
-
+<div id="joincontent">
 	<div id="joincontentbox">
 		<div id="joinlogobox">
 			<a href="main.do">
@@ -325,7 +325,9 @@
 					<td class="jointabletitle"><div>아이디</div></td>
 					<td><input name="tuid" id="userid"  class="jointablevalueid"
 						required placeholder="6~12자리 영문 혹은 영문과 숫자를 조합" onkeydown="inputIdChk()">
-						<a class="ck_btn" href="javascript:check();">중복확인</a>
+						<a class="ck_btn" href="javascript:check();">
+							<button type="button" id="joincheckidbutton">중복확인</button>
+						</a>
 						<input type="hidden" name="idDuplication" value="idUnCheck"></td>
 				</tr>
 				<tr>
@@ -357,7 +359,11 @@
 					<td>
 						<input type="text" id="sample6_postcode" name="tuaddresszipcode"
 						placeholder="우편번호" readonly>
-						<a class="sample6" href="javascript:sample6_execDaumPostcode();">우편번호 찾기</a>
+						<a class="sample6" href="javascript:sample6_execDaumPostcode();">
+							<button type="button" id="samplesearch">
+								우편번호 찾기
+							</button>
+						</a>
 					</td>
 				<tr>
 					<td class="jointabletitle"><div>주 소</div></td>
@@ -404,12 +410,15 @@
 				<tr>
 					<td colspan="2">
 						<br>
+							<center>
 							<button type="submit" value="submit" id="joinbutton">회원가입하기</button>
+							</center>
 					</td>
 				</tr>
 			</table>
 		</form>
 	</div>
+</div>
 <script type="text/javascript">
 $( "#datepicker" ).datepicker();
 

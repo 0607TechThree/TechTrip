@@ -16,22 +16,31 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
-
-	<div>
+<div id="joincontent">
+<div id="joinfirstcontent">
+	<div id="joinlogobox">
+		<a href="main.do">
+			<img alt="로고이미지" src="images/22.jpg" id="joinlogoimg">
+		</a>
+	</div>
+	<div id="joinsubject">
+		<h3>전화번호 인증</h3>
+	</div>
+	<div id="joinphonecheck">
 		<form action="join.jsp" method="post" id="sign-up">
-			<table>
+			<table id="joinfirsttable">
 				<tr>
-					<td>전화번호</td>
+					<td class="jointabletitle">전화번호</td>
 					<td><input type="tel" name="userh" id="userh"></td>
-					<td><a href="javascript:sms();">인증번호 전송</a></td>
+					<td><a href="javascript:sms();"><button class="joinfirsta">인증번호 확인</button></a></td>
 				</tr>
 				<tr>
 					<td colspan="3"><div id="result1"></div></td>
 				</tr>
 				<tr>
-					<td>인증번호</td>
+					<td class="jointabletitle">인증번호</td>
 					<td><input type="text" name="" id="checkNum"></td>
-					<td><a href="javascript:checkSms();">인증번호 확인</a></td>
+					<td><a href="javascript:checkSms();"><button class="joinfirsta">인증번호 확인</button></a></td>
 				</tr>
 				<tr>
 					<td colspan="3"><div id="result"></div></td>
@@ -39,14 +48,15 @@
 				<tr>
 					<td colspan="3">
 						<center>
-							<br> <input type="submit" value="다음으로 넘어가기">
+							<br> <input type="submit" value="다음으로 넘어가기" id="joinfirstbutton">
 						</center>
 					</td>
 				</tr>
 			</table>
 		</form>
 	</div>
-
+</div>
+</div>
 	<script type="text/javascript">
 	var number = 0; // 랜덤문자인증번호 저장 변수
 	var check = 0; // 인증번호 일치, 불일치 변수
