@@ -12,6 +12,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
 	rel="stylesheet">
 <link rel="stylesheet" href="css/css.css" type="text/css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+	crossorigin="anonymous"></script>
 </head>
 <body>
 	<script type="text/javascript">
@@ -66,6 +69,7 @@
 			}
 		}
 	</script>
+	<div id="loginwrap">
 	<div class="locontent">
 	<a href="main.jsp"><img id="logo" alt="로고" src="images/22.jpg" ></a>
 		<div class="login">로그인</div>
@@ -102,6 +106,7 @@
 				</div>
 			</form>
 		</div>
+	</div>
 	</div>
 	
 </body>

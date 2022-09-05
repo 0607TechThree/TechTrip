@@ -32,7 +32,7 @@
 				<tr>
 					<td class="jointabletitle">전화번호</td>
 					<td><input type="tel" name="userh" id="userh"></td>
-					<td><a href="javascript:sms();"><button class="joinfirsta">인증번호 전송</button></a></td>
+					<td><a href="javascript:sms();"><button type="button" class="joinfirsta">인증번호 전송</button></a></td>
 				</tr>
 				<tr>
 					<td colspan="3"><div id="result1"></div></td>
@@ -40,7 +40,7 @@
 				<tr>
 					<td class="jointabletitle">인증번호</td>
 					<td><input type="text" name="" id="checkNum"></td>
-					<td><a href="javascript:checkSms();"><button class="joinfirsta">인증번호 확인</button></a></td>
+					<td><a href="javascript:checkSms();"><button type="button" class="joinfirsta">인증번호 확인</button></a></td>
 				</tr>
 				<tr>
 					<td colspan="3"><div id="result"></div></td>

@@ -143,17 +143,16 @@
 		</div>
 		<div>
 		<div id="">
-			<h2>글 등록하기</h2>
+			<h2>리뷰</h2>
 			<tt:write type="tboard"/>
 		</div>
-			<h2>리뷰</h2>
 			
 			<c:if test="${trdatas.size() == 0}">작성한 글이 없습니다</c:if>
 			
 			<c:forEach var="v" items="${trdatas}">
 				<c:set var="b" value="${v.treviewVO}" />
 				<h3>
-					[${b.tvpk}] ${b.tboard} ${b.tstar}
+					내용 : ${b.tboard} 별점 : ${b.tstar}
 				</h3>
 
 				<div class="reply">

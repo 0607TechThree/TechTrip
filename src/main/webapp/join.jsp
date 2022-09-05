@@ -401,7 +401,7 @@
 					<td class="jointabletitle">회원종류</td>
 					<td>
 						<select id="joinrole" name="turole">
-							<option value="일반회원" >일반회원</option>
+							<option value="guest">guest</option>
 							<option value="host">host</option>
 							<option value="admin">admin</option>
 						</select>

@@ -14,6 +14,7 @@ public class TbookDAO {
 	Connection conn;
 	PreparedStatement pstmt;
 	final String sql_selectAll="SELECT * FROM TBOOK, TROOM WHERE TBOOK.TRPK = TROOM.TRPK AND TBOOK.TUPK=?";
+	final String sql_selectOne="SELECT * FROM TBOOK WHERE TRPK = ?";	
 	final String sql_insert="INSERT INTO TBOOK VALUES((SELECT NVL(MAX(TBPK),0) +1 FROM TBOOK),?,?)";
 	//final String sql_update="UPDATE TBOOK SET WHERE TBPK = ? AND TUPK = ?";
 	//예약 정보를 수정 할 일이 없음
@@ -47,6 +48,25 @@ public class TbookDAO {
 			JDBCUtil.disconnect(pstmt, conn);
 		}
 		return datas;	
+	}
+	public TbookVO selectOne(TbookVO vo){
+		conn=JDBCUtil.connect();
+		try {
+			pstmt=conn.prepareStatement(sql_selectOne);
+			pstmt.setInt(1, vo.getTrpk());
+			ResultSet rs=pstmt.executeQuery();
+			if(rs.next()) {
+				TbookVO data=new TbookVO();
+				data.setTupk(rs.getInt("TUPK"));
+				return data;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCUtil.disconnect(pstmt, conn);
+		}
+		return null;
 	}
 	public boolean insert(TbookVO vo) {
 		conn=JDBCUtil.connect();

@@ -13,7 +13,7 @@
 	<input type="hidden" name="cnt" value="${cnt}">
 	 -->
 		<c:choose>
-			<c:when test="${type=='tboard'}">
+			<c:when test="${type=='tboard' && tbookvo.tupk == logininfo.tupk}">
 				<input type="text" name="tboard">
 				<span class="star-input">
   					<span class="input">
@@ -32,7 +32,6 @@
 				</span>
 				<input type="submit" value="글 등록">
 			</c:when>
-
 			<c:when test="${type=='tpmsg'}">
 				<input type="hidden" name="tvpk" value="${tvpk}">
 		댓글: <input type="text" name="tpmsg" required>
@@ -42,8 +41,8 @@
 	</form>
 </c:if>
 
-
-<c:if test="${logininfo.tuid == null}">
+<c:choose>
+<c:when test="${logininfo.tuid == null}">
 	<c:choose>
 		<c:when test="${type=='tboard'}">
 			<input type="text" disabled value="등록하려면 로그인하세요!">
@@ -53,4 +52,17 @@
 		댓글: <input type="text" disabled value="등록하려면 로그인하세요!">
 		</c:when>
 	</c:choose>
-</c:if>
+</c:when>
+
+<c:when test="${tbookvo.tupk != logininfo.tupk}">
+	<c:choose>
+		<c:when test="${type=='tboard'}">
+			<input type="text" disabled value="예약자만 등록 가능합니다!">
+		</c:when>
+
+		<c:when test="${type=='tpmsg'}">
+		댓글: <input type="text" disabled value="예약자만 등록 가능합니다!">
+		</c:when>
+	</c:choose>
+</c:when>
+</c:choose>

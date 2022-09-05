@@ -6,9 +6,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import DAO.TbookDAO;
 import DAO.TreviewDAO;
 import DAO.TroomDAO;
 import DAO.TwishDAO;
+import VO.TbookVO;
 import VO.TreviewSet;
 import VO.TreviewVO;
 import VO.TroomVO;
@@ -32,6 +34,9 @@ public class TroomSelectOneAction implements TInterface{
 		TreviewDAO trvdao=new TreviewDAO();
 		TwishVO twvo=new TwishVO();
 		TwishDAO twdao=new TwishDAO();
+		TbookVO tbvo=new TbookVO();
+		TbookDAO tbdao=new TbookDAO();
+		
 		String paramTrpk=request.getParameter("trpk");
 		TuserVO logindata = null;
 		if(session.getAttribute("logininfo") != null) {
@@ -61,6 +66,9 @@ public class TroomSelectOneAction implements TInterface{
 		trvo.setTrpk(Integer.parseInt(paramTrpk));
 		trvvo.setTrpk(Integer.parseInt(paramTrpk));
 
+		tbvo.setTrpk(Integer.parseInt(paramTrpk));
+		tbvo = tbdao.selectOne(tbvo);
+		
 		TroomVO data=trdao.selectOne(trvo);
 		ArrayList<TreviewSet> trdatas = trvdao.selectAll(trvvo);
 
@@ -69,6 +77,7 @@ public class TroomSelectOneAction implements TInterface{
 		request.setAttribute("data", data); // 상품상세
 		request.setAttribute("trdatas", trdatas); // 리뷰 + 댓글
 		request.setAttribute("wishlist", wishList); // 찜 목록
+		request.setAttribute("tbookvo", tbvo); // 해당 룸 예약한 사람의 pk번호	
 		forward=new TActionForward();
 		forward.setPath("/roomdetail.jsp");
 		forward.setRedirect(false);

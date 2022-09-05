@@ -27,7 +27,7 @@
 .hasDatepicker{cursor: pointer;}
 </style>
 <body>
-	<tt:header />
+	
 	<div id="hostTitle">
 		<h2>
 			관리자 등록페이지
@@ -111,7 +111,9 @@
 					<td>
     					<label for="file">파일</label> 
     					<input type="file" id="file" name="file"> 
+    					<!-- 
     					<button type="button" id="btn_submit" onclick="javascript:fn_submit()">전송</button>    
+    					 -->
 					</td>
  
        				<td class="img_wrap">
@@ -120,12 +122,12 @@
 
 				</tr>
 				<tr>
-					<td><input class="reg_btn" type="submit" value="등록하기"></td>
+					<td><input class="reg_btn" type="submit" value="등록하기" onclick="javascript:fn_submit()"></td>
 				</tr>
 			</table>
 		</form>
 	</div>
-	<tt:footer />
+	
 <script src="//code.jquery.com/jquery-1.12.4.js"></script>
   <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script

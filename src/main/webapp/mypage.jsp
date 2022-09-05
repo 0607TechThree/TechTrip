@@ -25,8 +25,8 @@
     <li><a href="#fragment-2"><span>찜 목록 보기</span></a></li>
     <li><a href="#fragment-3"><span>회원정보 수정</span></a></li>
     <li><a href="#fragment-4"><span>내가 작성한 리뷰 보기</span></a></li>
-    <c:if test="${logininfo.turole == host}">
-	    <li><a href="#fragment-5"><span>HOST 전용 상품관리</span></a></li>
+    <c:if test="${logininfo.turole == 'host'}">
+	    <li><a href="hostregister.jsp">상품등록하기(HOST전용)</a></li>
     </c:if>
   </ul>
   <div id="fragment-1">
@@ -63,13 +63,6 @@
 		리뷰목록
 	</div>
   </div>
-  <c:if test="${logininfo.turole == host}">
-  <div id="fragment-5">
-	<div>
-		관리자 전용 목록
-	</div>
-  </div>
-  </c:if>
 </div>
 <tt:footer/>
 <script src="//code.jquery.com/jquery-1.12.4.js"></script>
