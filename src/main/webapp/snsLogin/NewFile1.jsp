@@ -13,7 +13,7 @@
 var naverLogin = new naver.LoginWithNaverId(
 		{
 			clientId: "oX_Kd3_jRt98OWIDVini",
-			callbackUrl: "http://localhost:8088/WebTest/NewFile1.jsp",
+			callbackUrl: "http://localhost:8088/TechTrip/snsLogin/NewFile1.jsp",
 			isPopup: false,
 			callbackHandle: true
 			/* callback 페이지가 분리되었을 경우에 callback 페이지에서는 callback처리를 해줄수 있도록 설정합니다. */

@@ -15,7 +15,7 @@
 	<ul>
 		<li style="margin-left: 10%; margin-right: 20%;"><div id="naverIdLogin"></div></li>
 		<li style="margin-right: 20%;"><a><span><img alt=""
-					src="img/kakao_login_medium_narrow.png" onclick="kakaoLogin();"
+					src="./images/kakao_login_medium_narrow.png" onclick="kakaoLogin();"
 					style="cursor: pointer;" title="카카오아이디로 로그인"></span></a></li>
 	</ul>
 	<script type="text/javascript">
@@ -23,7 +23,7 @@
 		var naverLogin = new naver.LoginWithNaverId(
 				{
 					clientId: "oX_Kd3_jRt98OWIDVini",
-					callbackUrl: "http://localhost:8088/WebTest/NewFile1.jsp",
+					callbackUrl: "http://localhost:8088/TechTrip/snsLogin/NewFile1.jsp",
 					isPopup: false, /* 팝업을 통한 연동처리 여부 */
 					loginButton: {color: "green", type: 3, height: 60} /* 로그인 버튼의 타입을 지정 */
 				}
@@ -55,7 +55,7 @@
                             var email = kakao_account.email;
                             console.log(email);
                             
-                            window.location.replace("NewFile2.jsp?email="+email);
+                            window.location.replace("http://localhost:8088/TechTrip/snsLogin/NewFile2.jsp?email="+email);
                         }
                     });
                 },
