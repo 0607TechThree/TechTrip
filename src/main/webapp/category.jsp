@@ -44,7 +44,16 @@
 			<a href="troomselectone.do?trpk=${datas.trpk}">
 				<img class="roomlist" alt="${datas.trname}상품사진" src="images/crawling/${datas.trpk}.jpg">
 			</a>
-			<div>${datas.trname}</div>
+			<div class="roomname">
+				<div class="roomnametitle">
+					${datas.trname}
+				</div>
+				<div>
+					IN : ${datas.checkin}
+						<br>
+					OUT : ${datas.checkout}
+				</div>
+			</div>
 		</div>
 		</c:forEach>
 	</div>

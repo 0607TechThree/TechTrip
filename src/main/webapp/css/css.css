@@ -191,17 +191,17 @@ input::placeholder {
 }
 
 .swiper-slide>img {
-	display: flex;
 	background-size: cover;
 	width: 100%;
 	max-width: 1050px;
-	height: auto;
-	object-fit: cover;
+	height: 100%;
+	object-fit: fill;
 }
 
 .swiper-wrapper .swiper-slide {
 	width: 100%;
 	min-height: 300px;
+	height: auto;
 }
 
 .swiper-slide.cart {
@@ -247,6 +247,7 @@ input::placeholder {
 }
 
 /*메인페이지 페인컨텐츠 스타일*/
+
 #maincategory {
 	display: flex;
 	align-items: center;
@@ -256,6 +257,8 @@ input::placeholder {
 	min-width: 500px;
 	margin: auto;
 	margin-top: 30px;
+	padding-bottom: 20px;
+	border-bottom: 3px solid rgb(232, 41, 95);
 }
 
 #maincategory>a {
@@ -270,10 +273,62 @@ input::placeholder {
 	height: 100%;
 }
 
-.exchangerate{
+#apibox{
+	padding-top: 30px;
 	max-width: 1050px;
 	margin: auto;
-	height: 100px;
+	display: flex;
+	justify-content: space-between;
+}
+
+#weatherapi{
+	max-width: 850px;
+	flex-wrap: wrap;
+	flex-basis: 80%;
+	height: 160px;
+}
+
+#weatherapicity{
+	width: 100%;
+	font-size: 30px;
+	text-align: center;
+}
+
+#weatherapibox{
+	display: flex;
+	justify-content: space-between;
+}
+
+.dayweather{
+	text-align: center;
+}
+
+.exchangerate > *{
+	width: 170px;
+	margin: auto;
+	height: 185px;
+	flex-basis: 37%;
+}
+
+#mainbottom {
+	max-width: 1050px;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.mainbottomcontent {
+	width: auto;
+	max-width: 500px;
+	flex-basis: 48%;
+	border: 1px solid black;
+}
+
+@media ( max-width :700px) {
+	.mainbottomcontent {
+		flex-basis: 100%;
+	}
 }
 
 /* 로그인 */
@@ -820,6 +875,29 @@ select.grade{
 	object-fit: cover;
 }
 
+.roomname{
+	text-align: right;
+	color: gray;
+	border-bottom: 2px solid rgb(232, 41, 95);
+	border-left: 2px solid rgb(232, 41, 95);
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.roomnametitle {
+	text-align: left;
+	width: 50%;
+    border-bottom: 46px solid rgb(232, 41, 95);
+    border-right: 30px solid transparent;
+    height: 0;
+    color: white;
+    display: inline-block;
+    line-height: 47px;
+    font-size: 15px;
+}
+
+
 /* 룸디테일 페이지 스타일 */
 #roomdetailcontent {
 	max-width: 1050px;
@@ -959,6 +1037,7 @@ select.grade{
 /* 마이페이지 스타일 */
 #tabs {
 	max-width: 1050px;
+	width: 100%;
 	margin: auto;
 }
 
