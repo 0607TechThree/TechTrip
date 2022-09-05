@@ -211,6 +211,13 @@ public class TFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		else if(command.equals("/snslogin.do")) {// 로그인페이지로 들어오기 이전 페이지의 주소를 저장하기 위한 액션
+			try {
+				forward = new SNSLoginAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		else if(command.equals("/login.do")) {// 로그인페이지로 들어오기 이전 페이지의 주소를 저장하기 위한 액션
 			try {
 				forward = new LoginAction().execute(request, response);

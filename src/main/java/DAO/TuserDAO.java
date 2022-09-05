@@ -12,8 +12,10 @@ public class TuserDAO {
 	Connection conn;
 	PreparedStatement pstmt;
 	final String sql_selectOne="SELECT * FROM TUSER WHERE TUID=? AND TUPW=?";
+	final String sql_selectOne_K="SELECT * FROM TUSER WHERE KEMAIL = ?";	
+	final String sql_selectOne_N="SELECT * FROM TUSER WHERE NEMAIL = ?";	
 	final String sql_checkId="SELECT * FROM TUSER WHERE TUID=?";
-	final String sql_insert="INSERT INTO TUSER VALUES((SELECT NVL(MAX(TUPK),0) +1 FROM TUSER),?,?,?,?,?,?,?,?,?,?,?,?)";
+	final String sql_insert="INSERT INTO TUSER VALUES((SELECT NVL(MAX(TUPK),0) +1 FROM TUSER),?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	final String sql_update="UPDATE TUSER SET TUPW =?, TUROLE = ?, TUNICKNAME = ?, TUPH = ?, TUADDRESSZIPCODE = ?, TUADDRESS = ?, TUADDRESSDETAIL = ? WHERE TUID = ?";
 	final String sql_delete="UPDATE TUSER SET TUDEL = 0 WHERE TUID = ?";
 	
@@ -35,10 +37,23 @@ public class TuserDAO {
 	}
 	public TuserVO selectOne(TuserVO vo) {
 		conn=JDBCUtil.connect();
+		System.out.println("여긴 들어오지 ㅋ");
+		System.out.println(vo);
 		try {
-			pstmt=conn.prepareStatement(sql_selectOne);
-			pstmt.setString(1, vo.getTuid());
-			pstmt.setString(2, vo.getTupw());
+			if(vo.getKemail() != null) {
+				pstmt=conn.prepareStatement(sql_selectOne_K);
+				pstmt.setString(1, vo.getKemail());
+				System.out.println("kemail if문 들어옴");
+			}else if(vo.getNemail() != null) {
+				pstmt=conn.prepareStatement(sql_selectOne_N);
+				pstmt.setString(1, vo.getNemail());
+				System.out.println("nemail if문 들어옴");
+			}else {
+				pstmt=conn.prepareStatement(sql_selectOne);
+				pstmt.setString(1, vo.getTuid());
+				pstmt.setString(2, vo.getTupw());
+				System.out.println("selectone if문 들어옴");
+			}
 			ResultSet rs=pstmt.executeQuery();
 			if(rs.next()) {
 				TuserVO data=new TuserVO();
@@ -55,6 +70,9 @@ public class TuserDAO {
 				data.setTuaddress(rs.getString("TUADDRESS"));
 				data.setTuaddressdetail(rs.getString("TUADDRESSDETAIL"));
 				data.setTunation(rs.getString("TUNATION"));
+				data.setKemail(rs.getString("KEMAIL"));					
+				data.setNemail(rs.getString("NEMAIL"));
+				System.out.println("selectone 로그 : " +data);
 				return data;
 			}
 		} catch (SQLException e) {
@@ -80,6 +98,8 @@ public class TuserDAO {
 			pstmt.setString(10, vo.getTuaddress());
 			pstmt.setString(11, vo.getTuaddressdetail());
 			pstmt.setString(12, vo.getTunation());
+			pstmt.setString(13, vo.getKemail());
+			pstmt.setString(14, vo.getNemail());
 			int res=pstmt.executeUpdate();
 			if(res==0) {
 				return false;

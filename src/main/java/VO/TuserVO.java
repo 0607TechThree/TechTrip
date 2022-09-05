@@ -14,6 +14,8 @@ public class TuserVO {
 	private String tuaddress;
 	private String tuaddressdetail;
 	private String tunation;
+	private String kemail;
+	private String nemail;
 	public int getTupk() {
 		return tupk;
 	}
@@ -92,12 +94,24 @@ public class TuserVO {
 	public void setTunation(String tunation) {
 		this.tunation = tunation;
 	}
+	public String getKemail() {
+		return kemail;
+	}
+	public void setKemail(String kemail) {
+		this.kemail = kemail;
+	}
+	public String getNemail() {
+		return nemail;
+	}
+	public void setNemail(String nemail) {
+		this.nemail = nemail;
+	}
 	@Override
 	public String toString() {
 		return "TuserVO [tupk=" + tupk + ", tuid=" + tuid + ", tupw=" + tupw + ", turole=" + turole + ", tunickname="
 				+ tunickname + ", tudel=" + tudel + ", tugender=" + tugender + ", tubirth=" + tubirth + ", tuph=" + tuph
 				+ ", tuaddresszipcode=" + tuaddresszipcode + ", tuaddress=" + tuaddress + ", tuaddressdetail="
-				+ tuaddressdetail + ", tunation=" + tunation + "]";
+				+ tuaddressdetail + ", tunation=" + tunation + ", kemail=" + kemail + ", nemail=" + nemail + "]";
 	}
 	
 }

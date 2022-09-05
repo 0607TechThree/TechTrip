@@ -24,14 +24,12 @@ public class TuserSelectOneAction implements TInterface{
 		String paramTuid=request.getParameter("tuid");
 		String paramTupw=request.getParameter("tupw");
 		String paramLocation=request.getParameter("location");
-		System.out.println("selectone에서의 paramlocation 변수 : "+paramLocation);
 		ArrayList<Integer> cart = new ArrayList<Integer>(); // 장바구니 세션
 		
 		tuvo.setTuid(paramTuid);
 		tuvo.setTupw(paramTupw);
 		
 		TuserVO data=tudao.selectOne(tuvo);
-		System.out.println(data);
 		if(data != null) { // 로그인
 			session.setAttribute("logininfo", data); // 로그인한 회원정보
 			session.setAttribute("cart", cart); // 장바구니

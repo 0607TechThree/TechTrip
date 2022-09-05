@@ -318,7 +318,7 @@
 			<div id="joinsubject">
 				<h3>회원가입</h3>
 			</div>
-			<form action="tuserinsert.do" onsubmit="return Validation();"
+			<form action="tuserinsert.do" onsubmit="javascript:Validation();"
 			method="post" name="userInfo" id="joinform">
 			<table>
 				<tr>
@@ -326,9 +326,11 @@
 					<td><input name="tuid" id="userid"  class="jointablevalueid"
 						required placeholder="6~12자리 영문 혹은 영문과 숫자를 조합" onkeydown="inputIdChk()">
 						<a class="ck_btn" href="javascript:check();">
-							<button type="button" id="joincheckidbutton">중복확인</button>
+							<div id="joincheckidbutton">중복확인</div>
 						</a>
 						<input type="hidden" name="idDuplication" value="idUnCheck"></td>
+						<input type="hidden" name="kemail" value="${param.kemail}"></td>
+						<input type="hidden" name="nemail" value="${param.nemail}"></td>
 				</tr>
 				<tr>
 					<td></td>
@@ -336,12 +338,12 @@
 				</tr>
 				<tr>
 					<td class="jointabletitle"><div>비밀번호</div></td>
-					<td><input type="password" name="tupw"  class="jointablevalue"
-						required placeholder="비밀번호를 입력해주세요"></td>
+					<td><input type="password" name="tupw"  class="jointablevalue" id="userPs"
+						required placeholder="아이디와 다른 6~12자리 영문과 숫자를 조합"></td>
 				</tr>
 				<tr class="tablebordertop">
 					<td class="jointabletitle"><div>비밀번호확인</div></td>
-					<td><input type="password"  class="jointablevalue"
+					<td><input type="password"  class="jointablevalue" id="userPc"
 						required placeholder="비밀번호를 한번 더 입력해주세요"></td>
 				</tr>
 				<tr class="tablebordertop">
@@ -352,7 +354,7 @@
 				<tr class="tablebordertop">
 					<td class="jointabletitle"><div>휴대폰</div></td>
 					<td><input required  class="jointablevalue" name="tuph"
-						value="${param.userh}" readonly></td>
+						value="${param.userh}" placeholder="전화번호를 입력해주세요"></td>
 				</tr>
 				<tr class="tablebordertop">
 					<td></td>
@@ -360,9 +362,9 @@
 						<input type="text" id="sample6_postcode" name="tuaddresszipcode"
 						placeholder="우편번호" readonly>
 						<a class="sample6" href="javascript:sample6_execDaumPostcode();">
-							<button type="button" id="samplesearch">
+							<div id="samplesearch">
 								우편번호 찾기
-							</button>
+							</div>
 						</a>
 					</td>
 				<tr>
@@ -403,16 +405,13 @@
 						<select id="joinrole" name="turole">
 							<option value="guest">guest</option>
 							<option value="host">host</option>
-							<option value="admin">admin</option>
 						</select>
 					</td>
 				</tr>
 				<tr>
 					<td colspan="2">
 						<br>
-							<center>
-							<button type="submit" value="submit" id="joinbutton">회원가입하기</button>
-							</center>
+						<input type="submit" value="회원가입하기" id="joinbutton">
 					</td>
 				</tr>
 			</table>

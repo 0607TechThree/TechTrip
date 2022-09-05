@@ -28,6 +28,8 @@ public class TuserInsertAction implements TInterface{
 		String paramTuaddress=request.getParameter("tuaddress");
 		String paramTuaddressdetail=request.getParameter("tuaddressdetail");
 		String paramTunation=request.getParameter("tunation");
+		String paramKemail=request.getParameter("kemail");
+		String paramNemail=request.getParameter("nemail");
 		
 		tuvo.setTuid(paramTuid);
 		tuvo.setTupw(paramTupw);
@@ -40,6 +42,8 @@ public class TuserInsertAction implements TInterface{
 		tuvo.setTuaddress(paramTuaddress);
 		tuvo.setTuaddressdetail(paramTuaddressdetail);
 		tuvo.setTunation(paramTunation);
+		tuvo.setKemail(paramKemail);
+		tuvo.setNemail(paramNemail);
 
 		if(trdao.insert(tuvo)) {
 			forward=new TActionForward();
