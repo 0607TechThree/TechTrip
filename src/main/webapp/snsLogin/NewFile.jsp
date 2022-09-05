@@ -15,7 +15,7 @@
 	<ul>
 		<li style="margin-left: 10%; margin-right: 20%;"><div id="naverIdLogin"></div></li>
 		<li style="margin-right: 20%;"><a><span><img alt=""
-					src="./images/kakao_login_medium_narrow.png" onclick="kakaoLogin();"
+					src="images/kakao_login_medium_narrow.png" onclick="kakaoLogin();"
 					style="cursor: pointer;" title="카카오아이디로 로그인"></span></a></li>
 	</ul>
 	<script type="text/javascript">
