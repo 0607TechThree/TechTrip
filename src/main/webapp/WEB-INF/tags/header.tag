@@ -30,8 +30,8 @@
 		<c:choose>
 			<c:when test="${logininfo != null}">
 				<a href="tuserlogout.do">logout</a>&nbsp;
-				<a href="mypage.do">mypage</a>
-				<a href="cart.do">cart</a>
+				<a href="mypage.do">mypage</a>&nbsp;
+				<a href="cart.do" id="cartatag"><img alt="카트이미지" src="images/shopping-cart.png" id="hdcartimg"></a>
 			</c:when>
 			<c:otherwise>
 				<a href="login.do">login</a>&nbsp;

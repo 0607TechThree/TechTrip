@@ -137,6 +137,9 @@ body {
 	#searchbox {
 		width: 120px;
 	}
+	#headerright > a{
+		font-size: 20px;
+	}
 }
 
 #searchsubmit {
@@ -159,6 +162,15 @@ input::placeholder {
 #headerright>a {
 	text-decoration: none;
 	color: white;
+}
+
+#cartatag{
+	margin-top: 10px;
+}
+
+#hdcartimg{
+	width: 25px;
+	height: 25px;
 }
 
 /*스와이퍼 스타일*/
@@ -1060,6 +1072,44 @@ select.grade{
 	text-align: center;
 	font-size: 17px;
 }
+
+/* 룸디테일 모달창 */
+
+.modal {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        display: none;
+
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .modal.show {
+        display: block;
+      }
+
+      .modal_body {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        width: 200px;
+        height: 200px;
+
+        padding: 40px;
+
+        text-align: center;
+
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+
+        transform: translateX(-50%) translateY(-50%);
+      }
 
 /* 룸디테일 별점 플러그인*/
 

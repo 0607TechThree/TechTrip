@@ -18,7 +18,7 @@ public class TbookDAO {
 	final String sql_insert="INSERT INTO TBOOK VALUES((SELECT NVL(MAX(TBPK),0) +1 FROM TBOOK),?,?)";
 	//final String sql_update="UPDATE TBOOK SET WHERE TBPK = ? AND TUPK = ?";
 	//예약 정보를 수정 할 일이 없음
-	final String sql_delete="DELETE FROM TBOOK WHERE TBPK = ?";
+	final String sql_delete="DELETE FROM TBOOK WHERE TRPK = ?";
 	public ArrayList<TroomVO> selectAll(TbookVO vo){
 		ArrayList<TroomVO> datas=new ArrayList<TroomVO>();
 		conn=JDBCUtil.connect();
@@ -90,7 +90,7 @@ public class TbookDAO {
 		conn=JDBCUtil.connect();
 		try {
 			pstmt=conn.prepareStatement(sql_delete);
-			pstmt.setInt(1,vo.getTbpk());
+			pstmt.setInt(1,vo.getTrpk());
 			int res=pstmt.executeUpdate();
 			if(res==0) {
 				return false;
