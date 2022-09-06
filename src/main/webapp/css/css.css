@@ -1169,17 +1169,6 @@ select.grade{
     vertical-align: middle;
 }
 
-/* 마이페이지 스타일 */
-#tabs {
-	max-width: 1050px;
-	width: 100%;
-	margin: auto;
-}
-
-#tabsul {
-	background: linear-gradient(to right, white, rgb(232, 168, 193));
-}
-
 #tabsul>li {
 	background: white;
 }
@@ -1254,4 +1243,180 @@ select.grade{
 	cursor: pointer;
 	font-size: 25px;
 	letter-spacing: 5px;
+}
+
+/* 카트페이지 스타일 */
+
+#cartwrap{
+	max-width: 1050px;
+	margin: auto;
+}
+
+#carttitle{
+	border-bottom: 3px solid rgb(232, 41, 95);
+	text-align: center;
+	color: rgb(232, 41, 95);
+}
+
+#nonecart{
+	padding-top: 20px;
+	color: gray;
+	text-align: center;
+	letter-spacing: 3px;
+}
+
+#cartgodetail{
+	width: 250px;
+	height: 50px;
+	color: white;
+	background-color: rgb(232, 41, 95);
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 25px;
+	letter-spacing: 5px;
+}
+
+#carttop{
+	margin-top: 20px;
+	width: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+#cartleft{
+	max-width: 500px;
+	height: auto;
+	flex-basis: 48%;
+}
+
+#payimg{
+	width: 100%;
+	height: 100%;
+}
+
+#cartname{
+	width:100%;
+	font-size: 25px;
+	text-align: right;
+}
+
+.cartcheckinout{
+	width:100%;
+	font-size: 20px;
+	text-align: right;
+}
+
+#cartprice{
+	width:100%;
+	font-size: 25px;
+	text-align: right;
+	color: rgb(232, 41, 95);
+}
+
+#cartright{
+	max-width: 500px;
+	height: auto;
+	flex-basis: 40%;
+	display: flex;
+	align-items: space-around;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+/* 마이페이지 스타일 */
+
+#tabs {
+	max-width: 1050px;
+	width: 100%;
+	margin: auto;
+}
+
+#tabsul {
+	background: linear-gradient(to right, white, rgb(232, 168, 193));
+}
+
+.mytop{
+	margin-top: 20px;
+	width: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding-bottom: 20px;
+	border-bottom: 3px solid lightgray;
+}
+
+.myright{
+	max-width: 500px;
+	height: auto;
+	flex-basis: 40%;
+	display: flex;
+	align-items: space-around;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.myimg{
+	width: 100%;
+	height: 100%;
+}
+
+.myleft{
+	max-width: 500px;
+	height: auto;
+	flex-basis: 24%;
+}
+
+.myname{
+	width:100%;
+	font-size: 25px;
+	text-align: right;
+}
+
+.mycheckinout{
+	width:100%;
+	font-size: 20px;
+	text-align: right;
+}
+
+.myprice{
+	width:100%;
+	font-size: 25px;
+	text-align: right;
+	color: rgb(232, 41, 95);
+}
+
+.myrealright{
+	width: 120px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.mygodetail{
+	width: 60px;
+	height: 60px;
+	color: white;
+	background-color: #c0c0c0;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 17px;
+	letter-spacing: 5px;
+	text-align: center;
+}
+
+.mymsg{
+	color: #ff6262;
+}
+
+#fragment-1{
+	padding-right: 40px;
+	padding-left: 40px;
+}
+
+#fragment-2{
+	padding-right: 40px;
+	padding-left: 40px;
 }

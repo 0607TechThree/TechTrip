@@ -140,10 +140,10 @@ div[class^=rating_type] .starrat em {
 						<a href="tpay.do?trpk=${data.trpk}" class="buttonatag"><div id="paybutton">예약(결제)하기</div></a>
 					</c:if>
 					<c:if test="${wflag==true}">
-						<a href="twishinsert.do?trpk=${data.trpk}&tupk=${logininfo.tupk}" class="buttonatag"><img alt="찜하기" src="images/ht1.png" class="heartimg"></a>
+						<a href="twishinsert.do?trpk=${data.trpk}&tupk=${logininfo.tupk}" class="buttonatag"><img alt="찜해제하기" src="images/ht2.png" class="heartimg"></a>
 					</c:if>
 					<c:if test="${wflag==false}">
-						<a href="twishdelete.do?trpk=${data.trpk}&tupk=${logininfo.tupk}" class="buttonatag"><img alt="찜해제하기" src="images/ht2.png" class="heartimg"></a>
+						<a href="twishdelete.do?trpk=${data.trpk}&tupk=${logininfo.tupk}" class="buttonatag"><img alt="찜하기" src="images/ht1.png" class="heartimg"></a>
 					</c:if>
 				</c:if>
 				<c:if test="${logininfo == null}">
