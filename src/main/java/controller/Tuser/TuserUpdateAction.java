@@ -14,26 +14,16 @@ public class TuserUpdateAction implements TInterface{
 	public TActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		TActionForward forward=null;
 		
-		TuserDAO trdao=new TuserDAO();
+		TuserDAO tudao=new TuserDAO();
 		TuserVO tuvo=new TuserVO();
 				
-		String paramTupw=request.getParameter("tupw");
-		String paramTurole=request.getParameter("turole");
+		String paramTuid=request.getParameter("tuid");
 		String paramTunickname=request.getParameter("tunickname");
-		String paramTuph=request.getParameter("tuph");
-		String paramTuaddresszipcode=request.getParameter("tuaddresszipcode");
-		String paramTuaddress=request.getParameter("tuaddress");
-		String paramTuaddressdetail=request.getParameter("tuaddressdetail");
 		
-		tuvo.setTupw(paramTupw);
-		tuvo.setTurole(paramTurole);
+		tuvo.setTuid(paramTuid);
 		tuvo.setTunickname(paramTunickname);
-		tuvo.setTuph(paramTuph);
-		tuvo.setTuaddresszipcode(Integer.parseInt(paramTuaddresszipcode));
-		tuvo.setTuaddress(paramTuaddress);
-		tuvo.setTuaddressdetail(paramTuaddressdetail);
 		
-		if(trdao.update(tuvo)) {
+		if(tudao.update(tuvo)) {
 			forward=new TActionForward();
 			forward.setPath("main.do");
 			forward.setRedirect(true);

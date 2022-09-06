@@ -808,32 +808,6 @@ select.grade{
     color: white;
 }
 
-/* 관리자 등록 페이지 */
-#hostTitle{
-	margin: 0 auto;
-	text-align:center;
-}
-
-#hostTable{
-	margin: 0 auto;
-	text-align:center;
-}
-
-.reg_btn{
-	color: rgb(255, 255, 255);
-	background-color: rgb(232, 41, 95);
-	border: none;
-	border-radius: 3px;
-	font-size: 14px;
-	letter-spacing: 3px;
-	width: 152px;
-}
-
-.img_wrap > img{
-	max-width: 300px;
-	height: auto;
-}
-
 /*카테고리 페이지 스타일*/
 #categorycontent {
 	max-width: 1050px;
@@ -1419,4 +1393,50 @@ select.grade{
 #fragment-2{
 	padding-right: 40px;
 	padding-left: 40px;
+}
+
+.mypageinfoform{
+	width: 300px;
+}
+
+#hosthref{
+	text-decoration: none;
+	color: rgb(232, 41, 95);
+	display: inline-block;
+}
+
+#hostbox{
+	width: 200px;
+	height: 40px;
+	border-radius: 7px;
+	border: 2px solid rgb(232, 41, 95);
+	line-height: 40px;
+	text-align: center;
+}
+
+/* 관리자 등록 페이지 */
+
+#hostTitle{
+	margin: 0 auto;
+	text-align:center;
+}
+
+#hostTable{
+	margin: 0 auto;
+	text-align:center;
+}
+
+.reg_btn{
+	color: rgb(255, 255, 255);
+	background-color: rgb(232, 41, 95);
+	border: none;
+	border-radius: 3px;
+	font-size: 14px;
+	letter-spacing: 3px;
+	width: 152px;
+}
+
+.img_wrap > img{
+	max-width: 300px;
+	height: auto;
 }
