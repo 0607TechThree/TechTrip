@@ -447,6 +447,7 @@ input::placeholder {
 	color: rgb(255, 255, 255);
 	background-color: rgb(232, 41, 95);
 	border: 0px none;
+	cursor: pointer;
 }
 
 .bt-pw {
@@ -460,6 +461,7 @@ input::placeholder {
 	color: rgb(232, 41, 95);
 	background-color: rgb(255, 255, 255);
 	border: 1px solid rgb(232, 41, 95);
+	cursor: pointer;
 }
 
 .btn-idpw {

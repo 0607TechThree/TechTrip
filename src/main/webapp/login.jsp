@@ -109,10 +109,11 @@
 					<button class="bt-id" type="submit" height="54" radius="3">
 						<span class="btn-idpw">로그인</span>
 					</button>
-					<button class="bt-pw" type="button" height="54" radius="3"
-						onclick="location.href='join.jsp'">
+					<a href="joinfirst.jsp">
+					<button class="bt-pw" type="button" height="54" radius="3">
 						<span class="btn-idpw">회원가입</span>
 					</button>
+					</a>
 				</div>
 			</form>
 		</div>
