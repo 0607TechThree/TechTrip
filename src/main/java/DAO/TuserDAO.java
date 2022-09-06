@@ -16,7 +16,7 @@ public class TuserDAO {
 	final String sql_selectOne_N="SELECT * FROM TUSER WHERE NEMAIL = ?";	
 	final String sql_checkId="SELECT * FROM TUSER WHERE TUID=?";
 	final String sql_insert="INSERT INTO TUSER VALUES((SELECT NVL(MAX(TUPK),0) +1 FROM TUSER),?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-	final String sql_update="UPDATE TUSER SET TUPW =?, TUROLE = ?, TUNICKNAME = ?, TUPH = ?, TUADDRESSZIPCODE = ?, TUADDRESS = ?, TUADDRESSDETAIL = ? WHERE TUID = ?";
+	final String sql_update="UPDATE TUSER SET TUNICKNAME = ? WHERE TUID = ?";
 	final String sql_delete="UPDATE TUSER SET TUDEL = 0 WHERE TUID = ?";
 	
 	public int checkId(TuserVO vo) {
@@ -116,13 +116,8 @@ public class TuserDAO {
 		conn=JDBCUtil.connect();
 		try {
 			pstmt=conn.prepareStatement(sql_update);
-			pstmt.setString(1, vo.getTupw());
-			pstmt.setString(2, vo.getTurole());
-			pstmt.setString(3, vo.getTunickname());
-			pstmt.setString(4, vo.getTuph());
-			pstmt.setInt(5, vo.getTuaddresszipcode());
-			pstmt.setString(6, vo.getTuaddress());
-			pstmt.setString(7, vo.getTuaddressdetail());
+			pstmt.setString(1, vo.getTunickname());
+			pstmt.setString(2, vo.getTuid());
 			int res=pstmt.executeUpdate();
 			if(res==0) {
 				return false;

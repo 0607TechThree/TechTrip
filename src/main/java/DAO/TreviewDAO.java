@@ -15,6 +15,7 @@ public class TreviewDAO {
 	Connection conn;
 	PreparedStatement pstmt;
 	final String sql_selectAll = "SELECT * FROM TREVIEW WHERE TRPK = ? ORDER BY TVPK";
+	final String sql_selectAll_U = "SELECT * FROM TREVIEW WHERE TUPK = ? ORDER BY TVPK";
 	final String sql_selectAll_R = "SELECT * FROM TREPLY WHERE TVPK = ? ORDER BY TPPK";
 	//final String sql_selectOne = "";
 	//특정 리뷰를 조회 할 일이 없음
@@ -27,8 +28,13 @@ public class TreviewDAO {
 		ArrayList<TreviewSet> datas=new ArrayList<TreviewSet>();
 		conn=JDBCUtil.connect();
 		try {
-			pstmt=conn.prepareStatement(sql_selectAll);
-			pstmt.setInt(1, vo.getTrpk());
+			if(vo.getTupk() != 0) {
+				pstmt=conn.prepareStatement(sql_selectAll_U);
+				pstmt.setInt(1, vo.getTupk());
+			}else {			
+				pstmt=conn.prepareStatement(sql_selectAll);
+				pstmt.setInt(1, vo.getTrpk());
+			}
 			ResultSet rs=pstmt.executeQuery();
 			while(rs.next()) {
 				TreviewSet ts = new TreviewSet();
