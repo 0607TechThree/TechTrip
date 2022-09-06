@@ -147,8 +147,29 @@ div[class^=rating_type] .starrat em {
 					</c:if>
 				</c:if>
 				<c:if test="${logininfo == null}">
+					<div class="modal" style="z-index:1000;">
+						<div class="modal_body">
+							<div class="bt-idpw">
+								<h4>
+									<center>
+									로그인 후 이용 가능합니다!
+									</center>
+								</h4>
+								<a href="login.jsp">
+									<button class="bt-id" type="submit" height="54" radius="3">
+										<span class="btn-idpw">로그인</span>
+									</button>
+								</a>
+								<a href="joinfirst.jsp">
+									<button class="bt-pw" type="button" height="54" radius="3">
+										<span class="btn-idpw">회원가입</span>
+									</button>
+								</a>
+							</div>
+						</div>
+					</div>
 					<a class="buttonatag"><div id="nonepaybutton">예약(결제)하기</div></a>
-					<a class="buttonatag"><img alt="찜하기" src="images/ht2.png" id="noneheart"></a>
+					<a class="buttonatag2"><img alt="찜하기" src="images/ht2.png" id="noneheart"></a>
 				</c:if>
 				</c:if>
 			</div>
@@ -189,6 +210,39 @@ div[class^=rating_type] .starrat em {
 </div>
 	
 <tt:footer />
+<script>
+    const body = document.querySelector('body');
+    const modal = document.querySelector('.modal');
+    const btnOpenPopup = document.querySelector('.buttonatag');
+    const btnOpenPopup2 = document.querySelector('.buttonatag2');
+
+    btnOpenPopup.addEventListener('click', () => {
+      modal.classList.toggle('show');
+
+      if (modal.classList.contains('show')) {
+        body.style.overflow = 'hidden';
+      }
+    });
+    
+    btnOpenPopup2.addEventListener('click', () => {
+        modal.classList.toggle('show');
+
+        if (modal.classList.contains('show')) {
+          body.style.overflow = 'hidden';
+        }
+      });
+
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        modal.classList.toggle('show');
+
+        if (!modal.classList.contains('show')) {
+          body.style.overflow = 'auto';
+        }
+      }
+    });
+    
+  </script>
 	<script type="text/javascript">
 	window.onpageshow = function (event) {
 		if (event.persisted || (window.performance && (window.performance.navigation.type == 1 || window.performance.navigation.type == 2))) {
@@ -229,6 +283,7 @@ div[class^=rating_type] .starrat em {
 	  });
 	};
 	starRating();
+	
 	</script>
 	
 </body>

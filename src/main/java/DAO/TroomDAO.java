@@ -19,6 +19,7 @@ public class TroomDAO {
 	final String sql_insert="INSERT INTO TROOM VALUES((SELECT NVL(MAX(TRPK),0) +1 FROM TROOM),?,?,?,?,?,?,?,?,?,?)";
 	final String sql_update="UPDATE TROOM SET TRADDRESS = ?, TRREGION = ?, TRNAME = ?, TRPRICE = ?, TRINFO = ? WHERE TRPK = ?";
 	final String sql_delete="UPDATE TROOM SET TRDEL = 0 WHERE TRPK = ?";
+	final String sql_delete_RE="UPDATE TROOM SET TRDEL = 1 WHERE TRPK = ?";
 	final String sql_sample="SELECT COUNT(*) AS CNT FROM TROOM";
 	final String sql_maxtrpk="SELECT NVL(MAX(TRPK),0) +1 FROM TROOM";
 
@@ -142,6 +143,23 @@ public class TroomDAO {
 		conn=JDBCUtil.connect();
 		try {
 			pstmt=conn.prepareStatement(sql_delete);
+			pstmt.setInt(1,vo.getTrpk());
+			int res=pstmt.executeUpdate();
+			if(res==0) {
+				return false;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			JDBCUtil.disconnect(pstmt, conn);
+		}
+		return true;
+	}
+	public boolean deletere(TroomVO vo) {
+		conn=JDBCUtil.connect();
+		try {
+			pstmt=conn.prepareStatement(sql_delete_RE);
 			pstmt.setInt(1,vo.getTrpk());
 			int res=pstmt.executeUpdate();
 			if(res==0) {

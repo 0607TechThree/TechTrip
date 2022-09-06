@@ -72,7 +72,7 @@ div[class^=rating_type] .starrat em {
 				</div>
 			</div>
 			<div class="myrealright">
-				<a href="">
+				<a href="tbookdelete.do?trpk=${booklist.trpk}">
 					<button class="mygodetail" type="button">예약 취소</button>
 				</a>
 			</div>
