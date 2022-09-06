@@ -23,7 +23,12 @@
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDmRXJ2n2XITfPx9iI8fUP8QpOjbUVx0uk&sensor=true"></script>
 <script src="jquery.rating.js" type="text/javascript" language="javascript"></script>
 <!-- GoogoleMap Asynchronously Loading the API ********************************************* -->
-
+<style type="text/css">
+div[class^=rating_type] .starrat em {
+    display: block;
+    background: url(images/sp_star.gif) no-repeat 0 -19px;
+    text-indent: -9999px;
+}
 </style>
 <script type="text/javascript">
 
@@ -156,7 +161,7 @@
 			<c:forEach var="v" items="${trdatas}">
 				<c:set var="b" value="${v.treviewVO}" />
 				<h3>
-					내용 : ${b.tboard} 별점 : ${b.tstar}
+					내용 : ${b.tboard} <div class="rating_type"><span class="starrat"><em style="width:${b.tstar}%">별점</em><strong>${b.tstar}</strong></span></div>
 				</h3>
 		
 				<div class="reply">
