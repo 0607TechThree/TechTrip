@@ -23,7 +23,10 @@
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDmRXJ2n2XITfPx9iI8fUP8QpOjbUVx0uk&sensor=true"></script>
 <script src="jquery.rating.js" type="text/javascript" language="javascript"></script>
 <!-- GoogoleMap Asynchronously Loading the API ********************************************* -->
+
+</style>
 <script type="text/javascript">
+
 	function initialize() {
 
 		var mapOptions = {
@@ -76,7 +79,6 @@
 
 	}
 	google.maps.event.addDomListener(window, 'load', initialize);
-	
 </script>
 </head>
 <body>
@@ -89,48 +91,50 @@
 		</div>
 		<div class="rctc">
 			<div>
-				${data.trname}
+				<div id="rctcname">
+					${data.trname}
+				</div>
+				<div id="rctcprice">
+					${data.trprice}원
+				</div>
+				<div id="rctccheckinout">
+					${data.checkin} ~ ${data.checkout}
+				</div>
+				<div id="rctcaddress">
+					주소 : ${data.traddress}
+				</div>
+				<div id="rctcinfo">
+					사장님 한마디: ${data.trinfo}
+				</div>
 			</div>
-			<div>
-				${data.trprice}
-			</div>
-			<div>
-				날짜 (데이터피커)
-			</div>
-			<div>
-				${data.traddress}
-			</div>
-			<div>
-				사장님 한마디: ${data.trinfo}
-			</div>
-			<div>
+			<div id="rctcbottom">
 				<c:if test="${data.trdel == 0}">
-					<div>이미 예약된 상품입니다</div>
+					<div class="soldout">이미 예약된 상품입니다</div>
 				</c:if>
 				<c:if test="${data.trdel != 0}">
 				<c:if test="${logininfo != null}">
 					<c:set var="v" value="${cart}"/>
 					<c:if test="${flag==true}">
-						<a href="tcartinsert.do?trpk=${data.trpk}"><div class="insertcart">장바구니담기</div></a>				
+						<a href="tcartinsert.do?trpk=${data.trpk}" class="buttonatag"><div class="insertcart">장바구니담기</div></a>				
 					</c:if>
 					<c:if test="${flag==false}">
-						<div class="insertcart">장바구니담기</div>		
+						<div id="hascart">장바구니담기</div>		
 					</c:if>
 				</c:if>
 				<c:if test="${logininfo != null}">
 					<c:if test="${data.trdel == 1}">
-						<a href="tpay.do?trpk=${data.trpk}"><div>예약(결제)하기</div></a>
+						<a href="tpay.do?trpk=${data.trpk}" class="buttonatag"><div id="paybutton">예약(결제)하기</div></a>
 					</c:if>
 					<c:if test="${wflag==true}">
-						<a href="twishinsert.do?trpk=${data.trpk}&tupk=${logininfo.tupk}"><div>찜하기</div></a>
+						<a href="twishinsert.do?trpk=${data.trpk}&tupk=${logininfo.tupk}" class="buttonatag"><img alt="찜하기" src="images/ht1.png" class="heartimg"></a>
 					</c:if>
 					<c:if test="${wflag==false}">
-						<a href="twishdelete.do?trpk=${data.trpk}&tupk=${logininfo.tupk}"><div>찜하기</div></a>
+						<a href="twishdelete.do?trpk=${data.trpk}&tupk=${logininfo.tupk}" class="buttonatag"><img alt="찜해제하기" src="images/ht2.png" class="heartimg"></a>
 					</c:if>
 				</c:if>
 				<c:if test="${logininfo == null}">
-					<a>예약(결제)하기</a>
-					<a>찜하기</a>
+					<a class="buttonatag"><div id="nonepaybutton">예약(결제)하기</div></a>
+					<a class="buttonatag"><img alt="찜하기" src="images/ht2.png" id="noneheart"></a>
 				</c:if>
 				</c:if>
 			</div>
@@ -141,20 +145,20 @@
 			<div id="map-canvas" style="width: 100%; height: 340px"
 				title="${data.trname} 위치입니다"></div>
 		</div>
-		<div>
-		<div id="">
-			<h2>리뷰</h2>
-			<tt:write type="tboard"/>
-		</div>
-			
-			<c:if test="${trdatas.size() == 0}">작성한 글이 없습니다</c:if>
+		<div id="rcbreview">
+			<div id="">
+				<h2>리뷰</h2>
+				<tt:write type="tboard"/>
+			</div>
+		
+			<c:if test="${trdatas.size() == 0}">작성된 리뷰가 없습니다</c:if>
 			
 			<c:forEach var="v" items="${trdatas}">
 				<c:set var="b" value="${v.treviewVO}" />
 				<h3>
 					내용 : ${b.tboard} 별점 : ${b.tstar}
 				</h3>
-
+		
 				<div class="reply">
 					<ul>
 						<c:forEach var="r" items="${v.rList}">
@@ -212,5 +216,6 @@
 	};
 	starRating();
 	</script>
+	
 </body>
 </html>

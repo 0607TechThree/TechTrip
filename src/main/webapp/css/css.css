@@ -912,27 +912,160 @@ select.grade{
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
+	margin-bottom: 10px;
 }
 
 .rctc {
 	max-width: 500px;
 	flex-basis: 45%;
+	display:flex;
+	align-items: space-between;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .rctc>img {
 	max-width: 500px;
+	width: 100%;
 }
 
-@media ( max-width :700px) {
+@media ( max-width :850px) {
 	.rctc {
 		max-width: 500px;
 		flex-basis: 100%;
 	}
 }
 
+#rctcname{
+	text-align: right;
+	font-size: 22px;
+}
+
+#rctcprice{
+	text-align: right;
+	font-size: 20px;
+	color: rgb(232, 41, 95);
+}
+
+#rctccheckinout{
+	text-align: right;
+}
+
+#rctcaddress{
+	text-align: right;
+}
+
+#rctcinfo{
+	color: gray;
+	font-size: 14px;
+}
+
+#rctcbottom{
+	width: 100%;
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-around;
+}
+
 .rcbottom {
 	margin: auto;
 	display: flex;
+}
+
+#rcbc{
+	border-top : 3px solid #c0c0c0;
+	padding: 20px;
+}
+
+#rcbreview{
+	padding: 20px;
+}
+
+.soldout{
+	width: 80%;
+	margin: auto;
+	height: 50px;
+	background-color: gray;
+	color: white;
+	text-align: center;
+	line-height: 50px;
+	border-radius: 3px;
+}
+
+.insertcart{
+	width: 120px;
+	height:50px;
+	border-radius: 5px;
+	background-color: white;
+	color: rgb(232, 41, 95);
+	border: 2px solid rgb(232, 41, 95);
+	line-height: 50px;
+	text-align: center;
+	font-size: 17px;
+}
+
+.buttonatag{
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.shoppingcart{
+	width:17px;
+	height:17px;
+	color: rgb(232, 41, 95);
+}
+
+#hascart{
+	width: 120px;
+	height:50px;
+	border-radius: 5px;
+	background-color: gray;
+	color: white;
+	border: 2px solid gray;
+	line-height: 50px;
+	text-align: center;
+	font-size: 17px;
+}
+
+#paybutton{
+	width: 120px;
+	height:50px;
+	border-radius: 5px;
+	background-color: rgb(232, 41, 95);
+	color: white;
+	border: 2px solid rgb(232, 41, 95);
+	line-height: 50px;
+	text-align: center;
+	font-size: 17px;
+}
+
+.heartimg{
+	height: 33px;
+	border: 2px solid rgb(232, 41, 95);
+	border-radius: 5px;
+	line-height: 43px;
+	padding: 5px;
+}
+
+#noneheart{
+	height: 33px;
+	border: 2px solid gray;
+	border-radius: 5px;
+	line-height: 43px;
+	padding: 5px;
+	background-color: gray;
+}
+
+#nonepaybutton{
+	width: 120px;
+	height:50px;
+	border-radius: 5px;
+	background-color: gray;
+	color: white;
+	border: 2px solid gray;
+	line-height: 50px;
+	text-align: center;
+	font-size: 17px;
 }
 
 /* 룸디테일 별점 플러그인*/
