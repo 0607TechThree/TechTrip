@@ -24,8 +24,17 @@
 <script src="jquery.rating.js" type="text/javascript" language="javascript"></script>
 <!-- GoogoleMap Asynchronously Loading the API ********************************************* -->
 <style type="text/css">
+div[class^=rating_type] .starrat {
+    display: inline-block;
+    width: 75px;
+    height: 13px;
+    background: url(images/sp_star.gif) no-repeat 0 0;
+    text-align: left;
+    vertical-align: middle;
+}
 div[class^=rating_type] .starrat em {
     display: block;
+    height: 12px;
     background: url(images/sp_star.gif) no-repeat 0 -19px;
     text-indent: -9999px;
 }
