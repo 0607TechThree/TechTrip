@@ -794,6 +794,11 @@ select.grade{
 	height:20px;
 }
 
+#datepicker2{
+	width:50%;
+	height:20px;
+}
+
 #joinrole{
 	width: 160px;
 	height: 26px;
@@ -1434,9 +1439,28 @@ select.grade{
 	font-size: 14px;
 	letter-spacing: 3px;
 	width: 152px;
+	height: 30px;
 }
 
 .img_wrap > img{
 	max-width: 300px;
 	height: auto;
+}
+
+.hosttbtitle{
+	width: 140px;
+	font-size: 18px;
+	text-align: center;
+}
+
+#hostfile{
+	display: flex;
+	align-content: center;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.trcategoryselect{
+	width: 70px;
+	height: 25px;
 }
