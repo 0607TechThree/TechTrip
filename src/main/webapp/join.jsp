@@ -111,15 +111,15 @@
 			//id와 password가 같을 경우
 
 			if (userId.value == userPs.value) {
-				alert("아이디와 비밀번호가 같습니다.");
+				alert("아이디와 비밀번호가 동일합니다.");
 				$("#userPs").focus();
 				validation=false;
 
 			}
 			
 			// 아이디 중복검사를 하지 않았을 경우 확인메세지
-			if (idDuplication.value != "idCheck") {
-				alert("아이디 중복체크를 해주세요.");
+			else if (idDuplication.value != "idCheck") {
+				alert("아이디 중복검사를 진행 해주세요.");
 				validation=false;
 			}
 
@@ -127,7 +127,7 @@
 
 			//password가 입력되지 않을 경우
 
-			if (userPs.value == "") {
+			else if (userPs.value == "") {
 				alert("비밀번호가 입력되지 않았습니다.");
 				$("#userPs").focus();
 				validation=false;
@@ -138,14 +138,6 @@
 			else if (!RegExp.test(userPs.value)) {
 				alert("비밀번호를 6~12자리 영문대소문자와 숫자로만 입력해주세요");
 				$("#userPs").focus();
-				validation=false;
-			}
-
-			//id와 password가 같을 경우
-
-			else if (userId.value == userPs.value) {
-				alert("아이디와 비밀번호 확인이 같습니다.");
-				$("#userPc").focus();
 				validation=false;
 			}
 
@@ -194,14 +186,13 @@
 			}
 			
 			if(validation) {
-		           alert('유효성 검사 통과!!')
+		           alert('회원가입 성공!!')
 		           form.action = 'tuserinsert.do';   //유효성 통과완료되면 서버로 데이터 전달하기.
 		           form.method = 'POST';
 		       		// 폼을 제출하려면 반드시 폼이 문서 안에 있어야 합니다.
 		           form.submit();          // 서버로 데이터 전달하기 동작                                     
-		       }else 
-		           alert('유효성 검사 실패!!')            
-		   };
+		    }           
+		};
 		
 		function sample6_execDaumPostcode() {
 			new daum.Postcode(
@@ -287,7 +278,7 @@
 					<td><input name="tuid" id="userid"  class="jointablevalueid"
 						required placeholder="6~12자리 영문 혹은 영문과 숫자를 조합" onkeydown="inputIdChk()">
 						<a class="ck_btn" href="javascript:check();">
-							<div id="joincheckidbutton">중복확인</div>
+							<button type="button" id="joincheckidbutton">중복확인</button>
 						</a>
 						<input type="hidden" id="idDuplication" value="idUnCheck"></td>
 				</tr>
@@ -314,11 +305,11 @@
 					<td class="jointabletitle"><div>휴대폰</div></td>
 					<c:if test="${param.userh != null}">
 					<td><input required  class="jointablevalue" name="tuph" id="userh"
-						value="${param.userh}" placeholder="전화번호를 입력해주세요" readonly></td>
+						value="${param.userh}" readonly></td>
 					</c:if>
 					<c:if test="${param.userh == null}">
 					<td><input required  class="jointablevalue" name="tuph" id="userh"
-						placeholder="전화번호를 입력해주세요"></td>
+						placeholder="전화번호를 입력해주세요 ex)010-0000-0000"></td>
 					</c:if>
 				</tr>
 				<tr class="tablebordertop">
@@ -327,9 +318,9 @@
 						<input type="text" id="sample6_postcode" name="tuaddresszipcode"
 						placeholder="우편번호" readonly>
 						<a class="sample6" href="javascript:sample6_execDaumPostcode();">
-							<div id="samplesearch">
+							<button type="button" id="samplesearch">
 								우편번호 찾기
-							</div>
+							</button>
 						</a>
 					</td>
 				<tr>
@@ -376,7 +367,9 @@
 				<tr>
 					<td colspan="2">
 						<br>
-						<input type="button" value="회원가입하기" id="joinbutton" onclick="Validation()">
+						<center>					
+							<input type="button" value="회원가입하기" id="joinbutton" onclick="Validation()">
+						</center>
 					</td>
 				</tr>
 			</table>

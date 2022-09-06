@@ -43,7 +43,7 @@ div[class^=rating_type] .starrat em {
     <li><a href="#fragment-3"><span>회원정보</span></a></li>
     <li><a href="#fragment-4"><span>내가 작성한 리뷰 보기</span></a></li>
     <c:if test="${logininfo.turole == 'host'}">
-	    <li><a href="#fragment-5">HOST전용</a></li>
+		<li><a href="#fragment-5"><span>HOST전용</span></a></li>
     </c:if>
   </ul>
   <div id="fragment-1">
@@ -207,10 +207,12 @@ div[class^=rating_type] .starrat em {
 			</div>
 		</c:forEach>
   	</c:if>
-  </div>
-  <div id="fragment-5">
-  	<a href="hostregister.jsp" id="hosthref"><div id="hostbox">+ 상품 등록하기</div></a></div>
-  </div>
+	</div>
+	<c:if test="${logininfo.turole == 'host'}">
+  	<div id="fragment-5">
+ 		<a href="hostregister.jsp" id="hosthref"><div id="hostbox">+ 상품 등록하기</div></a>
+ 	</div>
+ 	</c:if>
 </div>
 <tt:footer/>
 <script src="//code.jquery.com/jquery-1.12.4.js"></script>
