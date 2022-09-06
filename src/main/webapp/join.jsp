@@ -287,7 +287,7 @@
 					<td><input name="tuid" id="userid"  class="jointablevalueid"
 						required placeholder="6~12자리 영문 혹은 영문과 숫자를 조합" onkeydown="inputIdChk()">
 						<a class="ck_btn" href="javascript:check();">
-							<div id="joincheckidbutton">중복확인</div>
+							<button type="button" id="joincheckidbutton">중복확인</button>
 						</a>
 						<input type="hidden" id="idDuplication" value="idUnCheck"></td>
 				</tr>
@@ -314,11 +314,11 @@
 					<td class="jointabletitle"><div>휴대폰</div></td>
 					<c:if test="${param.userh != null}">
 					<td><input required  class="jointablevalue" name="tuph" id="userh"
-						value="${param.userh}" placeholder="전화번호를 입력해주세요" readonly></td>
+						value="${param.userh}" readonly></td>
 					</c:if>
 					<c:if test="${param.userh == null}">
 					<td><input required  class="jointablevalue" name="tuph" id="userh"
-						placeholder="전화번호를 입력해주세요"></td>
+						placeholder="전화번호를 입력해주세요 ex)010-0000-0000"></td>
 					</c:if>
 				</tr>
 				<tr class="tablebordertop">
@@ -327,9 +327,9 @@
 						<input type="text" id="sample6_postcode" name="tuaddresszipcode"
 						placeholder="우편번호" readonly>
 						<a class="sample6" href="javascript:sample6_execDaumPostcode();">
-							<div id="samplesearch">
+							<button type="button" id="samplesearch">
 								우편번호 찾기
-							</div>
+							</button>
 						</a>
 					</td>
 				<tr>
@@ -376,7 +376,9 @@
 				<tr>
 					<td colspan="2">
 						<br>
-						<input type="button" value="회원가입하기" id="joinbutton" onclick="Validation()">
+						<center>					
+							<input type="button" value="회원가입하기" id="joinbutton" onclick="Validation()">
+						</center>
 					</td>
 				</tr>
 			</table>

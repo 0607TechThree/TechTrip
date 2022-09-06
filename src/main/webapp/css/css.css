@@ -332,10 +332,6 @@ input::placeholder {
 }
 
 /* 로그인 */
-#logo .locontent .login .lomain .idpw .idbox .loidpw .lidpw 
- .idbox .loidpw .lidpw .find-idpw .ff-idpw .bt-id .bt-pw .btn-idpw {
-	font-family: Jua;
-}
 
 #loginwrap{
 	width: 100vw;
@@ -385,7 +381,7 @@ input::placeholder {
 .lidpw {
 	width: 100%;
 	height: 46px;
-	color: rgb(221, 221, 221);
+	color: black;
 	padding: 0px 11px 1px 15px;
 	border-radius: 4px;
 	border: 1px solid rgb(221, 221, 221);
@@ -741,6 +737,10 @@ select.grade{
 	color: white;
 }
 
+#userid{
+	display: inline-block;
+}
+
 #joincheckidbutton{
 	width: 20%;
 	height: 26px;
@@ -750,6 +750,8 @@ select.grade{
     color: white;
     cursor: pointer;
 }
+
+
 
 .jointablevalue{
 	width: 97%;
@@ -811,6 +813,16 @@ select.grade{
     border: none;
     border-radius: 7px;
     color: white;
+}
+
+#naverIdLogin > a{
+	width: 340px;
+	height: 70px;
+}
+
+#naverIdLogin > a > img {
+	width: 340px;
+	height: 70px;
 }
 
 /*카테고리 페이지 스타일*/

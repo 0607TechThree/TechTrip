@@ -56,6 +56,6 @@ var naverLogin = new naver.LoginWithNaverId(
 	});
 </script>
 </head>
-<body>이게 왜 나옴??
+<body>
 </body>
 </html>

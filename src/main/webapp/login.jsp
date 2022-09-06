@@ -97,14 +97,13 @@
 					<input type="hidden" name="location" value="${location}">
 				</div>
 				<div class="find-idpw">
-					<a class="fidpw">아이디 찾기</a> <span class="ff-idpw"></span> <a
-						class="fidpw">비밀번호 찾기</a>
+					<span>sns 로그인 시 최초 1회 회원가입을 진행해야 합니다</span>
 				</div>
 				<div>
-					<div style="margin-left: 10%; margin-right: 20%;"><div id="naverIdLogin"></div></div>
-					<div style="margin-right: 20%;"><a><span><img alt=""
-						src="images/kakao_login_medium_narrow.png" onclick="kakaoLogin();"
-						style="cursor: pointer;" title="카카오아이디로 로그인"></span></a></div>
+					<div><div id="naverIdLogin"></div></div>
+					<div><a><span><img alt=""
+						src="images/kakaologin.png" onclick="kakaoLogin();"
+						style="cursor: pointer; width: 340px; height: auto;" title="카카오아이디로 로그인"></span></a></div>
 				</div>
 				<div class="bt-idpw">
 					<button class="bt-id" type="submit" height="54" radius="3">
