@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,6 +37,20 @@
 		});
 		function check() {
 			var userid = $("#userid").val();
+			var RegExp = /^[a-zA-Z0-9]{6,12}$/; // 아이디 유효성 검사
+			if (userid == "") {
+				alert("아이디를 입력해주세요");
+				$("#userid").focus();
+				return false;
+
+			};
+			// 아이디가 6자리 영문대소문자와 숫자로만 입력
+
+			if (!RegExp.test(userid)) {
+				alert("아이디는 6~12자리 영문대소문자와 숫자로만 입력해주세요");
+				$("#userid").focus();
+				return false;
+			};
 			$.ajax({
 				type : 'GET',
 				url : '${pageContext.request.contextPath}/checkId.do?userid=' + userid,
@@ -47,6 +62,7 @@
 					if (result == 1) {
 						$("#result").text("사용가능한 아이디입니다");
 						$("#result").css("color", "blue");
+						$("#idDuplication").val('idCheck');
 					} else {
 						$("#result").text("이미 사용중인 아이디입니다");
 						$("#result").css("color", "red");
@@ -60,72 +76,51 @@
 			});
 		}
 		function inputIdChk(){
-			document.userInfo.idDuplication.value="idUnCheck";
+			document.getElementById("idDuplication").value="idUnCheck";
 			$("#result").text("중복검사를 실행해주세요!");
 			$("#result").css("color", "black");
 		}
+		</script>
+		<script type="text/javascript">
 		function Validation() {
-
+			const form = document.forms[0];
+			let validation = true;
+			
 			var RegExp = /^[a-zA-Z0-9]{6,12}$/; // 아이디 유효성 검사
 
-			// var BrExp = /^[0-9]{4}$/; // 년도
-
-			// var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/; // 이메일 유효성 검사
-
-			var nameExp = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/; // 이름 유효성 검사
-
-			// var phoneExp = /^\d{3}-\d{3,4}-\d{4}$/;
+			var phoneExp = /^\d{3}-\d{3,4}-\d{4}$/; // 휴대폰 유효성 검사
 
 			var userId = document.getElementById("userid");
 
-			var userPs = document.getElementById("userPs");
+			var userPs = document.getElementById("userps");
 
-			var userPc = document.getElementById("userPc");
+			var userPc = document.getElementById("userpc");
 
 			var userM = document.getElementById("userm");
-
-			var userN = document.getElementById("usern");
 
 			var userR = document.getElementById("userRe");
 
 			var userBr = document.getElementById("birth");
 
 			var userh = document.getElementById("userh");
+			
+			var idDuplication = document.getElementById("idDuplication");
 
 			var userad = document.getElementById("sample6_postcode");
 
-			// 아이디에 아무것도 안들어가있을 경우
-
-			if (userId.value == "") {
-
-				alert("아이디를 입력해주세요");
-				$("#userid").focus();
-				return false;
-
-			}
-			// 아이디가 6자리 영문대소문자와 숫자로만 입력
-
-			if (!RegExp.test(userId.value)) {
-
-				alert("아이디는 6~12자리 영문대소문자와 숫자로만 입력해주세요");
-				$("#userid").focus();
-				return false;
-
-			}
 			//id와 password가 같을 경우
 
 			if (userId.value == userPs.value) {
-
 				alert("아이디와 비밀번호가 같습니다.");
 				$("#userPs").focus();
-				return false;
+				validation=false;
 
 			}
 			
 			// 아이디 중복검사를 하지 않았을 경우 확인메세지
-			if (form.idDuplication.value != "idCheck") {
+			if (idDuplication.value != "idCheck") {
 				alert("아이디 중복체크를 해주세요.");
-				return false;
+				validation=false;
 			}
 
 			//==============================================================
@@ -133,115 +128,81 @@
 			//password가 입력되지 않을 경우
 
 			if (userPs.value == "") {
-
 				alert("비밀번호가 입력되지 않았습니다.");
 				$("#userPs").focus();
-				return false;
-
+				validation=false;
 			}
 
 			//password 6~12자리 영문대소문자와 숫자로만 입력
 
-			if (!RegExp.test(userPs.value)) {
-
+			else if (!RegExp.test(userPs.value)) {
 				alert("비밀번호를 6~12자리 영문대소문자와 숫자로만 입력해주세요");
 				$("#userPs").focus();
-				return false;
-
+				validation=false;
 			}
 
-			//id와 password_check가 같을 경우
+			//id와 password가 같을 경우
 
-			if (userId.value == userPc.value) {
-
+			else if (userId.value == userPs.value) {
 				alert("아이디와 비밀번호 확인이 같습니다.");
 				$("#userPc").focus();
-				return false;
-
+				validation=false;
 			}
 
 			//password_check가 입력되지 않을 경우
 
-			if (userPc.value == "") {
-
+			else if (userPc.value == "") {
 				alert("비밀번호 확인이 입력되지 않았습니다.");
 				$("#userPc").focus();
-				return false;
-
+				validation=false;
 			}
 
 			//password_check 6~12자리 영문대소문자와 숫자로만 입력
 
-			if (!RegExp.test(userPc.value)) {
-
+			else if (!RegExp.test(userPc.value)) {
 				alert("비밀번호 확인을 6~12자리 영문대소문자와 숫자로만 입력해주세요");
 				$("#userPc").focus();
-				return false;
-
+				validation=false;
 			}
 
-			if (!(userPs.value == userPc.value)) {
+			else if (userPs.value != userPc.value) {
 				alert("비밀번호가 비밀번호 확인과 일치하지 않습니다");
 				$("#userPc").focus();
-				return false;
+				validation=false;
 			}
 
 			//===========================================================
-
-			// 이름이 영문자 썩여서 입력될 경우
-
-			if (nameExp.test(userN.value) == false) {
-
-				alert("이름형식이 맞지 않습니다.");
-				$("#usern").focus();
-				return false;
-
-			}
 			
 			// 전화번호
-			/*
-			if (userh.value == "") {
-
+			else if (userh.value == "") {
 				alert("전화번호가 입력되지 않았습니다.");
 				$("#userh").focus();
-				return false;
-			}
-			if (phoneExp.test(userh.value) == false) {
-
-				alert("전화번호 형식이 맞지 않습니다.");
-				$("#userh").focus();
-				return false;
-			}
-			*/
-			if (userad.value == "") {
-
-				alert("우편번호가 입력되지 않았습니다.");
-				$("#sample6_postcode").focus();
-				return false;
-			}
-			// 년도 
-			/*
-			if (BrExp.test(userBr.value) == false) {
-
-				alert("년도 형식이 맞지 않습니다.");
-				$("#birth").focus();
-				return false;
+				validation=false;
 			}
 			
-			if (userBr.value == "") {
-
-				alert("년도가 입력되지 않았습니다.");
-				$("#birth").focus();
-				return false;
+			else if (!phoneExp.test(userh.value)) {
+				alert("전화번호 형식이 맞지 않습니다.");
+				$("#userh").focus();
+				validation=false;
 			}
-			if (!("1900" <= userBr.value && userBr.value <= "2022")) {
-
-				alert("년도는 1900~2022 사이의 값을 입력해주세요");
-				$("#birth").focus();
-				return false;
+			
+			// 우편번호
+			else if (userad.value == "") {
+				alert("우편번호가 입력되지 않았습니다.");
+				$("#sample6_postcode").focus();
+				validation=false;
 			}
-			*/
-		}
+			
+			if(validation) {
+		           alert('유효성 검사 통과!!')
+		           form.action = 'tuserinsert.do';   //유효성 통과완료되면 서버로 데이터 전달하기.
+		           form.method = 'POST';
+		       		// 폼을 제출하려면 반드시 폼이 문서 안에 있어야 합니다.
+		           form.submit();          // 서버로 데이터 전달하기 동작                                     
+		       }else 
+		           alert('유효성 검사 실패!!')            
+		   };
+		
 		function sample6_execDaumPostcode() {
 			new daum.Postcode(
 					{
@@ -306,7 +267,6 @@
 						}
 					}).open();
 		}
-		
 	</script>
 <div id="joincontent">
 	<div id="joincontentbox">
@@ -318,8 +278,9 @@
 			<div id="joinsubject">
 				<h3>회원가입</h3>
 			</div>
-			<form action="tuserinsert.do" onsubmit="javascript:Validation();"
-			method="post" name="userInfo" id="joinform">
+			<form action="" name="userInfo" id="joinform">
+						<input type="hidden" name="kemail" value="${param.kemail}">
+						<input type="hidden" name="nemail" value="${param.nemail}">
 			<table>
 				<tr>
 					<td class="jointabletitle"><div>아이디</div></td>
@@ -328,9 +289,7 @@
 						<a class="ck_btn" href="javascript:check();">
 							<div id="joincheckidbutton">중복확인</div>
 						</a>
-						<input type="hidden" name="idDuplication" value="idUnCheck"></td>
-						<input type="hidden" name="kemail" value="${param.kemail}"></td>
-						<input type="hidden" name="nemail" value="${param.nemail}"></td>
+						<input type="hidden" id="idDuplication" value="idUnCheck"></td>
 				</tr>
 				<tr>
 					<td></td>
@@ -338,12 +297,12 @@
 				</tr>
 				<tr>
 					<td class="jointabletitle"><div>비밀번호</div></td>
-					<td><input type="password" name="tupw"  class="jointablevalue" id="userPs"
+					<td><input type="password" name="tupw"  class="jointablevalue" id="userps"
 						required placeholder="아이디와 다른 6~12자리 영문과 숫자를 조합"></td>
 				</tr>
 				<tr class="tablebordertop">
 					<td class="jointabletitle"><div>비밀번호확인</div></td>
-					<td><input type="password"  class="jointablevalue" id="userPc"
+					<td><input type="password"  class="jointablevalue" id="userpc"
 						required placeholder="비밀번호를 한번 더 입력해주세요"></td>
 				</tr>
 				<tr class="tablebordertop">
@@ -353,8 +312,14 @@
 				</tr>
 				<tr class="tablebordertop">
 					<td class="jointabletitle"><div>휴대폰</div></td>
-					<td><input required  class="jointablevalue" name="tuph"
-						value="${param.userh}" placeholder="전화번호를 입력해주세요"></td>
+					<c:if test="${param.userh != null}">
+					<td><input required  class="jointablevalue" name="tuph" id="userh"
+						value="${param.userh}" placeholder="전화번호를 입력해주세요" readonly></td>
+					</c:if>
+					<c:if test="${param.userh == null}">
+					<td><input required  class="jointablevalue" name="tuph" id="userh"
+						placeholder="전화번호를 입력해주세요"></td>
+					</c:if>
 				</tr>
 				<tr class="tablebordertop">
 					<td></td>
@@ -390,13 +355,13 @@
 				<tr class="tablebordertop">
 					<td class="jointabletitle">성별</td>
 					<td>남&nbsp;<input type="radio"
-						name="tugender" checked="checked">여&nbsp;<input type="radio" name="tugender">
+						name="tugender" checked="checked" value="남">여&nbsp;<input type="radio" name="tugender" value="여">
 					</td>
 				</tr>
 				<tr class="tablebordertop">
 					<td class="jointabletitle">국적</td>
 					<td>내국인&nbsp;<input type="radio"
-						name="tunation" checked="checked" > 외국인&nbsp;<input type="radio" name="tunation">
+						name="tunation" checked="checked" value="내국인"> 외국인&nbsp;<input type="radio" name="tunation" value="외국인">
 						&nbsp;</td>
 				</tr>
 				<tr class="tablebordertop">
@@ -411,7 +376,7 @@
 				<tr>
 					<td colspan="2">
 						<br>
-						<input type="submit" value="회원가입하기" id="joinbutton">
+						<input type="button" value="회원가입하기" id="joinbutton" onclick="Validation()">
 					</td>
 				</tr>
 			</table>
