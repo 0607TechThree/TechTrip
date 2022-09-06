@@ -170,7 +170,7 @@ div[class^=rating_type] .starrat em {
 			<c:forEach var="v" items="${trdatas}">
 				<c:set var="b" value="${v.treviewVO}" />
 				<h3>
-					내용 : ${b.tboard} <div class="rating_type"><span class="starrat"><em style="width:${b.tstar*10}%">별점</em><strong>${b.tstar}</strong></span></div>
+					내용 : ${b.tboard} <div class="rating_type"><span class="starrat"><em style="width:${b.tstar*10}%">별점</em></span></div>
 				</h3>
 		
 				<div class="reply">
