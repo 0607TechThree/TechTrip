@@ -30,27 +30,72 @@
     </c:if>
   </ul>
   <div id="fragment-1">
+  <c:if test="${booklist.size() == 0}">
+  		<div>예약목록이 존재하지 않습니다</div>
+  </c:if>
+  	<c:if test="${booklist.size() != 0}">
     <c:forEach var="booklist" items="${booklist}">
-	    <div class="">
-    		${booklist.trname}<br>
-	    	${booklist.trprice}<br>
-	    </div>
-    	<div>
-    		예약 취소하기
- 	   	</div>
+	   <div class="mytop">
+			<div class="myleft">
+				<a href="troomselectone.do?trpk=${booklist.trpk}">
+				<img alt="${booklist.trname} 이미지" src="images/crawling/${booklist.trpk}.jpg" class="myimg">
+				</a>
+			</div>
+			<div class="myright">
+				<div class="myname">
+					${booklist.trname}
+				</div>
+				<div class="mycheckinout">
+					${booklist.checkin} ~ ${booklist.checkout}
+				</div>
+				
+				<br>
+				<div class="myprice">
+					금액 : ${booklist.trprice} 원
+				</div>
+			</div>
+			<div class="myrealright">
+				<a href="">
+					<button class="mygodetail" type="button">예약 취소</button>
+				</a>
+			</div>
+		</div>
 	</c:forEach>
+		<h5 class="mymsg">* 예약 전날 취소 시 90%만 환불 받으실 수 있습니다</h5>
+	</c:if>
   </div>
   <div id="fragment-2">
+  	<c:if test="${wishroom.size() == 0}">
+  		<div>찜 목록이 존재하지 않습니다</div>
+  	</c:if>
+  	<c:if test="${wishroom.size() != 0}">
     <c:forEach var="wr" items="${wishroom}">
-	    <div>
-    		<div>
-    			${wr.trname}
-    		</div>
-	    </div>
-    	<div>
-    		찜 취소하기
-	    </div>
+	    <div class="mytop">
+			<div class="myleft">
+				<a href="troomselectone.do?trpk=${wr.trpk}">
+				<img alt="${wr.trname} 이미지" src="images/crawling/${wr.trpk}.jpg" class="myimg">
+				</a>
+			</div>
+			<div class="myright">
+				<div class="myname">
+					${wr.trname}
+				</div>
+				<div class="mycheckinout">
+					${wr.checkin} ~ ${wr.checkout}
+				</div>
+				
+				<br>
+				<div class="myprice">
+					금액 : ${wr.trprice} 원
+				</div>
+			</div>
+			<div class="myrealright">	
+				<a href="twishlocation.do?trpk=${wr.trpk}&tupk=${logininfo.tupk}" class="buttonatag"><img alt="찜하기" src="images/ht1.png" class="heartimg"></a>
+			</div>
+		</div>
     </c:forEach>
+    <h5 class="mymsg">* 예약된 상품이어도 찜 목록에서 제외되지 않습니다</h5>
+    </c:if>
   </div>
   <div id="fragment-3">
 	<div>
