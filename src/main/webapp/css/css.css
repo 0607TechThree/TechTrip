@@ -257,11 +257,13 @@ input::placeholder {
 
 .footercontentitem {
 	width: auto;
-	max-width: 500px;
-	flex-basis: 40%;
+	max-width: 1000px;
+	flex-basis: 80%;
 	min-width: 300px;
 	color: rgba(0, 0, 0, 0.38);
 }
+
+
 
 /*메인페이지 페인컨텐츠 스타일*/
 
