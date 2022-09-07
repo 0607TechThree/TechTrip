@@ -34,7 +34,7 @@
 				<img class="swiperimg" src="images/mainswiper2.jpg" alt="명소이미지2">
 			</div>
 			<div class="swiper-slide">
-				<img class="swiperimg" src="images/33.jpg" alt="명소이미지3">
+				<img class="swiperimg" src="images/mainswiper3.jpg" alt="명소이미지3">
 			</div>
 		</div>
 	</div>
@@ -107,11 +107,31 @@
 		</div>
 	</div>
 	<div id="mainbottom">
-		<div class="mainbottomcontent">
-			왼쪽 컨텐츠임
+		<div class="mainbottomcontent" onclick="alertmsg()">
+			<div class="mainbcl">
+				<div class="mbcltitle">
+					TechTrip
+				</div>
+				<div class="mbclcontent">
+					광고 신청하기
+				</div>
+			</div>
+			<div class="mainbcr">
+				<img alt="" src="images/mainpic1.png" class="mainpic">
+			</div>
 		</div>
-		<div class="mainbottomcontent">
-			오른쪽 컨텐츠임
+		<div class="mainbottomcontent" onclick="togithub()">
+			<div class="mainbcl">
+				<div class="mbcltitle">
+					깃 허브
+				</div>
+				<div class="mbclcontent">
+					구경 하기
+				</div>
+			</div>
+			<div class="mainbcr">
+				<img alt="" src="images/mainpic2.png" class="mainpic2">
+			</div>
 		</div>
 	</div>
 </div>
@@ -126,6 +146,16 @@
 	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 	crossorigin="anonymous"></script>
 <script type="text/javascript">
+
+// 광고
+function alertmsg(){
+	alert("테크트립 광고문의는 고객센터(1500-0000)를 이용해주세요!");
+}
+
+function togithub(){
+	window.open("https://github.com/0607TechThree/TechTrip");
+}
+
 // 스와이퍼 플러그인
 $("document").ready(function() {
 // 문서의 dom이 준비되면
