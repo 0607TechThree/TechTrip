@@ -155,7 +155,7 @@ div[class^=rating_type] .starrat em {
 									로그인 후 이용 가능합니다!
 									</center>
 								</h4>
-								<a href="login.jsp">
+								<a href="login.do">
 									<button class="bt-id" type="submit" height="54" radius="3">
 										<span class="btn-idpw">로그인</span>
 									</button>
