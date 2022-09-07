@@ -202,7 +202,7 @@ div[class^=rating_type] .starrat em {
 					</ul>
 				</div>
 				<div class="">
-					<tt:write type="tpmsg" tvpk="${b.tvpk}" />
+					<tt:write type="tpmsg" tvpk="${b.tvpk}"/>
 				</div>
 			</c:forEach>
 		</div>

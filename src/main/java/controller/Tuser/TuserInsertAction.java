@@ -30,7 +30,7 @@ public class TuserInsertAction implements TInterface{
 		String paramTunation=request.getParameter("tunation");
 		String paramKemail=request.getParameter("kemail");
 		String paramNemail=request.getParameter("nemail");
-		
+				
 		tuvo.setTuid(paramTuid);
 		tuvo.setTupw(paramTupw);
 		tuvo.setTurole(paramTurole);

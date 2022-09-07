@@ -6,14 +6,11 @@
 <%@ attribute name="tstar"%>
 
 <c:if test="${logininfo.tuid != null}">
-	<form action="treviewinsert.do" method="post">
-		<input type="hidden" name="tupk" value="${logininfo.tupk}">
-		<input type="hidden" name="trpk" value="${data.trpk}">
-		<!-- 페이징 처리
-	<input type="hidden" name="cnt" value="${cnt}">
-	 -->
 		<c:choose>
 			<c:when test="${type=='tboard' && tbookvo.tupk == logininfo.tupk}">
+				<form action="treviewinsert.do" method="post">
+					<input type="hidden" name="tupk" value="${logininfo.tupk}">
+					<input type="hidden" name="trpk" value="${data.trpk}">
 				<input type="text" name="tboard">
 				<span class="star-input">
   					<span class="input">
@@ -31,14 +28,18 @@
 					<output for="star-input" name="tstar"><b>0</b>점</output>
 				</span>
 				<input type="submit" value="글 등록">
+				</form>
 			</c:when>
 			<c:when test="${type=='tpmsg' && logininfo.tupk == data.tupk}">
-				<input type="hidden" name="tvpk" value="${tvpk}">
+			<form action="treplyinsert.do" method="post">
+					<input type="hidden" name="trpk" value="${data.trpk}">
+					<input type="hidden" name="tupk" value="${logininfo.tupk}">
+					<input type="hidden" name="tvpk" value="${tvpk}">
 		댓글: <input type="text" name="tpmsg" required>
 				<input type="submit" value="댓글 등록">
+			</form>
 			</c:when>
 		</c:choose>
-	</form>
 </c:if>
 
 <c:choose>
@@ -54,7 +55,7 @@
 	</c:choose>
 </c:when>
 
-<c:when test="${tbookvo.tupk != logininfo.tupk}">
+<c:when test="${tbookvo.tupk != logininfo.tupk && logininfo.tupk != data.tupk}">
 	<c:choose>
 		<c:when test="${type=='tboard'}">
 			<input type="text" disabled value="예약자만 등록 가능합니다!">

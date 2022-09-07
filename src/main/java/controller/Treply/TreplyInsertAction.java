@@ -17,18 +17,20 @@ public class TreplyInsertAction implements TInterface{
 		TreplyDAO trdao=new TreplyDAO();
 		TreplyVO trvo=new TreplyVO();
 		
-		String paramTppk=request.getParameter("tppk");
+		String paramTrpk=request.getParameter("trpk");
+		String paramTvpk=request.getParameter("tvpk");
 		String paramTupk=request.getParameter("tupk");
 		String paramTpmsg=request.getParameter("tpmsg");
 		
-		trvo.setTppk(Integer.parseInt(paramTppk));
+		trvo.setTvpk(Integer.parseInt(paramTvpk));
 		trvo.setTupk(Integer.parseInt(paramTupk));
 		trvo.setTpmsg(paramTpmsg);
 
 		if(trdao.insert(trvo)) {
+			request.setAttribute("trpk", paramTrpk);
 			forward=new TActionForward();
-			forward.setPath("/troomdetail.jsp");
-			forward.setRedirect(true);
+			forward.setPath("troomselectone.do");
+			forward.setRedirect(false);
 		}else {
 			request.setAttribute("errormsg", "댓글 추가 실패");
 			System.out.println("log: TreplyInsertAction");
