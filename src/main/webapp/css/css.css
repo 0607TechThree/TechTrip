@@ -122,6 +122,11 @@ body {
 	width: auto;
 }
 
+#searchform > input::placeholder{
+	color: white;
+	opacity: 50%;
+}
+
 #searchbox {
 	background: none;
 	border: 1px solid rgb(232, 41, 95);
@@ -334,13 +339,48 @@ input::placeholder {
 	width: auto;
 	max-width: 500px;
 	flex-basis: 48%;
-	border: 1px solid black;
+	border: 0.5px solid #eeeeee;
+	display: flex;
+	justify-content: space-around;
+	cursor: pointer;
 }
 
 @media ( max-width :700px) {
 	.mainbottomcontent {
 		flex-basis: 100%;
 	}
+}
+
+.mainpic{
+	width: 200px;
+	height: 200px;
+}
+
+.mainpic2{
+	width: 160px;
+	height: 160px;
+	margin: 20px;
+}
+
+.mainbcl{
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	width: 155px;
+	justify-content: center;
+	align-items: center;
+}
+
+.mbcltitle{
+	font-size: 40px;
+	height: 80px;
+	color: rgb(232, 41, 95);
+}
+
+.mbclcontent{
+	font-size: 20px;
+	color: #f288a6;
 }
 
 /* 로그인 */
