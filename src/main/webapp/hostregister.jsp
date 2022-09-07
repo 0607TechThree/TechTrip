@@ -111,7 +111,7 @@
 					<td class="hosttbtitle">
 						<div id="hostfile">
     						<label for="file">숙소사진</label> 
-    						<input type="file" id="file" name="file" style="width:100%"> 
+    						<input type="file" id="file" name="file" style="width:100%" required> 
 						</div>
 					</td>
  
