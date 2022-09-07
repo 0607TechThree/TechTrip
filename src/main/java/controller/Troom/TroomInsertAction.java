@@ -37,6 +37,13 @@ public class TroomInsertAction implements TInterface{
 		trvo.setCheckin(paramCheckin);
 		trvo.setCheckout(paramCheckout);
 		
+		try {
+			Thread.sleep(2500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		if(trdao.insert(trvo)) {
 			forward=new TActionForward();
 			forward.setPath("mypage.jsp");

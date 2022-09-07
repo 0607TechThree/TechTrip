@@ -21,7 +21,7 @@ public class TroomDAO {
 	final String sql_delete="UPDATE TROOM SET TRDEL = 0 WHERE TRPK = ?";
 	final String sql_delete_RE="UPDATE TROOM SET TRDEL = 1 WHERE TRPK = ?";
 	final String sql_sample="SELECT COUNT(*) AS CNT FROM TROOM";
-	final String sql_maxtrpk="SELECT NVL(MAX(TRPK),0) +1 FROM TROOM";
+	final String sql_maxtrpk="SELECT NVL(MAX(TRPK),0)+1 FROM TROOM";
 
 	public ArrayList<TroomVO> selectAll(TroomVO vo){
 		ArrayList<TroomVO> datas=new ArrayList<TroomVO>();

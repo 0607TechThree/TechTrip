@@ -41,12 +41,6 @@ public class ImgUpload extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		// 요청정보, 패스정보, 최대사이즈(바이트 단위)
 		String path="C:\\0607KEY\\workspace\\TechTrip\\src\\main\\webapp\\images\\crawling\\";
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		// 저장될 주소
 		
 		int maxSize=10 * 1024 * 1024; // 10MB
