@@ -11,6 +11,7 @@ import DAO.TreviewDAO;
 import DAO.TroomDAO;
 import DAO.TwishDAO;
 import VO.TbookVO;
+import VO.TreviewSet;
 import VO.TreviewVO;
 import VO.TroomVO;
 import VO.TuserVO;
@@ -60,11 +61,15 @@ public class MypageAction implements TInterface{
 		}
 		
 		// 내가 작성한 리뷰
+		trvvo.setTupk(logindata.getTupk());
+		ArrayList<TreviewSet> reviewlist = trvdao.selectAll(trvvo);
+		
 		
 		// 내가 등록한 숙소
 		
 		request.setAttribute("wishroom", wishroom); // 찜 목록
-		request.setAttribute("booklist", booklist); // 예약 목록		
+		request.setAttribute("booklist", booklist); // 예약 목록	
+		request.setAttribute("reviewlist", reviewlist); // 내가 작성한 리뷰 목록
 		forward=new TActionForward();
 		forward.setPath("/mypage.jsp");
 		forward.setRedirect(false);

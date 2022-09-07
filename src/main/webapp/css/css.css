@@ -122,6 +122,11 @@ body {
 	width: auto;
 }
 
+#searchform > input::placeholder{
+	color: white;
+	opacity: 50%;
+}
+
 #searchbox {
 	background: none;
 	border: 1px solid rgb(232, 41, 95);
@@ -136,6 +141,9 @@ body {
 @media ( max-width :700px) {
 	#searchbox {
 		width: 120px;
+	}
+	#headerright > a{
+		font-size: 20px;
 	}
 }
 
@@ -159,6 +167,15 @@ input::placeholder {
 #headerright>a {
 	text-decoration: none;
 	color: white;
+}
+
+#cartatag{
+	margin-top: 10px;
+}
+
+#hdcartimg{
+	width: 25px;
+	height: 25px;
 }
 
 /*스와이퍼 스타일*/
@@ -240,11 +257,13 @@ input::placeholder {
 
 .footercontentitem {
 	width: auto;
-	max-width: 500px;
-	flex-basis: 40%;
+	max-width: 1000px;
+	flex-basis: 80%;
 	min-width: 300px;
 	color: rgba(0, 0, 0, 0.38);
 }
+
+
 
 /*메인페이지 페인컨텐츠 스타일*/
 
@@ -322,7 +341,10 @@ input::placeholder {
 	width: auto;
 	max-width: 500px;
 	flex-basis: 48%;
-	border: 1px solid black;
+	border: 0.5px solid #eeeeee;
+	display: flex;
+	justify-content: space-around;
+	cursor: pointer;
 }
 
 @media ( max-width :700px) {
@@ -331,11 +353,39 @@ input::placeholder {
 	}
 }
 
-/* 로그인 */
-#logo .locontent .login .lomain .idpw .idbox .loidpw .lidpw 
- .idbox .loidpw .lidpw .find-idpw .ff-idpw .bt-id .bt-pw .btn-idpw {
-	font-family: Jua;
+.mainpic{
+	width: 200px;
+	height: 200px;
 }
+
+.mainpic2{
+	width: 160px;
+	height: 160px;
+	margin: 20px;
+}
+
+.mainbcl{
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	width: 155px;
+	justify-content: center;
+	align-items: center;
+}
+
+.mbcltitle{
+	font-size: 40px;
+	height: 80px;
+	color: rgb(232, 41, 95);
+}
+
+.mbclcontent{
+	font-size: 20px;
+	color: #f288a6;
+}
+
+/* 로그인 */
 
 #loginwrap{
 	width: 100vw;
@@ -385,7 +435,7 @@ input::placeholder {
 .lidpw {
 	width: 100%;
 	height: 46px;
-	color: rgb(221, 221, 221);
+	color: black;
 	padding: 0px 11px 1px 15px;
 	border-radius: 4px;
 	border: 1px solid rgb(221, 221, 221);
@@ -451,6 +501,7 @@ input::placeholder {
 	color: rgb(255, 255, 255);
 	background-color: rgb(232, 41, 95);
 	border: 0px none;
+	cursor: pointer;
 }
 
 .bt-pw {
@@ -464,6 +515,7 @@ input::placeholder {
 	color: rgb(232, 41, 95);
 	background-color: rgb(255, 255, 255);
 	border: 1px solid rgb(232, 41, 95);
+	cursor: pointer;
 }
 
 .btn-idpw {
@@ -741,6 +793,10 @@ select.grade{
 	color: white;
 }
 
+#userid{
+	display: inline-block;
+}
+
 #joincheckidbutton{
 	width: 20%;
 	height: 26px;
@@ -750,6 +806,8 @@ select.grade{
     color: white;
     cursor: pointer;
 }
+
+
 
 .jointablevalue{
 	width: 97%;
@@ -794,6 +852,11 @@ select.grade{
 	height:20px;
 }
 
+#datepicker2{
+	width:50%;
+	height:20px;
+}
+
 #joinrole{
 	width: 160px;
 	height: 26px;
@@ -808,30 +871,14 @@ select.grade{
     color: white;
 }
 
-/* 관리자 등록 페이지 */
-#hostTitle{
-	margin: 0 auto;
-	text-align:center;
+#naverIdLogin > a{
+	width: 340px;
+	height: 70px;
 }
 
-#hostTable{
-	margin: 0 auto;
-	text-align:center;
-}
-
-.reg_btn{
-	color: rgb(255, 255, 255);
-	background-color: rgb(232, 41, 95);
-	border: none;
-	border-radius: 3px;
-	font-size: 14px;
-	letter-spacing: 3px;
-	width: 152px;
-}
-
-.img_wrap > img{
-	max-width: 300px;
-	height: auto;
+#naverIdLogin > a > img {
+	width: 340px;
+	height: 70px;
 }
 
 /*카테고리 페이지 스타일*/
@@ -912,28 +959,199 @@ select.grade{
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
+	margin-bottom: 10px;
 }
 
 .rctc {
 	max-width: 500px;
 	flex-basis: 45%;
+	display:flex;
+	align-items: space-between;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .rctc>img {
 	max-width: 500px;
+	width: 100%;
 }
 
-@media ( max-width :700px) {
+@media ( max-width :850px) {
 	.rctc {
 		max-width: 500px;
 		flex-basis: 100%;
 	}
 }
 
+#rctcname{
+	text-align: right;
+	font-size: 22px;
+}
+
+#rctcprice{
+	text-align: right;
+	font-size: 20px;
+	color: rgb(232, 41, 95);
+}
+
+#rctccheckinout{
+	text-align: right;
+}
+
+#rctcaddress{
+	text-align: right;
+}
+
+#rctcinfo{
+	color: gray;
+	font-size: 14px;
+}
+
+#rctcbottom{
+	width: 100%;
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-around;
+}
+
 .rcbottom {
 	margin: auto;
 	display: flex;
 }
+
+#rcbc{
+	border-top : 3px solid #c0c0c0;
+	padding: 20px;
+}
+
+#rcbreview{
+	padding: 20px;
+}
+
+.soldout{
+	width: 80%;
+	margin: auto;
+	height: 50px;
+	background-color: gray;
+	color: white;
+	text-align: center;
+	line-height: 50px;
+	border-radius: 3px;
+}
+
+.insertcart{
+	width: 120px;
+	height:50px;
+	border-radius: 5px;
+	background-color: white;
+	color: rgb(232, 41, 95);
+	border: 2px solid rgb(232, 41, 95);
+	line-height: 50px;
+	text-align: center;
+	font-size: 17px;
+}
+
+.buttonatag{
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.shoppingcart{
+	width:17px;
+	height:17px;
+	color: rgb(232, 41, 95);
+}
+
+#hascart{
+	width: 120px;
+	height:50px;
+	border-radius: 5px;
+	background-color: gray;
+	color: white;
+	border: 2px solid gray;
+	line-height: 50px;
+	text-align: center;
+	font-size: 17px;
+}
+
+#paybutton{
+	width: 120px;
+	height:50px;
+	border-radius: 5px;
+	background-color: rgb(232, 41, 95);
+	color: white;
+	border: 2px solid rgb(232, 41, 95);
+	line-height: 50px;
+	text-align: center;
+	font-size: 17px;
+}
+
+.heartimg{
+	height: 33px;
+	border: 2px solid rgb(232, 41, 95);
+	border-radius: 5px;
+	line-height: 43px;
+	padding: 5px;
+}
+
+#noneheart{
+	height: 33px;
+	border: 2px solid gray;
+	border-radius: 5px;
+	line-height: 43px;
+	padding: 5px;
+	background-color: gray;
+}
+
+#nonepaybutton{
+	width: 120px;
+	height:50px;
+	border-radius: 5px;
+	background-color: gray;
+	color: white;
+	border: 2px solid gray;
+	line-height: 50px;
+	text-align: center;
+	font-size: 17px;
+}
+
+/* 룸디테일 모달창 */
+
+.modal {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        display: none;
+
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .modal.show {
+        display: block;
+      }
+
+      .modal_body {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        width: 200px;
+        height: 200px;
+
+        padding: 40px;
+
+        text-align: center;
+
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+
+        transform: translateX(-50%) translateY(-50%);
+      }
 
 /* 룸디테일 별점 플러그인*/
 
@@ -1036,7 +1254,164 @@ select.grade{
     vertical-align: middle;
 }
 
+#tabsul>li {
+	background: white;
+}
+
+/* 페이 페이지 스타일 */
+#paycontent {
+	max-width: 1050px;
+	margin: auto;
+}
+
+#paytitle{
+	border-bottom: 3px solid rgb(232, 41, 95);
+	text-align: center;
+	color: rgb(232, 41, 95);
+}
+
+#paytop{
+	margin-top: 20px;
+	width: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+#payleft{
+	max-width: 500px;
+	height: auto;
+	flex-basis: 48%;
+}
+
+#payimg{
+	width: 100%;
+	height: 100%;
+}
+
+#payright{
+	max-width: 500px;
+	height: auto;
+	flex-basis: 40%;
+	display: flex;
+	align-items: space-around;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+#payname{
+	width:100%;
+	font-size: 25px;
+	text-align: right;
+}
+
+.paycheckinout{
+	width:100%;
+	font-size: 20px;
+	text-align: right;
+}
+
+#payprice{
+	width:100%;
+	font-size: 25px;
+	text-align: right;
+	color: rgb(232, 41, 95);
+}
+
+#check_module{
+	width: 200px;
+	height: 50px;
+	color: white;
+	background-color: rgb(232, 41, 95);
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 25px;
+	letter-spacing: 5px;
+}
+
+/* 카트페이지 스타일 */
+
+#cartwrap{
+	max-width: 1050px;
+	margin: auto;
+}
+
+#carttitle{
+	border-bottom: 3px solid rgb(232, 41, 95);
+	text-align: center;
+	color: rgb(232, 41, 95);
+}
+
+#nonecart{
+	padding-top: 20px;
+	color: gray;
+	text-align: center;
+	letter-spacing: 3px;
+}
+
+#cartgodetail{
+	width: 250px;
+	height: 50px;
+	color: white;
+	background-color: rgb(232, 41, 95);
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 25px;
+	letter-spacing: 5px;
+}
+
+#carttop{
+	margin-top: 20px;
+	width: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+#cartleft{
+	max-width: 500px;
+	height: auto;
+	flex-basis: 48%;
+}
+
+#payimg{
+	width: 100%;
+	height: 100%;
+}
+
+#cartname{
+	width:100%;
+	font-size: 25px;
+	text-align: right;
+}
+
+.cartcheckinout{
+	width:100%;
+	font-size: 20px;
+	text-align: right;
+}
+
+#cartprice{
+	width:100%;
+	font-size: 25px;
+	text-align: right;
+	color: rgb(232, 41, 95);
+}
+
+#cartright{
+	max-width: 500px;
+	height: auto;
+	flex-basis: 40%;
+	display: flex;
+	align-items: space-around;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
 /* 마이페이지 스타일 */
+
 #tabs {
 	max-width: 1050px;
 	width: 100%;
@@ -1047,12 +1422,151 @@ select.grade{
 	background: linear-gradient(to right, white, rgb(232, 168, 193));
 }
 
-#tabsul>li {
-	background: white;
+.mytop{
+	margin-top: 20px;
+	width: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding-bottom: 20px;
+	border-bottom: 3px solid lightgray;
 }
 
-/* 페이 페이지 스타일 */
-#paycontent {
-	max-width: 1050px;
-	margin: auto;
+.myright{
+	max-width: 500px;
+	height: auto;
+	flex-basis: 40%;
+	display: flex;
+	align-items: space-around;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.myimg{
+	width: 100%;
+	height: 100%;
+}
+
+.myleft{
+	max-width: 500px;
+	height: auto;
+	flex-basis: 24%;
+}
+
+.myname{
+	width:100%;
+	font-size: 25px;
+	text-align: right;
+}
+
+.mycheckinout{
+	width:100%;
+	font-size: 20px;
+	text-align: right;
+}
+
+.myprice{
+	width:100%;
+	font-size: 25px;
+	text-align: right;
+	color: rgb(232, 41, 95);
+}
+
+.myrealright{
+	width: 120px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.mygodetail{
+	width: 60px;
+	height: 60px;
+	color: white;
+	background-color: #c0c0c0;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 17px;
+	letter-spacing: 5px;
+	text-align: center;
+}
+
+.mymsg{
+	color: #ff6262;
+}
+
+#fragment-1{
+	padding-right: 40px;
+	padding-left: 40px;
+}
+
+#fragment-2{
+	padding-right: 40px;
+	padding-left: 40px;
+}
+
+.mypageinfoform{
+	width: 300px;
+}
+
+#hosthref{
+	text-decoration: none;
+	color: rgb(232, 41, 95);
+	display: inline-block;
+}
+
+#hostbox{
+	width: 200px;
+	height: 40px;
+	border-radius: 7px;
+	border: 2px solid rgb(232, 41, 95);
+	line-height: 40px;
+	text-align: center;
+}
+
+/* 관리자 등록 페이지 */
+
+#hostTitle{
+	margin: 0 auto;
+	text-align:center;
+}
+
+#hostTable{
+	margin: 0 auto;
+	text-align:center;
+}
+
+.reg_btn{
+	color: rgb(255, 255, 255);
+	background-color: rgb(232, 41, 95);
+	border: none;
+	border-radius: 3px;
+	font-size: 14px;
+	letter-spacing: 3px;
+	width: 152px;
+	height: 30px;
+}
+
+.img_wrap > img{
+	max-width: 300px;
+	height: auto;
+}
+
+.hosttbtitle{
+	width: 140px;
+	font-size: 18px;
+	text-align: center;
+}
+
+#hostfile{
+	display: flex;
+	align-content: center;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.trcategoryselect{
+	width: 70px;
+	height: 25px;
 }

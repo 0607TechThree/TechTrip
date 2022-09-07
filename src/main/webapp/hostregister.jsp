@@ -27,32 +27,32 @@
 .hasDatepicker{cursor: pointer;}
 </style>
 <body>
-	
+	<tt:header />
 	<div id="hostTitle">
 		<h2>
 			관리자 등록페이지
 		</h2>
 	</div>
 	<div>
-		<form action="troominsert.do" method="post">
+		<form action="troominsert.do" method="post" onsubmit="javascript:fn_submit()">
 				<input type="hidden" value="${logininfo.tupk}" name="tupk">
 			<table id="hostTable">
 				<tr>
-					<th>구분</th>
-					<th>입력</th>
+					<td class="hosttbtitle">구분</td>
+					<td>입력</td>
 				</tr>
 				<tr>
-					<td>숙소 종류</td>
+					<td class="hosttbtitle">숙소 종류</td>
 					<td>
-					<select name="trcategory">
+					<select name="trcategory" class="trcategoryselect">
 					<option>호 텔</option>
 					</select>
 					</td>
 				</tr>
 				<tr>
-					<td>지역</td>
+					<td class="hosttbtitle">지역</td>
 					<td>
-					<select name="trregion">
+					<select name="trregion" class="trcategoryselect">
 						<option>서울</option>
 						<option>경기</option>
 						<option>인천</option>
@@ -63,23 +63,23 @@
 					</select>
 					</td>
 				</tr>
-				<tr class="">
-					<td></td>
+				<tr>
+					<td class="hosttbtitle"></td>
 					<td>
 						<input type="text" id="sample6_postcode" name="traddresszipcode"
-						placeholder="우편번호" readonly>
+						placeholder="우편번호" readonly required>
 						<a class="sample6" href="javascript:sample6_execDaumPostcode();">우편번호 찾기</a>
 					</td>
 				</tr>
 				<tr>
-					<td class=""><div>주 소</div></td>
+					<td class="hosttbtitle"><div>주 소</div></td>
 					<td>
 						<input type="text" name="traddress" 
 						id="sample6_address" placeholder="주소" readonly>
 					</td>
 				</tr>
 				<tr>
-					<td></td>
+					<td class="hosttbtitle"></td>
 					<td>	
 						<input name="traddressdetail"
 						type="text" id="sample6_detailAddress" placeholder="상세주소">
@@ -88,32 +88,31 @@
 					</td>
 				</tr>
 				<tr>
-					<td>숙소명</td>
-					<td><input type="text" name="trname"></td>
+					<td class="hosttbtitle">숙소명</td>
+					<td><input type="text" name="trname" placeholder="숙소명" required></td>
 				</tr>
 				<tr>
-					<td>가격</td>
-					<td><input type="number" name="trpice"></td>
+					<td class="hosttbtitle">가격</td>
+					<td><input type="number" name="trpice" placeholder="가격" required></td>
 				</tr>
 				<tr>
-					<td>사장님한마디</td>
-					<td><textarea style="resize:none" rows="4" cols="20" name="trinfo"></textarea></td>
+					<td class="hosttbtitle">사장님한마디</td>
+					<td><textarea style="resize:none" rows="4" cols="19" name="trinfo" required></textarea></td>
 				</tr>
 				<tr>
-					<td>입실날짜 : </td>
+					<td class="hosttbtitle">입실날짜</td>
 					<td><input type="text" id="datepicker" name="checkin"></td>
 				</tr>
 				<tr>
-					<td>퇴실날짜 : </td>
+					<td class="hosttbtitle">퇴실날짜</td>
 					<td><input type="text" id="datepicker2" name="checkout"></td>
 				</tr>
 				<tr>
-					<td>
-    					<label for="file">파일</label> 
-    					<input type="file" id="file" name="file"> 
-    					<!-- 
-    					<button type="button" id="btn_submit" onclick="javascript:fn_submit()">전송</button>    
-    					 -->
+					<td class="hosttbtitle">
+						<div id="hostfile">
+    						<label for="file">숙소사진</label> 
+    						<input type="file" id="file" name="file" style="width:100%" required> 
+						</div>
 					</td>
  
        				<td class="img_wrap">
@@ -122,12 +121,17 @@
 
 				</tr>
 				<tr>
-					<td><input class="reg_btn" type="submit" value="등록하기" onclick="javascript:fn_submit()"></td>
+					<td colspan="2">
+						<br>
+						<center>						
+							<input class="reg_btn" type="submit" value="등록하기">
+						</center>
+					</td>
 				</tr>
 			</table>
 		</form>
 	</div>
-	
+	<tt:footer />
 <script src="//code.jquery.com/jquery-1.12.4.js"></script>
   <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script

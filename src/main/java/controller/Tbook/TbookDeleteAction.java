@@ -4,7 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.TbookDAO;
+import DAO.TroomDAO;
 import VO.TbookVO;
+import VO.TroomVO;
 import controller.TActionForward;
 import controller.TInterface;
 
@@ -16,15 +18,18 @@ public class TbookDeleteAction implements TInterface{
 		
 		TbookDAO tbdao=new TbookDAO();
 		TbookVO tbvo=new TbookVO();
+		TroomDAO trdao=new TroomDAO();
+		TroomVO trvo=new TroomVO();
 		
-		String paramTbpk=request.getParameter("tbpk");
+		String paramTrpk=request.getParameter("trpk");
 		
-		tbvo.setTbpk(Integer.parseInt(paramTbpk));
+		tbvo.setTrpk(Integer.parseInt(paramTrpk));
+		trvo.setTrpk(Integer.parseInt(paramTrpk));
 		
-		if(tbdao.delete(tbvo)) {
+		if(tbdao.delete(tbvo) && trdao.deletere(trvo)) {
 			forward=new TActionForward();
-			forward.setPath("/mypage.jsp");
-			forward.setRedirect(true);
+			forward.setPath("/mypage.do");
+			forward.setRedirect(false);
 		}else {
 			request.setAttribute("errormsg", "예약 삭제 실패");
 			System.out.println("log: TbookDeleteAction");

@@ -24,26 +24,30 @@
 <tt:header />
 
 <div id="paycontent">
-	<div>
-		<div>
-			<img alt="${data.trname} 이미지" src="images/crawling/${data.trpk}.jpg">
+	<div id="paytitle">
+		<h2>결제 페이지</h2>
+	</div>
+	<div id="paytop">
+		<div id="payleft">
+			<img alt="${data.trname} 이미지" src="images/crawling/${data.trpk}.jpg" id="payimg">
 		</div>
-		<div>
-			<div>
+		<div id="payright">
+			<div id="payname">
 				${data.trname}
 			</div>
-			<div>
-				${data.checkin}
+			<div class="paycheckinout">
+				체크인 날짜 : ${data.checkin}
 			</div>
-			<div>
-				${data.checkout}
+			<div class="paycheckinout">
+				체크아웃 날짜 : ${data.checkout}
 			</div>
-			<div>
-				${data.trprice}
+			<br>
+			<div id="payprice">
+				금액 : ${data.trprice} 원
 			</div>	
-		</div>
-		<div>
-			<button id="check_module" type="button">테스트 결제</button>
+			<div>
+				<button id="check_module" type="button">결제하기</button>
+			</div>
 		</div>
 	</div>
 </div>
